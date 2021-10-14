@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImg.image = UIImage(named: "avatar")
+        profileImg.image = UIImage(named: "10")
         profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
         usernameLabel.text = "FurioX"
         fullnameLabel.text = "Robert Miller"

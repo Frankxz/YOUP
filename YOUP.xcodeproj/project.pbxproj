@@ -22,6 +22,7 @@
 		C6AB315C2715CA080037F7E3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB315B2715CA080037F7E3 /* DataManager.swift */; };
 		C6AB315F2715D8800037F7E3 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB315E2715D8800037F7E3 /* MainCollectionViewController.swift */; };
 		C6AB3161271826690037F7E3 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB3160271826690037F7E3 /* UserCell.swift */; };
+		C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB3164271876070037F7E3 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		C6AB315B2715CA080037F7E3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C6AB315E2715D8800037F7E3 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		C6AB3160271826690037F7E3 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		C6AB3164271876070037F7E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = YOUP/Storyboard/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		FF1667452855E6933C30C4A7 /* Pods-YOUP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOUP.release.xcconfig"; path = "Target Support Files/Pods-YOUP/Pods-YOUP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 		C6AB31592715C6590037F7E3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C6AB3164271876070037F7E3 /* SettingsViewController.swift */,
 				C638466827048285005404A1 /* LoginViewConroller.swift */,
 				C638467E2704E262005404A1 /* SignUpViewController.swift */,
 				C66424FE271188730006EC7B /* ProfileViewController.swift */,
@@ -273,6 +276,7 @@
 			files = (
 				C638466927048285005404A1 /* LoginViewConroller.swift in Sources */,
 				C638466527048285005404A1 /* AppDelegate.swift in Sources */,
+				C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */,
 				C66424FB27117EFB0006EC7B /* User.swift in Sources */,
 				C66424FD2711808B0006EC7B /* Comment.swift in Sources */,
 				C6AB315F2715D8800037F7E3 /* MainCollectionViewController.swift in Sources */,
