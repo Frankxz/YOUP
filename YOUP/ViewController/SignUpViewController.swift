@@ -8,19 +8,21 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
+    
+    private var ref: DatabaseReference!
+    
     @IBOutlet weak var mailTextField: UITextField!
-    
     @IBOutlet weak var passOneTextField: UITextField!
-    
     @IBOutlet weak var passTwoTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var warningLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference(withPath: "users")
         warningLabel.isHidden = true
         // Do any additional setup after loading the view.
     }
@@ -37,7 +39,8 @@ class SignUpViewController: UIViewController {
                     return
                 }
                 if user != nil {
-                    self.performSegue(withIdentifier: "enterSignUp", sender: nil)
+                    let userRef = self.ref?.child((user?.user.uid)!)
+                    userRef?.setValue(["email": user?.user.email])
                 }
             }
         } else {

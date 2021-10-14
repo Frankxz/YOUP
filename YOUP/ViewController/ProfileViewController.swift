@@ -37,8 +37,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = "Sssssss"
-        content.secondaryText = "sadsad"
+        content.image = UIImage(named: "avatar2")
+        content.imageProperties.cornerRadius = 30
+        content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
+        content.text = "Alice Miller"
+        content.secondaryText = "good boy!"
         cell.contentConfiguration = content
         
         return cell

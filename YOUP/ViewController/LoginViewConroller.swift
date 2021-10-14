@@ -10,8 +10,6 @@ import Firebase
 
 class LoginViewConroller: UIViewController {
 
-    
-
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
@@ -30,6 +28,7 @@ class LoginViewConroller: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+        
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "enterSignIn", sender: nil)
