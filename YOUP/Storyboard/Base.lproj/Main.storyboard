@@ -181,12 +181,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-9L-dok">
-                                <rect key="frame" x="19" y="232" width="374" height="581"/>
+                                <rect key="frame" x="19" y="257" width="374" height="556"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gj6-e2-JEc">
-                                <rect key="frame" x="10" y="79" width="394" height="125"/>
+                                <rect key="frame" x="12" y="98" width="390" height="125"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9" translatesAutoresizingMaskIntoConstraints="NO" id="Grm-oY-SK1">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -196,7 +196,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="ReD-Yo-YDW">
-                                        <rect key="frame" x="137" y="0.0" width="257" height="125"/>
+                                        <rect key="frame" x="137" y="0.0" width="253" height="125"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zk2-Mv-nLV">
                                                 <rect key="frame" x="0.0" y="0.0" width="141.5" height="30"/>
@@ -324,7 +324,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="deW-qm-QaH">
-                                <rect key="frame" x="15" y="218" width="384" height="5.5"/>
+                                <rect key="frame" x="15" y="235" width="384" height="5.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -336,17 +336,17 @@
                         <viewLayoutGuide key="safeArea" id="XWm-Wh-HXB"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="XWm-Wh-HXB" firstAttribute="trailing" secondItem="Gj6-e2-JEc" secondAttribute="trailing" constant="12" id="5xW-Mf-USS"/>
+                            <constraint firstItem="bbH-9L-dok" firstAttribute="top" secondItem="deW-qm-QaH" secondAttribute="bottom" constant="16.5" id="7c0-PM-C1R"/>
                             <constraint firstItem="bbH-9L-dok" firstAttribute="leading" secondItem="XWm-Wh-HXB" secondAttribute="leading" constant="19" id="8Dv-4q-4Ap"/>
-                            <constraint firstItem="XWm-Wh-HXB" firstAttribute="top" secondItem="Gj6-e2-JEc" secondAttribute="top" constant="9" id="9V0-BT-did"/>
+                            <constraint firstItem="deW-qm-QaH" firstAttribute="top" secondItem="Gj6-e2-JEc" secondAttribute="bottom" constant="12" id="Pd3-tY-GGs"/>
                             <constraint firstItem="deW-qm-QaH" firstAttribute="leading" secondItem="XWm-Wh-HXB" secondAttribute="leading" constant="15" id="Pic-GI-foT"/>
-                            <constraint firstItem="Gj6-e2-JEc" firstAttribute="leading" secondItem="XWm-Wh-HXB" secondAttribute="leading" constant="10" id="Z2h-Rx-Bc4"/>
+                            <constraint firstItem="Gj6-e2-JEc" firstAttribute="top" secondItem="XWm-Wh-HXB" secondAttribute="top" constant="10" id="XPQ-eV-dXZ"/>
+                            <constraint firstItem="bbH-9L-dok" firstAttribute="top" secondItem="Gj6-e2-JEc" secondAttribute="bottom" constant="34" id="YHu-qR-wW3"/>
                             <constraint firstItem="XWm-Wh-HXB" firstAttribute="trailing" secondItem="deW-qm-QaH" secondAttribute="trailing" constant="15" id="aph-m4-hhl"/>
-                            <constraint firstItem="XWm-Wh-HXB" firstAttribute="trailing" secondItem="Gj6-e2-JEc" secondAttribute="trailing" constant="10" id="e6m-OK-9SN"/>
                             <constraint firstItem="XWm-Wh-HXB" firstAttribute="bottom" secondItem="bbH-9L-dok" secondAttribute="bottom" id="fvJ-2h-8hr"/>
-                            <constraint firstItem="bbH-9L-dok" firstAttribute="top" secondItem="Gj6-e2-JEc" secondAttribute="bottom" constant="28" id="nwX-86-kqu"/>
-                            <constraint firstItem="bbH-9L-dok" firstAttribute="top" secondItem="deW-qm-QaH" secondAttribute="bottom" constant="8.5" id="vKr-HW-BSb"/>
+                            <constraint firstItem="Gj6-e2-JEc" firstAttribute="leading" secondItem="XWm-Wh-HXB" secondAttribute="leading" constant="12" id="hQT-Ww-skc"/>
                             <constraint firstItem="XWm-Wh-HXB" firstAttribute="trailing" secondItem="bbH-9L-dok" secondAttribute="trailing" constant="21" id="vQB-Jh-oiN"/>
-                            <constraint firstItem="deW-qm-QaH" firstAttribute="top" secondItem="Gj6-e2-JEc" secondAttribute="bottom" constant="14" id="vwn-19-SJf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FurioX  " id="Qs7-VU-DnL">
