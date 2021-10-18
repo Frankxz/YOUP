@@ -16,12 +16,12 @@ class SettingsViewController: UIViewController {
         do {
             print("tapped")
            try Auth.auth().signOut()
+            
         }
         catch {
            print(error.localizedDescription)
-            dismiss(animated: true)
+          
             
         }
     }
-    
 }

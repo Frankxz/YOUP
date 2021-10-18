@@ -15,11 +15,12 @@ class YoupUser {
     var surname = ""
     var password = ""
     var imgName = " "
+    var stats: [Int] = []
     private let id: String
     private let email: String
 
     var fullname: String {
-        name + surname
+        name + " " + surname
     }
     
     var comments:[Comment] = []

@@ -20,11 +20,12 @@ class Comment {
     let text: String
     let userID: String?
     let ref: DatabaseReference?
+    let type: Int
     
-    init(commentType: CommentType, comment: String, userId: String?){
+    init(commentType: Int, comment: String, userId: String?){
         userID = userId
         text = comment
-      //  type = commentType
+        type = commentType
         ref = nil
     }
     
@@ -32,6 +33,7 @@ class Comment {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         userID = snapshotValue["userID"] as? String
         text = snapshotValue["text"] as! String
+        type = snapshotValue["type"] as! Int
         ref = snapshot.ref
         
     }

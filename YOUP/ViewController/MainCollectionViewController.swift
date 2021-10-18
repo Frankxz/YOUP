@@ -31,5 +31,13 @@ class MainCollectionViewController: UICollectionViewController {
         cell.configure(with: user)
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let userProfileVC = segue.destination as? UserProfileViewController else { return }
+        let cell = sender as! UserCell
+        userProfileVC.youpUser = cell.youpUser
+       
+    }
 
 }
