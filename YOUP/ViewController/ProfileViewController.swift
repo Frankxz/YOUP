@@ -11,7 +11,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
 
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullnameLabel: UILabel!
     
     let cellReuseIdentifier = "cell"
@@ -19,9 +18,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + 20)
         profileImg.image = UIImage(named: "10")
         profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
-        usernameLabel.text = "FurioX"
         fullnameLabel.text = "Robert Miller"
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)

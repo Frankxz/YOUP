@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
         
         do {
             print("tapped")
-           try Auth.auth().signOut()
+          // try Auth.auth().signOut()
             
         }
         catch {
@@ -23,5 +23,6 @@ class SettingsViewController: UIViewController {
           
             
         }
+        dismiss(animated: true) 
     }
 }
