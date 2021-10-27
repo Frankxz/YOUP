@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController {
             passOneTextField.text != nil && passTwoTextField.text != nil &&
             passOneTextField.text == passTwoTextField.text {
             Auth.auth().createUser(withEmail: mailTextField.text!,
-                                   password: passOneTextField.text!) { user, error in
+                                   password: passOneTextField.text!) { [self] user, error in
                 if error != nil {
                     self.warningLabel.isHidden = false
                     self.warningLabel.text = error?.localizedDescription
@@ -41,6 +41,17 @@ class SignUpViewController: UIViewController {
                 if user != nil {
                     let userRef = self.ref?.child((user?.user.uid)!)
                     userRef?.setValue(["email": user?.user.email])
+                    Auth.auth().signIn(withEmail: self.mailTextField.text!,
+                                       password: self.passOneTextField.text!) { user, error in
+                        if error != nil {
+                            self.warningLabel.isHidden = false
+                            self.warningLabel.text = error?.localizedDescription
+                            return
+                        }
+                        if user != nil {
+                            dismiss(animated: true)
+                        }
+                    }
                 }
             }
         } else {
@@ -52,4 +63,7 @@ class SignUpViewController: UIViewController {
     
    
 
+    @IBAction func cancelAction(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
 }

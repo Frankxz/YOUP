@@ -10,7 +10,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
 
 
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullnameLabel: UILabel!
     
     let cellReuseIdentifier = "cell"
@@ -21,7 +20,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
         super.viewDidLoad()
         profileImg.image = UIImage(named: youpUser.imgName)
         profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
-        usernameLabel.text = youpUser.username
+        navigationItem.title = youpUser.username
         fullnameLabel.text = youpUser.fullname
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)

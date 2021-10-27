@@ -29,6 +29,9 @@ class LoginViewConroller: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "enterSignIn", sender: nil)
