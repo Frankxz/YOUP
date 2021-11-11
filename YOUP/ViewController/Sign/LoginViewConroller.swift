@@ -32,7 +32,7 @@ class LoginViewConroller: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        Auth.auth().addStateDidChangeListener { auth, user in
+      Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "enterSignIn", sender: nil)
             }
@@ -58,15 +58,10 @@ class LoginViewConroller: UIViewController {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+}
+
+
+extension LoginViewConroller {
     //Work with keyboard
     @objc func kbDidShow(notification: Notification){
         guard let userInfo = notification.userInfo else {return}

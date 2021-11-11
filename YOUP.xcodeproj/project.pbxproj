@@ -125,7 +125,7 @@
 		C68BE50B2729B93A009742DC /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */,
+				C66424FE271188730006EC7B /* ProfileViewController.swift */,
 				C6AB3164271876070037F7E3 /* SettingsViewController.swift */,
 			);
 			path = UserProfile;
@@ -136,7 +136,7 @@
 			children = (
 				C68BE50D2729BD74009742DC /* HomeViewController.swift */,
 				C68A11242729C5C400747C57 /* UserCollectionViewCell.swift */,
-				C66424FE271188730006EC7B /* ProfileViewController.swift */,
+				C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */,
 				C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */,
 			);
 			path = OtherUsers;

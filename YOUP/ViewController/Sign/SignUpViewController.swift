@@ -17,51 +17,68 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passOneTextField: UITextField!
     @IBOutlet weak var passTwoTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var surnameTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var warningLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
         warningLabel.isHidden = true
-        // Do any additional setup after loading the view.
+      
     }
     
     @IBAction func signUpAction() {
-        if mailTextField.text != nil &&
-            passOneTextField.text != nil && passTwoTextField.text != nil &&
-            passOneTextField.text == passTwoTextField.text {
-            Auth.auth().createUser(withEmail: mailTextField.text!,
-                                   password: passOneTextField.text!) { [self] user, error in
-                if error != nil {
-                    self.warningLabel.isHidden = false
-                    self.warningLabel.text = error?.localizedDescription
+        if checkData() {
+            Auth.auth().createUser(withEmail: mailTextField.text!, password: passOneTextField.text!){ [self] user, error in
+                
+                guard error == nil, user != nil else {
+                    showWarning(text: error?.localizedDescription ?? "Unknown errror")
                     return
                 }
-                if user != nil {
-                    let userRef = self.ref?.child((user?.user.uid)!)
-                    userRef?.setValue(["email": user?.user.email])
-                    Auth.auth().signIn(withEmail: self.mailTextField.text!,
-                                       password: self.passOneTextField.text!) { user, error in
-                        if error != nil {
-                            self.warningLabel.isHidden = false
-                            self.warningLabel.text = error?.localizedDescription
-                            return
-                        }
-                        if user != nil {
-                            dismiss(animated: true)
-                        }
+                
+                let youpUser = YoupUser( email: mailTextField.text!,  password: passOneTextField.text!, name: nameTextField.text!,
+                                        surname: surnameTextField.text!, username: usernameTextField.text!, imgName: "",
+                                         id: String((user?.user.uid)!) )
+                
+                let userRef = ref.child((youpUser.id)!).child("userInfo")
+                userRef.setValue(["email": youpUser.email,
+                                  "password": youpUser.password,
+                                  "username": youpUser.username,
+                                  "name": youpUser.name,
+                                  "surname": youpUser.surname])
+                
+                Auth.auth().signIn(withEmail: youpUser.email, password: youpUser.password) { user, error in
+                    
+                    guard error == nil, user != nil else {
+                        showWarning(text: error?.localizedDescription ?? "Unknown errror")
+                        return
                     }
+                    dismiss(animated: true)
                 }
             }
         } else {
-            self.warningLabel.isHidden = false
-            warningLabel.text = "Incorrect data :("
+            showWarning(text: "Incorrect data :(")
         }
-            
     }
     
-   
+    private func showWarning(text: String){
+        warningLabel.isHidden = false
+        warningLabel.text = "Incorrect data :("
+    }
+    
+    private func checkData() -> Bool {
+        mailTextField.text      != nil  &&
+        passOneTextField.text   != nil  &&
+        passTwoTextField.text   != nil  &&
+        usernameTextField.text  != nil  &&
+        nameTextField.text      != nil  &&
+        surnameTextField.text   != nil  &&
+        passOneTextField.text == passTwoTextField.text
+    }
 
     @IBAction func cancelAction(_ sender: UIButton) {
         dismiss(animated: true)

@@ -29,6 +29,12 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let commentCreatingVC = segue.destination as! CommentCreatingViewController
         commentCreatingVC.delegate = self
@@ -59,7 +65,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
 }
-    protocol SaveCommentDelegate{
+    protocol SaveCommentDelegate {
         func saveComment(for comment: Comment)
     }
 

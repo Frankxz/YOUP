@@ -108,28 +108,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lth-es-6U5">
-                                <rect key="frame" x="60" y="294" width="294" height="162"/>
+                                <rect key="frame" x="60" y="244" width="294" height="354"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@mail.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tIV-2C-u1b">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@mail.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tIV-2C-u1b">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAm-YT-Eq8">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N8T-jU-58R">
                                         <rect key="frame" x="0.0" y="64" width="294" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="894-8o-xqN">
+                                        <rect key="frame" x="0.0" y="128" width="294" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3rn-Po-HqR">
+                                        <rect key="frame" x="0.0" y="192" width="294" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAm-YT-Eq8">
+                                        <rect key="frame" x="0.0" y="256" width="294" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-Zu-989">
-                                        <rect key="frame" x="0.0" y="128" width="294" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-Zu-989">
+                                        <rect key="frame" x="0.0" y="320" width="294" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juO-dn-scA">
-                                <rect key="frame" x="80" y="527" width="254" height="37"/>
+                                <rect key="frame" x="80" y="669" width="254" height="37"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign up">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="19"/>
@@ -145,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEp-3U-NTM">
-                                <rect key="frame" x="130" y="592" width="154" height="37"/>
+                                <rect key="frame" x="130" y="734" width="154" height="37"/>
                                 <color key="tintColor" red="1" green="0.57831738889999995" blue="0.58768028800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel">
@@ -169,16 +187,19 @@
                             <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="trailing" secondItem="Lth-es-6U5" secondAttribute="trailing" constant="60" id="fZy-LL-z1e"/>
                             <constraint firstItem="nEp-3U-NTM" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="130" id="gzA-gQ-mN5"/>
                             <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="trailing" secondItem="nEp-3U-NTM" secondAttribute="trailing" constant="130" id="niB-zR-qbn"/>
-                            <constraint firstItem="Lth-es-6U5" firstAttribute="top" secondItem="Pk7-Dq-BjZ" secondAttribute="top" constant="250" id="vS8-Wm-NZH"/>
+                            <constraint firstItem="Lth-es-6U5" firstAttribute="top" secondItem="Pk7-Dq-BjZ" secondAttribute="top" constant="200" id="vS8-Wm-NZH"/>
                             <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="trailing" secondItem="JsW-3F-XSa" secondAttribute="trailing" constant="20" id="ztf-cb-U3X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tjc-Oj-mMd"/>
                     <connections>
                         <outlet property="mailTextField" destination="tIV-2C-u1b" id="JZv-if-GES"/>
+                        <outlet property="nameTextField" destination="894-8o-xqN" id="KCc-rb-koc"/>
                         <outlet property="passOneTextField" destination="TAm-YT-Eq8" id="gXf-7A-CTh"/>
                         <outlet property="passTwoTextField" destination="KKj-Zu-989" id="83D-Dr-4y6"/>
                         <outlet property="signUpButton" destination="juO-dn-scA" id="4am-Y0-sEG"/>
+                        <outlet property="surnameTextField" destination="3rn-Po-HqR" id="v2L-2j-MFr"/>
+                        <outlet property="usernameTextField" destination="894-8o-xqN" id="AhU-Dd-47a"/>
                         <outlet property="warningLabel" destination="JsW-3F-XSa" id="N6u-aY-1jT"/>
                     </connections>
                 </viewController>

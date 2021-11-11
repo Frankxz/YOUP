@@ -15,8 +15,10 @@ class YoupUser {
     var surname = ""
     var password = ""
     var imgName = ""
-    var stats: [Int] = []
-     let id: String
+    
+    let ref: DatabaseReference?
+  //  var stats: [Int] = []
+     let id: String?
      let email: String
 
     var fullname: String { "\(name) \(surname)" }
@@ -26,42 +28,36 @@ class YoupUser {
     init(user: User){
         id = user.uid
         email = user.email!
+        ref = nil
     }
     
-    init(name: String, surname: String, username: String, imgName: String){
+    init(email: String, password: String, name: String, surname: String, username: String, imgName: String, id: String){
+        self.email = email
+        self.password = password
         self.name = name
         self.surname = surname
         self.username = username
         self.imgName = imgName
-        id = ""
+        self.id = id
+        ref = nil
+    }
+    
+    init(){
         email = ""
+        id = nil
+        ref = nil
+    }
+
+    init(snapshot: DataSnapshot) {
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        email = snapshotValue["email"] as! String
+        password = snapshotValue["password"] as! String
+        name = snapshotValue["name"] as! String
+        surname = snapshotValue["surname"] as! String
+        username = snapshotValue["username"] as! String
+      //  imgName = snapshotValue["imgName"] as! String
+        id = nil
+        ref = snapshot.ref
     }
 }
-extension YoupUser {
-    static func getUsersList() -> [YoupUser] {
-        
-        var users: [YoupUser] = []
-        
-        let names = DataManager.shared.names.shuffled()
-        let usernames = DataManager.shared.usernames.shuffled()
-        let surnames = DataManager.shared.surnames.shuffled()
-        let imgNames = DataManager.shared.imgNames.shuffled()
-    
-        
-        let iterationCount = min(names.count, surnames.count, usernames.count, imgNames.count)
-        
-        for index in 0..<iterationCount {
-            let youpUser = YoupUser(
-    
-                name: names[index],
-                surname: surnames[index],
-                username: usernames[index],
-                imgName: imgNames[index]
-            )
-            
-            users.append(youpUser)
-        }
-        
-        return users
-    }
-}
+
