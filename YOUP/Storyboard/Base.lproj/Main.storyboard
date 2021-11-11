@@ -199,7 +199,7 @@
                         <outlet property="passTwoTextField" destination="KKj-Zu-989" id="83D-Dr-4y6"/>
                         <outlet property="signUpButton" destination="juO-dn-scA" id="4am-Y0-sEG"/>
                         <outlet property="surnameTextField" destination="3rn-Po-HqR" id="v2L-2j-MFr"/>
-                        <outlet property="usernameTextField" destination="894-8o-xqN" id="AhU-Dd-47a"/>
+                        <outlet property="usernameTextField" destination="N8T-jU-58R" id="QdJ-gU-zQP"/>
                         <outlet property="warningLabel" destination="JsW-3F-XSa" id="N6u-aY-1jT"/>
                     </connections>
                 </viewController>
