@@ -31,7 +31,7 @@ class CommentCreatingViewController: UIViewController {
         default:
             commentType = 1
         }
-        let comment = Comment(commentType: commentType, comment: textView.text, userId: nil)
+        let comment = Comment(title: "Gg", text: textView.text, userID: "Unknown", type: commentType)
         delegate.saveComment(for: comment)
         dismiss(animated: true)
     }

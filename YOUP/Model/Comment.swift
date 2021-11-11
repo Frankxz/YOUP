@@ -16,25 +16,27 @@ enum CommentType {
 }
 
 class Comment {
-
+    let title: String
     let text: String
-    let userID: String?
-    let ref: DatabaseReference?
+    let userID: String
     let type: Int
+    let ref: DatabaseReference?
     
-    init(commentType: Int, comment: String, userId: String?){
-        userID = userId
-        text = comment
-        type = commentType
+    
+    init(title: String, text: String, userID: String, type: Int){
+        self.title = title
+        self.text = text
+        self.userID = userID
+        self.type = type
         ref = nil
     }
     
     init(snapshot:DataSnapshot){
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        userID = snapshotValue["userID"] as? String
+        title = snapshotValue["title"] as! String
         text = snapshotValue["text"] as! String
+        userID = snapshotValue["userID"] as! String
         type = snapshotValue["type"] as! Int
         ref = snapshot.ref
-        
     }
 }

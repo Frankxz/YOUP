@@ -14,14 +14,12 @@ class YoupUser {
     var name = ""
     var surname = ""
     var password = ""
-    var imgName = " "
+    var imgName = ""
     var stats: [Int] = []
-    private let id: String
-    private let email: String
+     let id: String
+     let email: String
 
-    var fullname: String {
-        name + " " + surname
-    }
+    var fullname: String { "\(name) \(surname)" }
     
     var comments:[Comment] = []
     

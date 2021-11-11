@@ -1,18 +1,17 @@
 //
-//  UserCell.swift
+//  UserCollectionViewCell.swift
 //  YOUP
 //
-//  Created by Robert Miller on 14.10.2021.
+//  Created by Robert Miller on 28.10.2021.
 //
 
 import UIKit
 
-class UserCell: UICollectionViewCell {
- 
+class UserCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    
     @IBOutlet weak var fullnameLabel: UILabel!
+    
     @IBOutlet weak var greenCounter: UILabel!
     @IBOutlet weak var yellowCounter: UILabel!
     @IBOutlet weak var redCounter: UILabel!
@@ -20,6 +19,7 @@ class UserCell: UICollectionViewCell {
     var youpUser: YoupUser!
     
     func configure(with user: YoupUser)  {
+        
         self.youpUser = user
         usernameLabel.text = youpUser.username
         fullnameLabel.text = youpUser.fullname
