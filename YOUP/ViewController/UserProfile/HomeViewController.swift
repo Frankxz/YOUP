@@ -93,6 +93,14 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
         content.text = youpUser.comments[indexPath.item].title
         content.secondaryText = youpUser.comments[indexPath.item].text
+        switch(youpUser.comments[indexPath.item].type) {
+        case 0:
+            cell.backgroundColor = .systemGreen
+        case 2:
+            cell.backgroundColor = .systemPink
+        default:
+            cell.backgroundColor = .systemYellow
+        }
         cell.contentConfiguration = content
         
         return cell
