@@ -44,12 +44,13 @@ class SignUpViewController: UIViewController {
                                         surname: surnameTextField.text!, username: usernameTextField.text!, imgName: "",
                                          id: String((user?.user.uid)!) )
                 
-                let userRef = ref.child((youpUser.id)!).child("userInfo")
+                let userRef = ref.child(youpUser.id).child("userInfo")
                 userRef.setValue(["email": youpUser.email,
+                                  "id": youpUser.id,
                                   "password": youpUser.password,
                                   "username": youpUser.username,
                                   "name": youpUser.name,
-                                  "surname": youpUser.surname])
+                                  "surname": youpUser.surname,])
                 
                 Auth.auth().signIn(withEmail: youpUser.email, password: youpUser.password) { user, error in
                     

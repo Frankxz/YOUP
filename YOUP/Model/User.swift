@@ -18,7 +18,7 @@ class YoupUser {
     
     let ref: DatabaseReference?
   //  var stats: [Int] = []
-     let id: String?
+     let id: String
      let email: String
 
     var fullname: String { "\(name) \(surname)" }
@@ -44,7 +44,7 @@ class YoupUser {
     
     init(){
         email = ""
-        id = nil
+        id = ""
         ref = nil
     }
 
@@ -56,8 +56,22 @@ class YoupUser {
         surname = snapshotValue["surname"] as! String
         username = snapshotValue["username"] as! String
       //  imgName = snapshotValue["imgName"] as! String
-        id = nil
+        id = snapshotValue["id"] as! String
         ref = snapshot.ref
     }
+    
+    init( with snapshot: DataSnapshot) {
+        let snapshotValue = snapshot.childSnapshot(forPath: "userInfo").value as! [String: AnyObject]
+        email = snapshotValue["email"] as! String
+        password = snapshotValue["password"] as! String
+        name = snapshotValue["name"] as! String
+        surname = snapshotValue["surname"] as! String
+        username = snapshotValue["username"] as! String
+      //  imgName = snapshotValue["imgName"] as! String
+        id = snapshotValue["id"] as! String
+        ref = snapshot.ref
+
+    }
+    
 }
 
