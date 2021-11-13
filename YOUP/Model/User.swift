@@ -16,8 +16,8 @@ class YoupUser {
     var password = ""
     var imgName = ""
     
-    let ref: DatabaseReference?
-  //  var stats: [Int] = []
+    var ref: DatabaseReference?
+     var stats: [String : Int] = ["red": 0, "yellow": 0, "green": 0]
      let id: String
      let email: String
 
@@ -73,5 +73,11 @@ class YoupUser {
 
     }
     
+    func setStats(snapshot: DataSnapshot){
+        let snapshotValue = snapshot.childSnapshot(forPath: "userStats").value as! [String: AnyObject]
+        stats["red"] = snapshotValue["red"] as? Int
+        stats["yellow"] = snapshotValue["yellow"] as? Int
+        stats["green"] = snapshotValue["green"] as? Int
+        ref = snapshot.ref
+    }
 }
-

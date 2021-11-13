@@ -6,6 +6,7 @@
 //
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class UserProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -14,7 +15,8 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var fullnameLabel: UILabel!
     
     var youpUser: YoupUser!
-    var ref: DatabaseReference!
+    var databaseRef: DatabaseReference!
+   
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -32,9 +34,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        ref = Database.database().reference(withPath: "users").child(String(youpUser.id)).child("comments")
+        databaseRef = Database.database().reference(withPath: "users").child(String(youpUser.id)).child("comments")
 
-        ref.observe(.value) { [weak self] (snapshot) in
+        databaseRef.observe(.value) { [weak self] (snapshot) in
             var bufferComments: [Comment] = []
             for item in snapshot.children {
                 let comment = Comment(snapshot: item as! DataSnapshot)
@@ -44,7 +46,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
             self?.youpUser.comments = bufferComments
             self?.tableView.reloadData()
         }
+        
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let commentCreatingVC = segue.destination as! CommentCreatingViewController
