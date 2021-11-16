@@ -15,6 +15,7 @@ class YoupUser {
     var surname = ""
     var password = ""
     var imgName = ""
+    var image = UIImage(systemName: "circle")
     
     var ref: DatabaseReference?
      var stats: [String : Int] = ["red": 0, "yellow": 0, "green": 0]

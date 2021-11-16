@@ -7,16 +7,19 @@
 
 import UIKit
 import Firebase
-
+import FirebaseStorage
 class UsersListViewController: UITableViewController {
 
     var youpUsers: [YoupUser] = []
     var ref: DatabaseReference!
+    var storageRef: StorageReference!
+    var usersImages: [String : UIImage] = [:]
+    var imagesFetchedCounter = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
-        
-        
+        tableView.rowHeight = 60
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,8 +34,14 @@ class UsersListViewController: UITableViewController {
             self?.youpUsers = bufferYoupUsers
             self?.tableView.reloadData()
             print(bufferYoupUsers.count)
+            
+            for user in self!.youpUsers {
+                self?.fetchImage(youpUser: user)
+            }
+            self?.tableView.reloadData()
         }
-        
+        imagesFetchedCounter = 0
+      
     }
         
     // MARK: - Table view data source
@@ -46,9 +55,10 @@ class UsersListViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         
         let youpUser = youpUsers[indexPath.row]
-        content.image = UIImage(named: "plug")
-        content.imageProperties.maximumSize = CGSize(width: 100, height: 100)
-        content.imageProperties.cornerRadius = 20
+        //fetchImage(youpUser: youpUser)
+        content.image = usersImages[youpUser.id] ?? UIImage(systemName: "circle")
+        content.imageProperties.maximumSize = CGSize(width: 50, height: 50)
+        content.imageProperties.cornerRadius = 25
         
         content.text = youpUser.username
         content.secondaryText = youpUser.fullname
@@ -62,5 +72,27 @@ class UsersListViewController: UITableViewController {
         let youpUser = youpUsers[indexPath.row]
         userProfileVC.youpUser = youpUser
     }
-
+    
+    func fetchImage(youpUser:  YoupUser) {
+        self.imagesFetchedCounter += 1
+        self.storageRef = Storage.storage().reference().child("avatars").child(youpUser.id)
+        self.storageRef.downloadURL { url, error in
+            guard error == nil else { return }
+            
+            self.storageRef = Storage.storage().reference(forURL: url!.absoluteString)
+            let megabyte = Int64(1024 * 1024)
+            
+            self.storageRef.getData(maxSize: megabyte) { data, error in
+                guard let imageData = data else { return }
+                print("found image ")
+                
+                self.usersImages[youpUser.id] = UIImage(data: imageData) ?? UIImage(systemName: "person")
+                print("count \(self.youpUsers.count)")
+                print("counter \(self.imagesFetchedCounter)")
+//                if (self.imagesFetchedCounter < self.youpUsers.count) {
+                self.tableView.reloadData()
+//                }
+            }
+        }
+    }
 }

@@ -46,6 +46,26 @@ class CommentCreatingViewController: UIViewController {
                               "text": comment1.text,
                               "userID": comment1.userID,
                               "type": comment1.type])
+        var commentType_: String!
+        var stats: [String: Int]!
+        if(commentType == 0) {
+            commentType_ = "green"
+        } else if (commentType == 2){
+            commentType_ = "red"
+        } else {
+            commentType_ = "yellow"
+        }
+        ref = Database.database().reference(withPath: "users").child(String(youpUser.id))
+
+        
+        ref = Database.database().reference(withPath: "users").child(String(youpUser.id)).child("userStats")
+        youpUser.stats[commentType_]!+=1
+        ref.setValue(["red" : youpUser.stats["red"],
+                            "yellow" : youpUser.stats["yellow"],
+                            "green" : youpUser.stats["green"]])
+        print("set stats")
+        
+        
         
         dismiss(animated: true)
     }

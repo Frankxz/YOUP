@@ -79,14 +79,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self?.tableView.reloadData()
             
         }
-//        DispatchQueue.main.async { [self] in
-//            self.databaseRef = Database.database().reference(withPath: "users").child(String(self.currentFBUser.uid))
-//             databaseRef.observe(.value) { [weak self] (snapshot) in
-//                 self?.youpUser.setStats(snapshot: snapshot)
-//                 print(self?.youpUser.stats)
-//                 print("Now is \(self?.youpUser.comments.count)")
-//             }
-//        }
     }
     
     

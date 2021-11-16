@@ -51,7 +51,10 @@ class SignUpViewController: UIViewController {
                                   "username": youpUser.username,
                                   "name": youpUser.name,
                                   "surname": youpUser.surname,])
-                
+                let statsRef = ref.child(youpUser.id).child("userStats")
+                statsRef.setValue(["red" : 0,
+                                    "yellow" : 0,
+                                    "green" : 0])
                 Auth.auth().signIn(withEmail: youpUser.email, password: youpUser.password) { user, error in
                     
                     guard error == nil, user != nil else {

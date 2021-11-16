@@ -14,8 +14,16 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     
+    @IBOutlet weak var greenLabel: UILabel!
+    
+    @IBOutlet weak var yellowLabel: UILabel!
+    
+    @IBOutlet weak var redLabel: UILabel!
+    
+    @IBOutlet weak var noCommentsLabel: UILabel!
     var youpUser: YoupUser!
     var databaseRef: DatabaseReference!
+   
    
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,22 +37,32 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
         
         tableView.delegate = self
         tableView.dataSource = self
+        noCommentsLabel.text = "\(youpUser.username) has no comments yet. Be the first and leave a comment! :)"
+        noCommentsLabel.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        databaseRef = Database.database().reference(withPath: "users").child(String(youpUser.id)).child("comments")
-
+        databaseRef = Database.database().reference(withPath: "users").child(String(youpUser.id))
         databaseRef.observe(.value) { [weak self] (snapshot) in
             var bufferComments: [Comment] = []
-            for item in snapshot.children {
+            for item in snapshot.childSnapshot(forPath: "comments").children{
                 let comment = Comment(snapshot: item as! DataSnapshot)
                 bufferComments.append(comment)
             }
-            
+            self?.youpUser.setStats(snapshot: snapshot)
             self?.youpUser.comments = bufferComments
+            self?.redLabel.text = String ((self?.youpUser.stats["red"])!)
+            self?.yellowLabel.text = String ((self?.youpUser.stats["yellow"])!)
+            self?.greenLabel.text = String ((self?.youpUser.stats["green"])!)
             self?.tableView.reloadData()
+            if self?.youpUser.comments.count == 0 {
+                self?.noCommentsLabel.isHidden = false
+            } else {
+                self?.noCommentsLabel.isHidden = true
+            }
+            
         }
         
     }
@@ -79,6 +97,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
         
         return cell
     }
+    
     
 }
 

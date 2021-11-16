@@ -36,7 +36,7 @@ class LoginViewConroller: UIViewController {
             if user != nil {
                 self.performSegue(withIdentifier: "enterSignIn", sender: nil)
             }
-            else{
+            else {
                 return
             }
         }
