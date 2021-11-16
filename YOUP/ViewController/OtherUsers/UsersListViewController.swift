@@ -35,6 +35,7 @@ class UsersListViewController: UITableViewController {
             self?.tableView.reloadData()
             print(bufferYoupUsers.count)
             
+            guard self?.youpUsers != nil else {return}
             for user in self!.youpUsers {
                 self?.fetchImage(youpUser: user)
             }
