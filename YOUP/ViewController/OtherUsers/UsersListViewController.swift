@@ -18,7 +18,7 @@ class UsersListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
-        tableView.rowHeight = 60
+
        
     }
     
