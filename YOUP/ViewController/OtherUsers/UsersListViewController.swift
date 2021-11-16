@@ -14,7 +14,7 @@ class UsersListViewController: UITableViewController {
     var ref: DatabaseReference!
     var storageRef: StorageReference!
     var usersImages: [String : UIImage] = [:]
-    var imagesFetchedCounter = 0
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
@@ -38,9 +38,8 @@ class UsersListViewController: UITableViewController {
             for user in self!.youpUsers {
                 self?.fetchImage(youpUser: user)
             }
-            self?.tableView.reloadData()
+            
         }
-        imagesFetchedCounter = 0
       
     }
         
@@ -74,7 +73,7 @@ class UsersListViewController: UITableViewController {
     }
     
     func fetchImage(youpUser:  YoupUser) {
-        self.imagesFetchedCounter += 1
+
         self.storageRef = Storage.storage().reference().child("avatars").child(youpUser.id)
         self.storageRef.downloadURL { url, error in
             guard error == nil else { return }
@@ -87,11 +86,8 @@ class UsersListViewController: UITableViewController {
                 print("found image ")
                 
                 self.usersImages[youpUser.id] = UIImage(data: imageData) ?? UIImage(systemName: "person")
-                print("count \(self.youpUsers.count)")
-                print("counter \(self.imagesFetchedCounter)")
-//                if (self.imagesFetchedCounter < self.youpUsers.count) {
                 self.tableView.reloadData()
-//                }
+                print("Data reload")
             }
         }
     }
