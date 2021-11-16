@@ -21,14 +21,16 @@ class UserProfileViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var redLabel: UILabel!
     
     @IBOutlet weak var noCommentsLabel: UILabel!
+    
     var youpUser: YoupUser!
     var databaseRef: DatabaseReference!
-   
+    var avatar: UIImage!
    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileImg.image = avatar
         profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
         navigationItem.title = youpUser.username
         fullnameLabel.text = youpUser.fullname

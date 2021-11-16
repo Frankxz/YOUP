@@ -69,6 +69,8 @@ class UsersListViewController: UITableViewController {
         guard let userProfileVC = segue.destination as? UserProfileViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let youpUser = youpUsers[indexPath.row]
+        let image = usersImages[youpUser.id] ?? UIImage(systemName: "person.circle")
+        userProfileVC.avatar = image
         userProfileVC.youpUser = youpUser
     }
     
