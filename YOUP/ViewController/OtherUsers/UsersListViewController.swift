@@ -50,18 +50,13 @@ class UsersListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
+       
         let youpUser = youpUsers[indexPath.row]
-        //fetchImage(youpUser: youpUser)
-        content.image = usersImages[youpUser.id] ?? UIImage(systemName: "circle")
-        content.imageProperties.maximumSize = CGSize(width: 50, height: 50)
-        content.imageProperties.cornerRadius = 25
-        
-        content.text = youpUser.username
-        content.secondaryText = youpUser.fullname
-        cell.contentConfiguration = content
+        let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "circle")
+        cell.configure(youpUser: youpUser,
+                       image: avatarImage!)
+    
         return cell
     }
     

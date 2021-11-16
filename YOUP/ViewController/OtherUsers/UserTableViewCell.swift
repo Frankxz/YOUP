@@ -14,16 +14,24 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameTF: UILabel!
     @IBOutlet weak var fullnameTF: UILabel!
     @IBOutlet weak var commentsCountTF: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Initialization code
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func configure(youpUser: YoupUser,image: UIImage){
+        avatarImage.image = image
+        usernameTF.text = youpUser.username
+        fullnameTF.text = youpUser.fullname
+        commentsCountTF.text = String(youpUser.comments.count)
+        
     }
 
 }
