@@ -53,7 +53,7 @@ class UsersListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
        
         let youpUser = youpUsers[indexPath.row]
-        let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "circle")
+        let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "person.circle")
         cell.configure(youpUser: youpUser,
                        image: avatarImage!)
     
