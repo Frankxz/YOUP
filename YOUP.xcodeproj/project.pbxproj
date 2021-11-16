@@ -23,6 +23,7 @@
 		C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */; };
 		C6AB315C2715CA080037F7E3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB315B2715CA080037F7E3 /* DataManager.swift */; };
 		C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB3164271876070037F7E3 /* SettingsViewController.swift */; };
+		C6CBD24A27441B2D001999B6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */; };
 		C6CF4E8F27187FCD00A21EBD /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		C6AB315B2715CA080037F7E3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C6AB3164271876070037F7E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = YOUP/ViewController/UserProfile/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
+		C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		FF1667452855E6933C30C4A7 /* Pods-YOUP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOUP.release.xcconfig"; path = "Target Support Files/Pods-YOUP/Pods-YOUP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 				C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */,
 				C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */,
 				C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */,
+				C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */,
 			);
 			path = OtherUsers;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				C6CF4E8F27187FCD00A21EBD /* UserProfileViewController.swift in Sources */,
 				C638466527048285005404A1 /* AppDelegate.swift in Sources */,
 				C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */,
+				C6CBD24A27441B2D001999B6 /* UserTableViewCell.swift in Sources */,
 				C66424FB27117EFB0006EC7B /* User.swift in Sources */,
 				C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */,
 				C66424FD2711808B0006EC7B /* Comment.swift in Sources */,
