@@ -14,7 +14,8 @@ class FirebaseManager {
     static let shared = FirebaseManager()
     private init() {}
     
-    var databaseRef: DatabaseReference = Database.database().reference(withPath: "users")
+    let usersRef = Database.database().reference(withPath: "users")
+    var databaseCurrentRef: DatabaseReference!
     var storageRef: StorageReference!
     
     
@@ -22,13 +23,13 @@ class FirebaseManager {
         var youpUser: YoupUser!
         
         //Get youpUser
-        databaseRef = databaseRef.child(String(user.uid)).child("userInfo")
-        databaseRef.observe(.value) { snapshot in
+        databaseCurrentRef = usersRef.child(String(user.uid)).child("userInfo")
+        databaseCurrentRef.observe(.value) { snapshot in
             youpUser = YoupUser(snapshot: snapshot)
         
             
-            self.databaseRef = Database.database().reference(withPath: "users").child(String(user.uid))
-            self.databaseRef.observe(.value) { snapshot in
+            self.databaseCurrentRef = self.usersRef.child(String(user.uid))
+            self.databaseCurrentRef.observe(.value) { snapshot in
                 var bufferComments: [Comment] = []
                 for item in snapshot.childSnapshot(forPath: "comments").children{
                     let comment = Comment(snapshot: item as! DataSnapshot)
