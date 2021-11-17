@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var yellowLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     
-
+    
     var currentFBUser: User!
     var youpUser = YoupUser()
     
@@ -40,8 +40,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         guard let _currentFBUser = Auth.auth().currentUser else { return }
         currentFBUser = _currentFBUser
         databaseRef = Database.database().reference(withPath: "users")
-      
-    
+        
+        
         let bounds = self.navigationController!.navigationBar.bounds
         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + 20)
         
@@ -50,39 +50,54 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if didAvatarChange { fetchImage() }
-        
-        databaseRef = Database.database().reference(withPath: "users").child(String(currentFBUser.uid)).child("userInfo")
-        databaseRef.observe(.value) { [weak self] (snapshot) in
-            self?.youpUser = YoupUser(snapshot: snapshot)
-            
-            self?.navigationItem.title = self?.youpUser.username
-            self?.fullnameLabel.text = self?.youpUser.fullname
+        FirebaseManager.shared.fetchUser(user: currentFBUser) { youpUser in
+            self.youpUser = youpUser
+            self.displayUserInfo()
         }
+        //        if didAvatarChange { fetchImage() }
+        //
+        //        databaseRef = Database.database().reference(withPath: "users").child(String(currentFBUser.uid)).child("userInfo")
+        //        databaseRef.observe(.value) { [weak self] (snapshot) in
+        //            self?.youpUser = YoupUser(snapshot: snapshot)
+        //
+        //            self?.navigationItem.title = self?.youpUser.username
+        //            self?.fullnameLabel.text = self?.youpUser.fullname
+        //        }
+        //
+        //        databaseRef = Database.database().reference(withPath: "users").child(String(currentFBUser.uid))
+        //        databaseRef.observe(.value) { [weak self] (snapshot) in
+        //            var bufferComments: [Comment] = []
+        //            for item in snapshot.childSnapshot(forPath: "comments").children{
+        //                let comment = Comment(snapshot: item as! DataSnapshot)
+        //                bufferComments.append(comment)
+        //            }
+        //            self?.youpUser.setStats(snapshot: snapshot)
+        //            self?.youpUser.comments = bufferComments
+        //            self?.redLabel.text = String ((self?.youpUser.stats["red"])!)
+        //            self?.yellowLabel.text = String ((self?.youpUser.stats["yellow"])!)
+        //            self?.greenLabel.text = String ((self?.youpUser.stats["green"])!)
+        //            self?.tableView.reloadData()
+        //
+        //        }
         
-        databaseRef = Database.database().reference(withPath: "users").child(String(currentFBUser.uid))
-        databaseRef.observe(.value) { [weak self] (snapshot) in
-            var bufferComments: [Comment] = []
-            for item in snapshot.childSnapshot(forPath: "comments").children{
-                let comment = Comment(snapshot: item as! DataSnapshot)
-                bufferComments.append(comment)
-            }
-            self?.youpUser.setStats(snapshot: snapshot)
-            self?.youpUser.comments = bufferComments
-            self?.redLabel.text = String ((self?.youpUser.stats["red"])!)
-            self?.yellowLabel.text = String ((self?.youpUser.stats["yellow"])!)
-            self?.greenLabel.text = String ((self?.youpUser.stats["green"])!)
-            self?.tableView.reloadData()
-            
-        }
-       
     }
     
+    func displayUserInfo(){
+        navigationItem.title = youpUser.username
+        fullnameLabel.text = youpUser.fullname
+        
+        redLabel.text = String (youpUser.stats["red"]!)
+        yellowLabel.text = String (youpUser.stats["yellow"]!)
+        greenLabel.text = String (youpUser.stats["green"]!)
+        
+        tableView.reloadData()
+        
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -97,7 +112,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
     
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         youpUser.comments.count
@@ -106,7 +121,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-       
+        
         
         content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
         content.text = youpUser.comments[indexPath.item].title
