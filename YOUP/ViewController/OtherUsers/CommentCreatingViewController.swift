@@ -47,7 +47,7 @@ class CommentCreatingViewController: UIViewController {
                               "userID": comment1.userID,
                               "type": comment1.type])
         var commentType_: String!
-        var stats: [String: Int]!
+        //var stats: [String: Int]!
         if(commentType == 0) {
             commentType_ = "green"
         } else if (commentType == 2){

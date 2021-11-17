@@ -1,5 +1,5 @@
 //
-//  AnimationViewController.swift
+//  WeclomeViewController.swift
 //  YOUP
 //
 //  Created by Robert Miller on 17.11.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AnimationViewController: UIViewController {
+class WeclomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

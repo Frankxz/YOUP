@@ -22,7 +22,7 @@
 		C670D270271D863B006C5890 /* CommentCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */; };
 		C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */; };
 		C6926B7427452DF9002F288D /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6926B7327452DF9002F288D /* AnimationManager.swift */; };
-		C6926B7727453082002F288D /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6926B7627453082002F288D /* AnimationViewController.swift */; };
+		C6926B79274543DC002F288D /* WeclomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6926B78274543DC002F288D /* WeclomeViewController.swift */; };
 		C6AB315C2715CA080037F7E3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB315B2715CA080037F7E3 /* DataManager.swift */; };
 		C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB3164271876070037F7E3 /* SettingsViewController.swift */; };
 		C6CBD24A27441B2D001999B6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */; };
@@ -48,7 +48,7 @@
 		C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreatingViewController.swift; sourceTree = "<group>"; };
 		C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		C6926B7327452DF9002F288D /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
-		C6926B7627453082002F288D /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		C6926B78274543DC002F288D /* WeclomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeclomeViewController.swift; sourceTree = "<group>"; };
 		C6AB315B2715CA080037F7E3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C6AB3164271876070037F7E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = YOUP/ViewController/UserProfile/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 		C68BE50A2729B91E009742DC /* Sign */ = {
 			isa = PBXGroup;
 			children = (
+				C6926B78274543DC002F288D /* WeclomeViewController.swift */,
 				C638466827048285005404A1 /* LoginViewConroller.swift */,
 				C638467E2704E262005404A1 /* SignUpViewController.swift */,
 			);
@@ -149,7 +150,6 @@
 		C6926B7527452E0B002F288D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C6926B7627453082002F288D /* AnimationViewController.swift */,
 				C6926B7327452DF9002F288D /* AnimationManager.swift */,
 			);
 			path = Service;
@@ -329,8 +329,8 @@
 				C66424FD2711808B0006EC7B /* Comment.swift in Sources */,
 				C638467F2704E262005404A1 /* SignUpViewController.swift in Sources */,
 				C66424FF271188730006EC7B /* HomeViewController.swift in Sources */,
+				C6926B79274543DC002F288D /* WeclomeViewController.swift in Sources */,
 				C6AB315C2715CA080037F7E3 /* DataManager.swift in Sources */,
-				C6926B7727453082002F288D /* AnimationViewController.swift in Sources */,
 				C638466727048285005404A1 /* SceneDelegate.swift in Sources */,
 				C670D270271D863B006C5890 /* CommentCreatingViewController.swift in Sources */,
 			);

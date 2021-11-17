@@ -13,16 +13,17 @@ import FirebaseStorage
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     
-
-
+    
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var yellowLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     
+
     var currentFBUser: User!
     var youpUser = YoupUser()
     
@@ -49,7 +50,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
-    
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +80,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self?.tableView.reloadData()
             
         }
+       
     }
     
     
@@ -92,7 +94,10 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         settingsVC.youpUser = youpUser
         settingsVC.imageViewBuff = imageView.image
         settingsVC.delegate = self
+        
     }
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         youpUser.comments.count
