@@ -59,31 +59,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.youpUser = youpUser
             self.displayUserInfo()
         }
-        //        if didAvatarChange { fetchImage() }
-        //
-        //        databaseRef = Database.database().reference(withPath: "users").child(String(currentFBUser.uid)).child("userInfo")
-        //        databaseRef.observe(.value) { [weak self] (snapshot) in
-        //            self?.youpUser = YoupUser(snapshot: snapshot)
-        //
-        //            self?.navigationItem.title = self?.youpUser.username
-        //            self?.fullnameLabel.text = self?.youpUser.fullname
-        //        }
-        //
-        //        databaseRef = Database.database().reference(withPath: "users").child(String(currentFBUser.uid))
-        //        databaseRef.observe(.value) { [weak self] (snapshot) in
-        //            var bufferComments: [Comment] = []
-        //            for item in snapshot.childSnapshot(forPath: "comments").children{
-        //                let comment = Comment(snapshot: item as! DataSnapshot)
-        //                bufferComments.append(comment)
-        //            }
-        //            self?.youpUser.setStats(snapshot: snapshot)
-        //            self?.youpUser.comments = bufferComments
-        //            self?.redLabel.text = String ((self?.youpUser.stats["red"])!)
-        //            self?.yellowLabel.text = String ((self?.youpUser.stats["yellow"])!)
-        //            self?.greenLabel.text = String ((self?.youpUser.stats["green"])!)
-        //            self?.tableView.reloadData()
-        //
-        //        }
+        
+        FirebaseManager.shared.fetchAvatar(user: currentFBUser) { image in
+            self.youpUser.image = image
+            self.profileImg.image = image
+        }
         
     }
     
