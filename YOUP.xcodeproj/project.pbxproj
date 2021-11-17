@@ -16,6 +16,7 @@
 		C638467127048286005404A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C638466F27048286005404A1 /* LaunchScreen.storyboard */; };
 		C638467F2704E262005404A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C638467E2704E262005404A1 /* SignUpViewController.swift */; };
 		C6452C26273D753900B6AB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6452C25273D753900B6AB2A /* GoogleService-Info.plist */; };
+		C65C90A2274590650092480B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C90A1274590650092480B /* FirebaseManager.swift */; };
 		C66424FB27117EFB0006EC7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66424FA27117EFB0006EC7B /* User.swift */; };
 		C66424FD2711808B0006EC7B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66424FC2711808B0006EC7B /* Comment.swift */; };
 		C66424FF271188730006EC7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66424FE271188730006EC7B /* HomeViewController.swift */; };
@@ -42,6 +43,7 @@
 		C638467227048286005404A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C638467E2704E262005404A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C6452C25273D753900B6AB2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C65C90A1274590650092480B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		C66424FA27117EFB0006EC7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C66424FC2711808B0006EC7B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		C66424FE271188730006EC7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				C6926B7327452DF9002F288D /* AnimationManager.swift */,
+				C65C90A1274590650092480B /* FirebaseManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				C638467F2704E262005404A1 /* SignUpViewController.swift in Sources */,
 				C66424FF271188730006EC7B /* HomeViewController.swift in Sources */,
 				C6926B79274543DC002F288D /* WeclomeViewController.swift in Sources */,
+				C65C90A2274590650092480B /* FirebaseManager.swift in Sources */,
 				C6AB315C2715CA080037F7E3 /* DataManager.swift in Sources */,
 				C638466727048285005404A1 /* SceneDelegate.swift in Sources */,
 				C670D270271D863B006C5890 /* CommentCreatingViewController.swift in Sources */,

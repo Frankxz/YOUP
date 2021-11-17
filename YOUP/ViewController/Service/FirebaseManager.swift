@@ -26,18 +26,18 @@ class FirebaseManager {
         databaseRef.observe(.value) { snapshot in
             youpUser = YoupUser(snapshot: snapshot)
             print(youpUser.fullname)
-        
+            
             self.databaseRef = Database.database().reference(withPath: "users").child(String(user.uid))
             self.databaseRef.observe(.value) { snapshot in
-            var bufferComments: [Comment] = []
-            for item in snapshot.childSnapshot(forPath: "comments").children{
-                let comment = Comment(snapshot: item as! DataSnapshot)
-                bufferComments.append(comment)
+                var bufferComments: [Comment] = []
+                for item in snapshot.childSnapshot(forPath: "comments").children{
+                    let comment = Comment(snapshot: item as! DataSnapshot)
+                    bufferComments.append(comment)
+                }
+                youpUser.setStats(snapshot: snapshot)
+                youpUser.comments = bufferComments
+                complition(youpUser)
             }
-            youpUser.setStats(snapshot: snapshot)
-            youpUser.comments = bufferComments
-            complition(youpUser)
         }
-    }
     }
 }
