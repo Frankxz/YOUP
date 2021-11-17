@@ -299,7 +299,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsE-3N-Lus" customClass="SpinnerView" customModule="YOUP" customModuleProvider="target">
                                         <rect key="frame" x="70" y="104" width="100" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="5hS-qD-dN0"/>
                                             <constraint firstAttribute="height" constant="100" id="LEX-7O-pWb"/>
@@ -339,7 +339,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="GsE-3N-Lus" firstAttribute="centerX" secondItem="PaB-dg-xFF" secondAttribute="centerX" id="2bj-VV-brK"/>
                                     <constraint firstItem="YuL-ET-7RB" firstAttribute="leading" secondItem="PaB-dg-xFF" secondAttribute="leading" constant="25" id="4x6-ak-Z2T"/>
