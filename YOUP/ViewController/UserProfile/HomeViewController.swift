@@ -13,16 +13,21 @@ import FirebaseStorage
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
+
+    @IBOutlet weak var userInfoStackView: UIStackView!
+    
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     
+    @IBOutlet weak var loadingView: UIView!
     
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var yellowLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     
+    @IBOutlet weak var settingButton: UIBarButtonItem!
     
     var currentFBUser: User!
     var youpUser = YoupUser()
@@ -39,12 +44,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         guard let _currentFBUser = Auth.auth().currentUser else { return }
         currentFBUser = _currentFBUser
-        databaseRef = Database.database().reference(withPath: "users")
         
-        
-        let bounds = self.navigationController!.navigationBar.bounds
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + 20)
-        
+        configureWhileLoading()
+    
         profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -54,7 +56,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
         if didAvatarChange {
+            configureWhileLoading()
             FirebaseManager.shared.fetchAvatar(user: currentFBUser) { [self] result in
                 youpUser.image = result
                 profileImg.image = result
@@ -65,12 +69,13 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         FirebaseManager.shared.fetchUser(user: currentFBUser) { [self] result in
             youpUser = result
             displayUserInfo()
+            configureWhenLoaded()
         }
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        databaseRef.removeAllObservers()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,7 +112,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 }
 
+// MARK: - Work with UI
 extension HomeViewController {
+    
     func displayUserInfo(){
         navigationItem.title = youpUser.username
         fullnameLabel.text = youpUser.fullname
@@ -116,6 +123,23 @@ extension HomeViewController {
         greenLabel.text = String (youpUser.stats["green"]!)
         tableView.reloadData()
     }
+    
+    func configureWhileLoading() {
+        tableView.isHidden = true
+        userInfoStackView.isHidden = true
+        navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = .systemGroupedBackground
+        
+    }
+    
+    func configureWhenLoaded(){
+        tableView.isHidden = false
+        userInfoStackView.isHidden = false
+        navigationController?.isNavigationBarHidden = false
+        view.backgroundColor = .white
+        loadingView.isHidden = true
+    }
+    
 }
 
 protocol FetchImageDelegate {
