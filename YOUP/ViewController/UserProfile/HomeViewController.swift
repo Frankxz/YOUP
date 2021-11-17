@@ -30,7 +30,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var databaseRef: DatabaseReference!
     var storageRef: StorageReference!
     
-    var didAvatarChange: Bool = true
+    var didAvatarChange = true
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -54,29 +54,18 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        FirebaseManager.shared.fetchUser(user: currentFBUser) { youpUser in
-            self.youpUser = youpUser
-            self.displayUserInfo()
+        if didAvatarChange {
+            FirebaseManager.shared.fetchAvatar(user: currentFBUser) { [self] result in
+                youpUser.image = result
+                profileImg.image = result
+                didAvatarChange = false
+            }
         }
         
-        FirebaseManager.shared.fetchAvatar(user: currentFBUser) { image in
-            self.youpUser.image = image
-            self.profileImg.image = image
+        FirebaseManager.shared.fetchUser(user: currentFBUser) { [self] result in
+            youpUser = result
+            displayUserInfo()
         }
-        
-    }
-    
-    func displayUserInfo(){
-        navigationItem.title = youpUser.username
-        fullnameLabel.text = youpUser.fullname
-        
-        redLabel.text = String (youpUser.stats["red"]!)
-        yellowLabel.text = String (youpUser.stats["yellow"]!)
-        greenLabel.text = String (youpUser.stats["green"]!)
-        
-        tableView.reloadData()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -91,8 +80,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         settingsVC.delegate = self
         
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         youpUser.comments.count
@@ -118,24 +105,16 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         return cell
     }
-    
-    func fetchImage(){
-        storageRef = Storage.storage().reference().child("avatars").child(currentFBUser.uid)
-        storageRef.downloadURL { url, error in
-            guard error == nil else { return }
-            self.storageRef = Storage.storage().reference(forURL: url!.absoluteString)
-            let megabyte = Int64(1024 * 1024)
-            self.storageRef.getData(maxSize: megabyte) { data, error in
-                guard let imageData = data else { return }
-                let image =  UIImage(data: imageData)
-                DispatchQueue.main.async(){
-                    self.imageView.image = image
-                }
-                
-                print("Ready!")
-            }
-        }
-        didAvatarChange = false
+}
+
+extension HomeViewController {
+    func displayUserInfo(){
+        navigationItem.title = youpUser.username
+        fullnameLabel.text = youpUser.fullname
+        redLabel.text = String (youpUser.stats["red"]!)
+        yellowLabel.text = String (youpUser.stats["yellow"]!)
+        greenLabel.text = String (youpUser.stats["green"]!)
+        tableView.reloadData()
     }
 }
 
