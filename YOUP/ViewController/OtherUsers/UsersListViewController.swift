@@ -23,6 +23,7 @@ class UsersListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+    
         ref = Database.database().reference(withPath: "users")
         ref.observe(.value) { [weak self] (snapshot) in
             print("Im here")
@@ -41,7 +42,7 @@ class UsersListViewController: UITableViewController {
             }
             
         }
-      
+
     }
         
     // MARK: - Table view data source
