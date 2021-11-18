@@ -67,12 +67,6 @@ class FirebaseManager {
                 bufferYoupUsers.append(youpUser)
             }
     
-            guard bufferYoupUsers.count != 0 else {return}
-            for user in bufferYoupUsers {
-                self.fetchAvatar(userID: user.id) { result in
-                    user.image = result
-                }
-            }
             completion(bufferYoupUsers)
         }
     }

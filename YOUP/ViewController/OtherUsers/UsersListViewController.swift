@@ -14,7 +14,8 @@ class UsersListViewController: UITableViewController {
     var ref: DatabaseReference!
     var storageRef: StorageReference!
     var usersImages: [String : UIImage] = [:]
-  
+    var isAllUsersFetched = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
@@ -23,12 +24,21 @@ class UsersListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
-        FirebaseManager.shared.fetchUsers {  users in
-            self.youpUsers = users
+        if !isAllUsersFetched {
+        FirebaseManager.shared.fetchUsers { [self] users in
+            youpUsers = users
             print("LOL")
             self.tableView.reloadData()
+            for user in youpUsers {
+                FirebaseManager.shared.fetchAvatar(userID: user.id) { image in
+                    user.image = image
+                    self.tableView.reloadData()
+                }
+            }
         }
+            isAllUsersFetched = true
+        }
+        tableView.reloadData()
 //        ref = Database.database().reference(withPath: "users")
 //        ref.observe(.value) { [weak self] (snapshot) in
 //            var bufferYoupUsers: [YoupUser] = []
