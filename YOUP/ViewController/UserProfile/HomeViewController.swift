@@ -57,7 +57,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         if didAvatarChange {
-            FirebaseManager.shared.fetchAvatar(user: currentFBUser) {
+            FirebaseManager.shared.fetchAvatar(userID: currentFBUser.uid) {
                 [self] result in
                 configureWhileLoading()
                 youpUser.image = result

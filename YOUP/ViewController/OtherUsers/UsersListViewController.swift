@@ -24,24 +24,28 @@ class UsersListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
     
-        ref = Database.database().reference(withPath: "users")
-        ref.observe(.value) { [weak self] (snapshot) in
-            print("Im here")
-            var bufferYoupUsers: [YoupUser] = []
-            for child in snapshot.children {
-                let youpUser = YoupUser(with: child as! DataSnapshot)
-                bufferYoupUsers.append(youpUser)
-            }
-            self?.youpUsers = bufferYoupUsers
-            self?.tableView.reloadData()
-            print(bufferYoupUsers.count)
-            
-            guard self?.youpUsers != nil else {return}
-            for user in self!.youpUsers {
-                self?.fetchImage(youpUser: user)
-            }
-            
+        FirebaseManager.shared.fetchUsers {  users in
+            self.youpUsers = users
+            print("LOL")
+            self.tableView.reloadData()
         }
+//        ref = Database.database().reference(withPath: "users")
+//        ref.observe(.value) { [weak self] (snapshot) in
+//            var bufferYoupUsers: [YoupUser] = []
+//            for child in snapshot.children {
+//                let youpUser = YoupUser(with: child as! DataSnapshot)
+//                bufferYoupUsers.append(youpUser)
+//            }
+//            self?.youpUsers = bufferYoupUsers
+//            self?.tableView.reloadData()
+//
+//            guard self?.youpUsers != nil else {return}
+//            for user in self!.youpUsers {
+//                self?.fetchImage(youpUser: user)
+//            }
+//
+//        }
+        
 
     }
         
@@ -55,9 +59,9 @@ class UsersListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
        
         let youpUser = youpUsers[indexPath.row]
-        let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "person.circle")
+        //let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "person.circle")
         cell.configure(youpUser: youpUser,
-                       image: avatarImage!)
+                       image: youpUser.image!)
     
         return cell
     }

@@ -42,8 +42,8 @@ class FirebaseManager {
         }
     }
     
-    func fetchAvatar(user: User, completion: @escaping (UIImage)->()){
-        storageRef = Storage.storage().reference().child("avatars").child(user.uid)
+    func fetchAvatar(userID: String, completion: @escaping (UIImage)->()){
+        storageRef = Storage.storage().reference().child("avatars").child(userID)
         storageRef.downloadURL { url, error in
             guard error == nil else { return }
             self.storageRef = Storage.storage().reference(forURL: url!.absoluteString)
@@ -53,6 +53,27 @@ class FirebaseManager {
                 let image =  UIImage(data: imageData) ?? UIImage(systemName: "circle")
                 completion(image!)
             }
+        }
+    }
+    
+    func fetchUsers(completion: @escaping ([YoupUser])->() ){
+        usersRef.observe(.value) { (snapshot) in
+            print("Im here")
+            var bufferYoupUsers: [YoupUser] = []
+            print("Im here 1")
+            for child in snapshot.children {
+                print("Im there")
+                let youpUser = YoupUser(with: child as! DataSnapshot)
+                bufferYoupUsers.append(youpUser)
+            }
+    
+            guard bufferYoupUsers.count != 0 else {return}
+            for user in bufferYoupUsers {
+                self.fetchAvatar(userID: user.id) { result in
+                    user.image = result
+                }
+            }
+            completion(bufferYoupUsers)
         }
     }
 }
