@@ -56,20 +56,23 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
         if didAvatarChange {
-            configureWhileLoading()
-            FirebaseManager.shared.fetchAvatar(user: currentFBUser) { [self] result in
+            FirebaseManager.shared.fetchAvatar(user: currentFBUser) {
+                [self] result in
+                configureWhileLoading()
                 youpUser.image = result
+                profileImg.pulsate()
                 profileImg.image = result
                 didAvatarChange = false
+                print("pek")
+                configureWhenLoaded()
             }
         }
         
-        FirebaseManager.shared.fetchUser(user: currentFBUser) { [self] result in
+        FirebaseManager.shared.fetchUser(user: currentFBUser) {
+            [self] result in
+            print("Дрынкдырынк")
             youpUser = result
-            displayUserInfo()
-            configureWhenLoaded()
         }
     
     }
@@ -133,6 +136,8 @@ extension HomeViewController {
     }
     
     func configureWhenLoaded(){
+        displayUserInfo()
+        
         tableView.isHidden = false
         userInfoStackView.isHidden = false
         navigationController?.isNavigationBarHidden = false

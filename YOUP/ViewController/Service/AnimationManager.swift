@@ -33,6 +33,7 @@ class SpinnerView : UIView {
     override func didMoveToWindow() {
         animate()
     }
+    
 
     private func setPath() {
             layer.path = UIBezierPath(ovalIn: bounds.insetBy(dx: layer.lineWidth / 2, dy: layer.lineWidth / 2)).cgPath
@@ -91,6 +92,8 @@ class SpinnerView : UIView {
         animateKeyPath(keyPath: "transform.rotation", duration: totalSeconds, times: times, values: rotations)
 
         animateStrokeHueWithDuration(duration: totalSeconds * 5)
+        
+        
     }
     
     func animateKeyPath(keyPath: String, duration: CFTimeInterval, times: [CFTimeInterval], values: [CGFloat]) {
@@ -117,3 +120,36 @@ class SpinnerView : UIView {
         }
 
     }
+
+extension UIImageView {
+        func pulsate() {
+            let pulse = CASpringAnimation(keyPath: "transform.scale")
+            pulse.duration = 0.6
+            pulse.fromValue = 0.9
+            pulse.toValue = 1
+            pulse.autoreverses = true
+            pulse.repeatCount = 1
+            pulse.initialVelocity = 0.9
+            pulse.damping = 1
+            
+            layer.add(pulse, forKey: nil)
+        }
+}
+
+extension UILabel {
+    
+        func pulsate() {
+            let pulse = CASpringAnimation(keyPath: "transform.scale")
+            pulse.duration = 0.6
+            pulse.fromValue = 0.9
+            pulse.toValue = 1
+            pulse.autoreverses = true
+            pulse.repeatCount = 1
+            pulse.initialVelocity = 0.9
+            pulse.damping = 1
+            
+            layer.add(pulse, forKey: nil)
+        }
+
+}
+
