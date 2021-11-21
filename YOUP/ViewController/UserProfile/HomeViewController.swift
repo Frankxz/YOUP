@@ -92,7 +92,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         youpUser.comments.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
@@ -101,14 +101,15 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
         content.text = youpUser.comments[indexPath.item].title
         content.secondaryText = youpUser.comments[indexPath.item].text
-//        switch(youpUser.comments[indexPath.item].type) {
-//        case 0:
-//            cell.backgroundColor = .systemGreen
-//        case 2:
-//            cell.backgroundColor = .systemRed
-//        default:
-//            cell.backgroundColor = .systemYellow
-//        }
+        switch(youpUser.comments[indexPath.item].type) {
+        case 0:
+            cell.backgroundColor = .systemGreen
+        case 2:
+            cell.backgroundColor = .systemRed
+        default:
+            cell.backgroundColor = .systemYellow
+        }
+      
         cell.contentConfiguration = content
         
         return cell
