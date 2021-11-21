@@ -101,14 +101,14 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
         content.text = youpUser.comments[indexPath.item].title
         content.secondaryText = youpUser.comments[indexPath.item].text
-        switch(youpUser.comments[indexPath.item].type) {
-        case 0:
-            cell.backgroundColor = .systemGreen
-        case 2:
-            cell.backgroundColor = .systemPink
-        default:
-            cell.backgroundColor = .systemYellow
-        }
+//        switch(youpUser.comments[indexPath.item].type) {
+//        case 0:
+//            cell.backgroundColor = .systemGreen
+//        case 2:
+//            cell.backgroundColor = .systemRed
+//        default:
+//            cell.backgroundColor = .systemYellow
+//        }
         cell.contentConfiguration = content
         
         return cell
@@ -131,7 +131,7 @@ extension HomeViewController {
         tableView.isHidden = true
         userInfoStackView.isHidden = true
         navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = .systemGroupedBackground
+      //  view.backgroundColor = .systemGroupedBackground
         
     }
     
@@ -141,7 +141,7 @@ extension HomeViewController {
         tableView.isHidden = false
         userInfoStackView.isHidden = false
         navigationController?.isNavigationBarHidden = false
-        view.backgroundColor = .white
+       // view.backgroundColor = .white
         loadingView.isHidden = true
     }
     
