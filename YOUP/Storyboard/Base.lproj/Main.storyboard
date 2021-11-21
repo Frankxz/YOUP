@@ -587,9 +587,9 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      Your account information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niZ-2U-5nd">
                                 <rect key="frame" x="0.0" y="354.5" width="414" height="25.5"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.9137254901960784" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="0.20509105959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-gP-AN5">
@@ -600,12 +600,12 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2u-1f-7EQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.5" height="34"/>
-                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="0.20509105959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="ijR-Ia-tNw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -616,12 +616,13 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9e-I6-smw">
                                                 <rect key="frame" x="0.0" y="58" width="76.5" height="34"/>
-                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="0.20509105959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="wln-vc-Cp9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -632,12 +633,12 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcc-it-squ">
                                                 <rect key="frame" x="0.0" y="116" width="76.5" height="34"/>
-                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="0.20509105959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="F2o-uI-OBA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -648,12 +649,13 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZf-Ng-A6M">
                                                 <rect key="frame" x="0.0" y="174" width="76.5" height="34"/>
-                                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="0.20509105959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="eDq-3B-yLI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
