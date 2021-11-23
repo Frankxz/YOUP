@@ -10,7 +10,7 @@ import Firebase
 
 class LoginViewConroller: UIViewController {
 
-    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
     @IBOutlet weak var signInButton: UIButton!
@@ -25,6 +25,8 @@ class LoginViewConroller: UIViewController {
         super.viewDidLoad()
         warningLabel.isHidden = true
         
+        emailTF.setPlaceholder(placeholder: "email@mail.com")
+        passwordTF.setPlaceholder(placeholder: "password")
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
@@ -45,7 +47,7 @@ class LoginViewConroller: UIViewController {
     
     
     @IBAction func loginAction() {
-        Auth.auth().signIn(withEmail: usernameTF.text!,
+        Auth.auth().signIn(withEmail: emailTF.text!,
                            password: passwordTF.text!) { user, error in
             if error != nil {
                 self.warningLabel.isHidden = false
