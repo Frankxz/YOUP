@@ -28,15 +28,15 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
         warningLabel.isHidden = true
-      
+        
+        mailTextField.setPlaceholder(placeholder: "email@mail.com")
+        passOneTextField.setPlaceholder(placeholder: "Password")
+        passTwoTextField.setPlaceholder(placeholder: "Confirm password")
+        usernameTextField.setPlaceholder(placeholder: "Username")
+        nameTextField.setPlaceholder(placeholder: "Name")
+        surnameTextField.setPlaceholder(placeholder: "Surname")
     }
     
-    func setPlaceholderColor(){
-        mailTextField.attributedPlaceholder = NSAttributedString(
-            string: "email@mail.com",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
-        )
-    }
     
     @IBAction func signUpAction() {
         if checkData() {
@@ -93,5 +93,14 @@ class SignUpViewController: UIViewController {
 
     @IBAction func cancelAction(_ sender: UIButton) {
         dismiss(animated: true)
+    }
+}
+
+extension UITextField {
+    func setPlaceholder(placeholder: String){
+            attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
     }
 }
