@@ -215,10 +215,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-TP-Cb8">
-                                <rect key="frame" x="78" y="285" width="258.5" height="272"/>
+                                <rect key="frame" x="78" y="345.5" width="258.5" height="151"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="6L5-SQ-KJt">
-                                        <rect key="frame" x="39.5" y="42.5" width="179.5" height="187"/>
+                                        <rect key="frame" x="39.5" y="42.5" width="179.5" height="66"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-X7-yT9">
                                                 <rect key="frame" x="0.0" y="0.0" width="179.5" height="66"/>
@@ -249,14 +249,6 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8S-Uk-ooZ" customClass="SpinnerView" customModule="YOUP" customModuleProvider="target">
-                                                <rect key="frame" x="39.5" y="87" width="100" height="100"/>
-                                                <color key="backgroundColor" red="0.023529411760000001" green="0.0" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="A9e-Go-1TJ"/>
-                                                    <constraint firstAttribute="width" constant="100" id="fsh-CL-JZo"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
