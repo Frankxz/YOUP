@@ -100,7 +100,7 @@ extension UITextField {
     func setPlaceholder(placeholder: String){
             attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
     }
 }
