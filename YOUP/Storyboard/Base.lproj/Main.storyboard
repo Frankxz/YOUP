@@ -142,6 +142,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@mail.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tIV-2C-u1b">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.2064621274834437" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.96771784141810258" green="0.91124493238029369" blue="0.63258695281719324" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
@@ -149,12 +150,14 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAm-YT-Eq8">
                                                 <rect key="frame" x="0.0" y="59" width="314" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.96771784139999995" green="0.91124493240000004" blue="0.63258695279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-Zu-989">
                                                 <rect key="frame" x="0.0" y="118" width="314" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.96771784139999995" green="0.91124493240000004" blue="0.63258695279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
@@ -166,6 +169,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N8T-jU-58R">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.96771784139999995" green="0.91124493240000004" blue="0.63258695279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
@@ -173,6 +177,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="894-8o-xqN">
                                                 <rect key="frame" x="0.0" y="59" width="314" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.96771784139999995" green="0.91124493240000004" blue="0.63258695279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
@@ -180,6 +185,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3rn-Po-HqR">
                                                 <rect key="frame" x="0.0" y="118" width="314" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.96771784139999995" green="0.91124493240000004" blue="0.63258695279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <imageReference key="background" image="mail" catalog="system" symbolScale="medium"/>
@@ -191,13 +197,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pft-Dq-hDJ">
                                 <rect key="frame" x="80" y="402.5" width="254" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tik-jQ-peN">
                                 <rect key="frame" x="80" y="165" width="254" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="J5v-wE-v6h">
@@ -207,27 +213,29 @@
                                     <constraint firstAttribute="height" constant="60" id="ZTY-b8-gEC"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BD6-Qe-p02">
-                                <rect key="frame" x="74" y="96" width="254" height="19.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creating a new account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BD6-Qe-p02">
+                                <rect key="frame" x="74" y="82" width="254" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pk7-Dq-BjZ"/>
                         <color key="backgroundColor" red="0.043137254901960784" green="0.0" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="BD6-Qe-p02" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="74" id="0mV-fs-ASq"/>
                             <constraint firstItem="nyI-xz-Hh2" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="50" id="4Ci-ia-xeB"/>
                             <constraint firstItem="JsW-3F-XSa" firstAttribute="top" secondItem="nyI-xz-Hh2" secondAttribute="bottom" constant="19" id="4ji-oh-i0p"/>
                             <constraint firstItem="J5v-wE-v6h" firstAttribute="centerX" secondItem="aS3-rb-L0J" secondAttribute="centerX" id="BCN-Ah-LrD"/>
                             <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="trailing" secondItem="juO-dn-scA" secondAttribute="trailing" constant="80" id="HXA-FA-ZAO"/>
+                            <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="trailing" secondItem="BD6-Qe-p02" secondAttribute="trailing" constant="86" id="J04-Pi-mjt"/>
                             <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="top" secondItem="J5v-wE-v6h" secondAttribute="top" constant="15" id="JlG-dK-Ou1"/>
                             <constraint firstItem="nEp-3U-NTM" firstAttribute="top" secondItem="juO-dn-scA" secondAttribute="bottom" constant="10" id="OkI-f2-60d"/>
                             <constraint firstItem="Pk7-Dq-BjZ" firstAttribute="trailing" secondItem="nyI-xz-Hh2" secondAttribute="trailing" constant="50" id="TaO-R0-ckN"/>
                             <constraint firstItem="nyI-xz-Hh2" firstAttribute="top" secondItem="Tik-jQ-peN" secondAttribute="bottom" constant="8.5" id="WVs-fs-EUp"/>
                             <constraint firstItem="JsW-3F-XSa" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="20" id="Wa3-P3-Kom"/>
                             <constraint firstItem="juO-dn-scA" firstAttribute="top" secondItem="JsW-3F-XSa" secondAttribute="bottom" constant="68.5" id="YTB-un-Yap"/>
+                            <constraint firstItem="BD6-Qe-p02" firstAttribute="top" secondItem="J5v-wE-v6h" secondAttribute="bottom" constant="-7" id="Zp2-XR-Jr4"/>
                             <constraint firstItem="juO-dn-scA" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="80" id="dyu-fo-t1a"/>
                             <constraint firstItem="Tik-jQ-peN" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="80" id="fN1-FH-ndZ"/>
                             <constraint firstItem="nEp-3U-NTM" firstAttribute="leading" secondItem="Pk7-Dq-BjZ" secondAttribute="leading" constant="130" id="gzA-gQ-mN5"/>
@@ -254,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsC-2m-3Nm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="-504"/>
+            <point key="canvasLocation" x="1782.608695652174" y="-504.24107142857139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="R9A-aP-dwa">
