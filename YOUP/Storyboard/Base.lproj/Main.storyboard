@@ -75,6 +75,13 @@
                                     <constraint firstAttribute="width" constant="120" id="jZl-sb-wVA"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDC-LN-ATh">
+                                <rect key="frame" x="60" y="332" width="294" height="34"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <color key="textColor" red="0.96771784139999995" green="0.91124493240000004" blue="0.63258695279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.043137254901960784" green="0.0" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,10 +96,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3nd-T4-MCI" secondAttribute="trailing" constant="90" id="ZBM-NJ-t3O"/>
                             <constraint firstItem="MLd-lH-OyQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gtH-8f-J9u"/>
                             <constraint firstItem="goC-FJ-hcA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="k8I-fn-Ogz"/>
+                            <constraint firstItem="nDC-LN-ATh" firstAttribute="top" secondItem="goC-FJ-hcA" secondAttribute="bottom" constant="28" id="l1F-T7-ZQW"/>
                             <constraint firstItem="goC-FJ-hcA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="ls0-Wh-XY5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NGx-Lv-C8t" secondAttribute="trailing" constant="10" id="mGT-ns-CKU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="goC-FJ-hcA" secondAttribute="trailing" constant="60" id="n1t-ql-2Y4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MLd-lH-OyQ" secondAttribute="trailing" constant="10" id="p6c-yy-Xoo"/>
+                            <constraint firstItem="nDC-LN-ATh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="vIl-Z4-XqV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nDC-LN-ATh" secondAttribute="trailing" constant="60" id="yAh-mi-YAk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Owh-PL-36K"/>
