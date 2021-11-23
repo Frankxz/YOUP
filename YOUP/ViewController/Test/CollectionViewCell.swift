@@ -9,9 +9,10 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var awardImage: UIImageView!
+   
+    @IBOutlet weak var miniLabel: UILabel!
     
-    func configure(with image: UIImage){
-        awardImage.image = image
+    func configure(text: String){
+        miniLabel.text = text
     }
 }

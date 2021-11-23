@@ -23,12 +23,11 @@ class TestingViewController: UIViewController {
 
 extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
-    }
+        6    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = awardsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.configure(with: UIImage(systemName: "circle")!)
+        cell.configure(text: "Skill")
         return cell
     }
     
