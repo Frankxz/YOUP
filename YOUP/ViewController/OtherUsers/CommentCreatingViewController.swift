@@ -26,6 +26,17 @@ class CommentCreatingViewController: UIViewController {
         currentFBUser = Auth.auth().currentUser
     }
     
+    @IBAction func changeType() {
+        switch(commentTypeControl.selectedSegmentIndex){
+        case 0:
+            titleTextField.backgroundColor = .systemGreen
+        case 2:
+            titleTextField.backgroundColor = .systemPink
+        default:
+            titleTextField.backgroundColor = .systemYellow
+        }
+    }
+    
     @IBAction func addCommentAction() {
         let commentType: Int
         switch(commentTypeControl.selectedSegmentIndex){
