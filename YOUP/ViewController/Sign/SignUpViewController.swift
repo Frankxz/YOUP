@@ -31,6 +31,13 @@ class SignUpViewController: UIViewController {
       
     }
     
+    func setPlaceholderColor(){
+        mailTextField.attributedPlaceholder = NSAttributedString(
+            string: "email@mail.com",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
+    }
+    
     @IBAction func signUpAction() {
         if checkData() {
             Auth.auth().createUser(withEmail: mailTextField.text!, password: passOneTextField.text!){ [self] user, error in
