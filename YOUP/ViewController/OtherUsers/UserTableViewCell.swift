@@ -13,7 +13,6 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var usernameTF: UILabel!
     @IBOutlet weak var fullnameTF: UILabel!
-    @IBOutlet weak var commentsCountTF: UILabel!
     
     
     
@@ -30,8 +29,6 @@ class UserTableViewCell: UITableViewCell {
         avatarImage.image = image
         usernameTF.text = youpUser.username
         fullnameTF.text = youpUser.fullname
-        commentsCountTF.text = String(youpUser.comments.count)
-        
     }
 
 }

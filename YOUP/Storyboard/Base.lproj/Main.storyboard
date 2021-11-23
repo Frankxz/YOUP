@@ -909,23 +909,6 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uki-eh-FXb">
-                                            <rect key="frame" x="350" y="23" width="44" height="44"/>
-                                            <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="IuV-kB-PEG"/>
-                                                <constraint firstAttribute="width" constant="44" id="TeS-ta-aXT"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
                                         <view contentMode="scaleToFill" id="3h5-zm-HhU" customClass="SpinnerView" customModule="YOUP" customModuleProvider="target">
                                             <rect key="frame" x="14" y="14" width="62" height="62"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -939,17 +922,12 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="PZy-wG-Zu0" secondAttribute="bottom" constant="15" id="F1L-WE-be7"/>
                                         <constraint firstItem="PZy-wG-Zu0" firstAttribute="top" secondItem="Hzl-K2-vza" secondAttribute="top" constant="15" id="Jcg-Oo-w57"/>
-                                        <constraint firstItem="uki-eh-FXb" firstAttribute="top" secondItem="Hzl-K2-vza" secondAttribute="top" constant="23" id="biR-rV-e1A"/>
                                         <constraint firstItem="PZy-wG-Zu0" firstAttribute="leading" secondItem="Hzl-K2-vza" secondAttribute="leading" constant="15" id="dRN-b1-2Ou"/>
-                                        <constraint firstAttribute="bottom" secondItem="uki-eh-FXb" secondAttribute="bottom" constant="23" id="iOv-s8-mHi"/>
-                                        <constraint firstItem="uki-eh-FXb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hzl-K2-vza" secondAttribute="leading" id="u8O-NM-ITD"/>
-                                        <constraint firstAttribute="trailing" secondItem="uki-eh-FXb" secondAttribute="trailing" constant="20" symbolic="YES" id="uPf-Wa-j3f"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="avatarImage" destination="ydg-LN-TaM" id="Wx5-NP-2et"/>
-                                    <outlet property="commentsCountTF" destination="uki-eh-FXb" id="0bQ-SC-U5u"/>
                                     <outlet property="fullnameTF" destination="3ri-oL-8Ea" id="h16-YJ-Tnt"/>
                                     <outlet property="usernameTF" destination="SPv-4N-rl1" id="ZdS-je-bje"/>
                                     <segue destination="JSM-rK-QTc" kind="show" id="83z-QF-T8u"/>

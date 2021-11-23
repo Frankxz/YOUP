@@ -27,7 +27,6 @@ class UsersListViewController: UITableViewController {
         if !isAllUsersFetched {
         FirebaseManager.shared.fetchUsers { [self] users in
             youpUsers = users
-            print("LOL")
             self.tableView.reloadData()
             for user in youpUsers {
                 FirebaseManager.shared.fetchAvatar(userID: user.id) { image in
@@ -39,22 +38,7 @@ class UsersListViewController: UITableViewController {
             isAllUsersFetched = true
         }
         tableView.reloadData()
-//        ref = Database.database().reference(withPath: "users")
-//        ref.observe(.value) { [weak self] (snapshot) in
-//            var bufferYoupUsers: [YoupUser] = []
-//            for child in snapshot.children {
-//                let youpUser = YoupUser(with: child as! DataSnapshot)
-//                bufferYoupUsers.append(youpUser)
-//            }
-//            self?.youpUsers = bufferYoupUsers
-//            self?.tableView.reloadData()
-//
-//            guard self?.youpUsers != nil else {return}
-//            for user in self!.youpUsers {
-//                self?.fetchImage(youpUser: user)
-//            }
-//
-//        }
+
         
 
     }
