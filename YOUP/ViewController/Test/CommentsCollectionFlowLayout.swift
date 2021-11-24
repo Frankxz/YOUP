@@ -8,8 +8,8 @@
 import UIKit
 
 class CommentsCollectionFlowLayout: UICollectionViewFlowLayout {
-    private let itemHeight = 380
-    private let itemWidth = 318
+    private let itemHeight = 340
+    private let itemWidth = 260
     
    
     override func prepare() {
@@ -19,9 +19,9 @@ class CommentsCollectionFlowLayout: UICollectionViewFlowLayout {
         itemSize = CGSize(width: itemWidth, height: itemHeight)
         
         let peekingItemWidth = itemSize.width / 10
-        let horizontalInsets = (collectionView.frame.size.width - itemSize.width) / 2
+        let horizontalInsets = (collectionView.frame.size.width - itemSize.width) / 2 + 10
         
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: horizontalInsets, bottom: 0, right: horizontalInsets)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: horizontalInsets, bottom: 10, right: horizontalInsets)
         minimumLineSpacing = horizontalInsets - peekingItemWidth
     }
     

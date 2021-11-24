@@ -1190,24 +1190,11 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GYR-Kv-6ks">
-                                                <rect key="frame" x="10" y="472" width="394" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="0.1303549255" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <segments>
-                                                    <segment title="All"/>
-                                                    <segment title="Good"/>
-                                                    <segment title="Neutral"/>
-                                                    <segment title="Bad"/>
-                                                </segments>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="selectedSegmentTintColor" systemColor="systemIndigoColor"/>
-                                            </segmentedControl>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2en-Dm-6MI">
-                                                <rect key="frame" x="0.0" y="575" width="414" height="400"/>
+                                                <rect key="frame" x="0.0" y="515" width="414" height="448"/>
                                                 <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="400" id="xz5-fL-FDT"/>
+                                                    <constraint firstAttribute="height" constant="448" id="xz5-fL-FDT"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1n0-no-9Iq">
                                                     <size key="itemSize" width="316" height="380"/>
@@ -1217,7 +1204,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="AI2-EA-csh" customClass="CommentCollectionViewCell" customModule="YOUP" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="10" width="316" height="380"/>
+                                                        <rect key="frame" x="0.0" y="34" width="316" height="380"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rax-YY-Y5h">
                                                             <rect key="frame" x="0.0" y="0.0" width="316" height="380"/>
@@ -1320,15 +1307,25 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-r7-2d6">
+                                                <rect key="frame" x="107" y="487" width="200" height="20"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="Cdb-in-KeM"/>
+                                                    <constraint firstAttribute="height" constant="20" id="ztf-qW-h3S"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="kfm-ej-2zA" firstAttribute="top" secondItem="dWl-9o-jrj" secondAttribute="bottom" constant="10" id="Ijq-hD-Uth"/>
-                                            <constraint firstItem="GYR-Kv-6ks" firstAttribute="top" secondItem="kfm-ej-2zA" secondAttribute="bottom" constant="7.5" id="JVJ-E4-REJ"/>
                                             <constraint firstItem="dWl-9o-jrj" firstAttribute="top" secondItem="xhM-tt-QzO" secondAttribute="top" constant="20" id="SSl-lg-aV1"/>
+                                            <constraint firstItem="2en-Dm-6MI" firstAttribute="top" secondItem="vPN-r7-2d6" secondAttribute="bottom" constant="8" symbolic="YES" id="Su4-7m-qhc"/>
                                             <constraint firstAttribute="trailing" secondItem="dWl-9o-jrj" secondAttribute="trailing" constant="10" id="Y79-NS-Ugv"/>
+                                            <constraint firstAttribute="trailing" secondItem="vPN-r7-2d6" secondAttribute="trailing" constant="107" id="Yea-xj-rFv"/>
+                                            <constraint firstItem="vPN-r7-2d6" firstAttribute="top" secondItem="kfm-ej-2zA" secondAttribute="bottom" constant="22.5" id="fdP-GB-WMi"/>
+                                            <constraint firstItem="vPN-r7-2d6" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" constant="107" id="fjM-a1-peq"/>
                                             <constraint firstItem="dWl-9o-jrj" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" constant="10" id="g8r-kR-qLo"/>
-                                            <constraint firstItem="2en-Dm-6MI" firstAttribute="top" secondItem="GYR-Kv-6ks" secondAttribute="bottom" constant="72" id="jFJ-Fv-AIE"/>
                                             <constraint firstAttribute="trailing" secondItem="2en-Dm-6MI" secondAttribute="trailing" id="keU-SZ-gEP"/>
                                             <constraint firstItem="kfm-ej-2zA" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" constant="10" id="ogB-92-jJP"/>
                                             <constraint firstItem="2en-Dm-6MI" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" id="vKW-Fr-UZb"/>
@@ -1359,6 +1356,7 @@
                     <connections>
                         <outlet property="awardsCollectionView" destination="kfm-ej-2zA" id="dml-Fb-Kta"/>
                         <outlet property="commentsCollectionView" destination="2en-Dm-6MI" id="Xt8-bi-ams"/>
+                        <outlet property="indicatorView" destination="vPN-r7-2d6" id="nqi-Rb-Yun"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ7-Ln-OQO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

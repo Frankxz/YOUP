@@ -42,3 +42,19 @@ func configure(username: String,fullname: String, avatar: UIImage, title: String
     }
 }
 
+extension CommentCollectionViewCell {
+    
+    func transformToLarge() {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }
+    }
+    
+    func transformToStandard() {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform.identity
+        }
+    }
+    
+}
+
