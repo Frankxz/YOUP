@@ -14,6 +14,11 @@ class TestingViewController: UIViewController {
     @IBOutlet weak var commentsCollectionView: UICollectionView!
     @IBOutlet weak var indicatorView: UIView!
     
+    @IBOutlet weak var redIndicator: UIView!
+    
+    @IBOutlet weak var yellowIndicator: UIView!
+    
+    @IBOutlet weak var greenIndicator: UIView!
     private let commentsCount = 15
     private var currentSelectedIndex = 0 {
         didSet {
@@ -30,6 +35,9 @@ class TestingViewController: UIViewController {
         commentsCollectionView.delegate = self
         commentsCollectionView.dataSource = self
         commentsCollectionView.collectionViewLayout = CommentsCollectionFlowLayout()
+        
+        greenIndicator.frame.size = CGSize(width: 30, height: 10)
+        redIndicator.frame.size = CGSize(width: 330, height: 10)
         
         showIndicatorView()
     }
@@ -141,8 +149,9 @@ extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataS
         } else
         {
             let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
+            let type = Int.random(in: 0...3)
             cell.configure(username: "Gelaseen", fullname: "Robert Miller", avatar: UIImage(systemName: "circle")!,
-                           title: "Good guy", text: "He is a real good guy!", type: 1)
+                           title: "Good guy", text: "He is a real good guy!", type: type)
             if currentSelectedIndex == indexPath.row {
                 cell.transformToLarge()
             }
