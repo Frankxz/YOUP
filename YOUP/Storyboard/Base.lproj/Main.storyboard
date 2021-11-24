@@ -961,11 +961,11 @@
             <objects>
                 <viewController id="hXl-VL-6So" customClass="TestingViewController" customModule="YOUP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1x-zM-oJD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1141"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1053"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbm-xJ-sS9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1023"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1023"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-tt-QzO" userLabel="Content view">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1150"/>
@@ -1368,6 +1368,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L7d-ra-eOJ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <size key="freeformSize" width="414" height="1224"/>
                     <connections>
                         <outlet property="aboutmeTextView" destination="xwO-FH-cci" id="yvg-lc-hE8"/>
@@ -1720,9 +1721,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="62U-p1-IVb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="Om0-Xe-HLr"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEk-lK-a0o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kEk-lK-a0o">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
