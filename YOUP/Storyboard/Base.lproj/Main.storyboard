@@ -1189,7 +1189,7 @@
                                                 </cells>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2en-Dm-6MI">
-                                                <rect key="frame" x="0.0" y="540" width="414" height="448"/>
+                                                <rect key="frame" x="0.0" y="508.5" width="414" height="448"/>
                                                 <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="448" id="xz5-fL-FDT"/>
@@ -1212,14 +1212,14 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="316" height="100"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-Lc-Mxl">
-                                                                            <rect key="frame" x="216" y="10" width="80" height="80"/>
+                                                                            <rect key="frame" x="226" y="10" width="80" height="80"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="80" id="1y6-dr-UwX"/>
                                                                                 <constraint firstAttribute="width" constant="80" id="U5c-yj-yUr"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-ko-MWL">
-                                                                            <rect key="frame" x="20" y="19" width="121.5" height="62"/>
+                                                                            <rect key="frame" x="10" y="19" width="121.5" height="62"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gelaseen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxA-lO-3km">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="121.5" height="36"/>
@@ -1239,11 +1239,11 @@
                                                                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="eR2-ko-MWL" secondAttribute="bottom" constant="19" id="CKB-fV-Dpl"/>
-                                                                        <constraint firstItem="eR2-ko-MWL" firstAttribute="leading" secondItem="Cn7-xD-riO" secondAttribute="leading" constant="20" id="KYJ-29-94c"/>
+                                                                        <constraint firstItem="eR2-ko-MWL" firstAttribute="leading" secondItem="Cn7-xD-riO" secondAttribute="leading" constant="10" id="KYJ-29-94c"/>
                                                                         <constraint firstItem="eFJ-Lc-Mxl" firstAttribute="top" secondItem="Cn7-xD-riO" secondAttribute="top" constant="10" id="cxh-bZ-FPo"/>
                                                                         <constraint firstAttribute="height" constant="100" id="dOz-kk-sYc"/>
                                                                         <constraint firstItem="eR2-ko-MWL" firstAttribute="top" secondItem="Cn7-xD-riO" secondAttribute="top" constant="19" id="sm6-gl-tMy"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="eFJ-Lc-Mxl" secondAttribute="trailing" constant="20" id="zTL-Lf-LYr"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="eFJ-Lc-Mxl" secondAttribute="trailing" constant="10" id="zTL-Lf-LYr"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-XD-GUa">
@@ -1307,7 +1307,7 @@
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahe-p3-RMa">
-                                                <rect key="frame" x="15" y="488" width="384" height="42"/>
+                                                <rect key="frame" x="15" y="456.5" width="384" height="42"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIk-gA-kTM">
                                                         <rect key="frame" x="21.5" y="7.5" width="141.5" height="27.5"/>
@@ -1335,7 +1335,7 @@
                                             <constraint firstItem="2en-Dm-6MI" firstAttribute="top" secondItem="ahe-p3-RMa" secondAttribute="bottom" constant="10" id="N9u-jf-wNI"/>
                                             <constraint firstItem="dWl-9o-jrj" firstAttribute="top" secondItem="xhM-tt-QzO" secondAttribute="top" constant="20" id="SSl-lg-aV1"/>
                                             <constraint firstAttribute="trailing" secondItem="dWl-9o-jrj" secondAttribute="trailing" constant="10" id="Y79-NS-Ugv"/>
-                                            <constraint firstItem="ahe-p3-RMa" firstAttribute="top" secondItem="kfm-ej-2zA" secondAttribute="bottom" constant="41.5" id="bwL-QQ-EIl"/>
+                                            <constraint firstItem="ahe-p3-RMa" firstAttribute="top" secondItem="kfm-ej-2zA" secondAttribute="bottom" constant="10" id="bwL-QQ-EIl"/>
                                             <constraint firstItem="dWl-9o-jrj" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" constant="10" id="g8r-kR-qLo"/>
                                             <constraint firstAttribute="trailing" secondItem="2en-Dm-6MI" secondAttribute="trailing" id="keU-SZ-gEP"/>
                                             <constraint firstAttribute="trailing" secondItem="ahe-p3-RMa" secondAttribute="trailing" constant="15" id="mP5-ZD-DMi"/>
