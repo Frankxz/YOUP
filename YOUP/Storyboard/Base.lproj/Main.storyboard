@@ -1442,7 +1442,9 @@
                         <outlet property="commentsCollectionView" destination="2en-Dm-6MI" id="Xt8-bi-ams"/>
                         <outlet property="fullnameLabel" destination="swZ-a2-g1u" id="10X-5t-Y2z"/>
                         <outlet property="greenLabel" destination="7bq-b5-nUU" id="Bxn-e2-gxw"/>
+                        <outlet property="loadingView" destination="9AM-7i-mHc" id="Nah-cW-OOg"/>
                         <outlet property="redLabel" destination="Myl-bu-bY1" id="PAF-fY-dOl"/>
+                        <outlet property="scrollView" destination="vbm-xJ-sS9" id="D0t-OX-vXd"/>
                         <outlet property="skillsCollectionView" destination="kfm-ej-2zA" id="dml-Fb-Kta"/>
                         <outlet property="yellowLabel" destination="Faf-su-XvG" id="zcx-eh-2yQ"/>
                     </connections>

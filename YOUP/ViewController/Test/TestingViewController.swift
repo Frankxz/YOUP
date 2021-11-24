@@ -11,7 +11,9 @@ import Firebase
 class TestingViewController: UIViewController {
 
     
+    @IBOutlet weak var loadingView: UIView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
@@ -61,13 +63,12 @@ class TestingViewController: UIViewController {
         if didAvatarChange {
             FirebaseManager.shared.fetchAvatar(userID: currentFBUser.uid) {
                 [self] result in
-               // configureWhileLoading()
+               configureWhileLoading()
                 youpUser.image = result
                 avatarImageView.image = result
                 didAvatarChange = false
                 print("pek")
-                //configureWhenLoaded()
-                displayUserInfo()
+                configureWhenLoaded()
             }
         }
         
@@ -138,6 +139,20 @@ extension TestingViewController {
         commentCounterLabel.text = "\(youpUser.comments.count) comments"
         skillsCollectionView.reloadData()
         commentsCollectionView.reloadData()
+    }
+    
+    func configureWhileLoading() {
+    
+        navigationController?.isNavigationBarHidden = true
+        self.scrollView.isScrollEnabled = false
+    
+    }
+    
+    func configureWhenLoaded(){
+        navigationController?.isNavigationBarHidden = false
+        self.scrollView.isScrollEnabled = true
+        loadingView.isHidden = true
+        displayUserInfo()
     }
 }
 
