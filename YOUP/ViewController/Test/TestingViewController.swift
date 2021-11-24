@@ -50,6 +50,13 @@ class TestingViewController: UIViewController {
         
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+            // tabBarController?.tabBar.frame.size.height = 50
+        //tabBarController?.tabBar.frame.origin.y = view.frame.height - 200
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if didAvatarChange {
             FirebaseManager.shared.fetchAvatar(userID: currentFBUser.uid) {
