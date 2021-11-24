@@ -78,13 +78,13 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewWillDisappear(true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let settingsVC = segue.destination as? SettingsViewController else { return }
-        settingsVC.youpUser = youpUser
-        settingsVC.imageViewBuff = imageView.image
-        settingsVC.delegate = self
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let settingsVC = segue.destination as? SettingsViewController else { return }
+//        settingsVC.youpUser = youpUser
+//        settingsVC.imageViewBuff = imageView.image
+//        settingsVC.delegate = self
+//        
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         youpUser.comments.count
@@ -145,14 +145,5 @@ extension HomeViewController {
     
 }
 
-protocol FetchImageDelegate {
-    func toggleAvatarChangeObserver(isChange: Bool)
-}
 
-extension HomeViewController: FetchImageDelegate {
-    func toggleAvatarChangeObserver(isChange: Bool) {
-        didAvatarChange = isChange
-    }
-    
-}
 

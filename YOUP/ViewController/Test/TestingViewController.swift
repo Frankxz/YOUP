@@ -78,7 +78,13 @@ class TestingViewController: UIViewController {
         }
     
     }
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let settingsVC = segue.destination as? SettingsViewController else { return }
+        settingsVC.youpUser = youpUser
+        settingsVC.imageViewBuff = avatarImageView.image
+        settingsVC.delegate = self
+        
+    }
 }
 
 //MARK: - skillsCollectionView and commentsCollectionView
@@ -109,6 +115,17 @@ extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataS
     
 }
 
+protocol FetchImageDelegate {
+    func toggleAvatarChangeObserver(isChange: Bool)
+}
+
+extension TestingViewController: FetchImageDelegate {
+    func toggleAvatarChangeObserver(isChange: Bool) {
+        didAvatarChange = isChange
+    }
+    
+}
+
 // MARK: - Work with UI
 extension TestingViewController {
     
@@ -118,6 +135,7 @@ extension TestingViewController {
         redLabel.text = String (youpUser.stats["red"]!)
         yellowLabel.text = String (youpUser.stats["yellow"]!)
         greenLabel.text = String (youpUser.stats["green"]!)
+        commentCounterLabel.text = "\(youpUser.comments.count) comments"
         skillsCollectionView.reloadData()
         commentsCollectionView.reloadData()
     }
