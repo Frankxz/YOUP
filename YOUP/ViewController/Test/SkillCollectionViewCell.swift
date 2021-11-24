@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class SkillCollectionViewCell: UICollectionViewCell {
     
    
     @IBOutlet weak var miniLabel: UILabel!
