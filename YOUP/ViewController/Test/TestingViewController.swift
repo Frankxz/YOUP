@@ -38,7 +38,7 @@ class TestingViewController: UIViewController {
         
         guard let _currentFBUser = Auth.auth().currentUser else { return }
         currentFBUser = _currentFBUser
-        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
         skillsCollectionView.delegate = self
         skillsCollectionView.dataSource = self
         
