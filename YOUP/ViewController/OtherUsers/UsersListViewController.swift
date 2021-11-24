@@ -19,7 +19,8 @@ class UsersListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference(withPath: "users")
-
+        navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
+        tabBarController?.tabBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
        
     }
     
