@@ -14,11 +14,8 @@ class TestingViewController: UIViewController {
     @IBOutlet weak var commentsCollectionView: UICollectionView!
     @IBOutlet weak var indicatorView: UIView!
     
-    @IBOutlet weak var redIndicator: UIView!
+
     
-    @IBOutlet weak var yellowIndicator: UIView!
-    
-    @IBOutlet weak var greenIndicator: UIView!
     private let commentsCount = 15
     private var currentSelectedIndex = 0 {
         didSet {
@@ -36,8 +33,7 @@ class TestingViewController: UIViewController {
         commentsCollectionView.dataSource = self
         commentsCollectionView.collectionViewLayout = CommentsCollectionFlowLayout()
         
-        greenIndicator.frame.size = CGSize(width: 30, height: 10)
-        redIndicator.frame.size = CGSize(width: 330, height: 10)
+        
         
         showIndicatorView()
     }
@@ -159,5 +155,6 @@ extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
     }
 }
+
 
 
