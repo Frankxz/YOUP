@@ -106,7 +106,7 @@ extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewD
         else {
             let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
             let comment = youpUser.comments[indexPath.item]
-            cell.configure(username: "Somebody", fullname: "Somebody",
+            cell.configure(username: "Somebody", fullname: "Unknown who 🤫 ",
                            avatar: UIImage(systemName: "questionmark.circle")!,
                            title: comment.title, text: comment.text, type: comment.type)
             if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
