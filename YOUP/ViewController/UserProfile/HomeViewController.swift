@@ -32,9 +32,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var currentFBUser: User!
     var youpUser = YoupUser()
     
-    var databaseRef: DatabaseReference!
-    var storageRef: StorageReference!
-    
     var didAvatarChange = true
     
     @IBOutlet weak var tableView: UITableView!
@@ -47,7 +44,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         configureWhileLoading()
     
-        profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
+       
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self

@@ -6,28 +6,41 @@
 //
 
 import UIKit
+import Firebase
 
 class TestingViewController: UIViewController {
 
-    @IBOutlet weak var awardsCollectionView: UICollectionView!
     
+    
+    @IBOutlet weak var fullnameLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var skillsCollectionView: UICollectionView!
     @IBOutlet weak var commentsCollectionView: UICollectionView!
-    @IBOutlet weak var indicatorView: UIView!
     
-
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var yellowLabel: UILabel!
+    @IBOutlet weak var redLabel: UILabel!
+    
+    @IBOutlet weak var commentCounterLabel: UILabel!
+    @IBOutlet weak var aboutmeTextView: UITextView!
+    
+    var currentFBUser: User!
+    var youpUser = YoupUser()
     
     private let commentsCount = 15
-    private var currentSelectedIndex = 0 {
-        didSet {
-            updateSelectedCardIndicator()
-        }
-    }
+    private var currentSelectedIndex = 0
+
+    var didAvatarChange = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        awardsCollectionView.delegate = self
-        awardsCollectionView.dataSource = self
+        guard let _currentFBUser = Auth.auth().currentUser else { return }
+        currentFBUser = _currentFBUser
+        
+        skillsCollectionView.delegate = self
+        skillsCollectionView.dataSource = self
         
         commentsCollectionView.delegate = self
         commentsCollectionView.dataSource = self
@@ -35,9 +48,75 @@ class TestingViewController: UIViewController {
         
         
         
-        showIndicatorView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if didAvatarChange {
+            FirebaseManager.shared.fetchAvatar(userID: currentFBUser.uid) {
+                [self] result in
+               // configureWhileLoading()
+                youpUser.image = result
+                avatarImageView.image = result
+                didAvatarChange = false
+                print("pek")
+                //configureWhenLoaded()
+                displayUserInfo()
+            }
+        }
+        
+        FirebaseManager.shared.fetchUser(user: currentFBUser) {
+            [self] result in
+            print("Дрынкдырынк")
+            youpUser = result
+        }
+    
+    }
+   
+}
+
+//MARK: - skillsCollectionView and commentsCollectionView
+extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        collectionView == skillsCollectionView ? 6 : youpUser.comments.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == skillsCollectionView {
+            let cell = skillsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SkillCollectionViewCell
+            cell.configure(text: "Skill")
+            return cell
+        }
+        
+        else {
+            let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
+            let comment = youpUser.comments[indexPath.item]
+            cell.configure(username: "Somebody", fullname: "Somebody",
+                           avatar: UIImage(systemName: "questionmark.circle")!,
+                           title: comment.title, text: comment.text, type: comment.type)
+            if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
+            return cell
+        }
+    }
+    
+}
+
+// MARK: - Work with UI
+extension TestingViewController {
+    
+    func displayUserInfo(){
+        navigationItem.title = youpUser.username
+        fullnameLabel.text = youpUser.fullname
+        redLabel.text = String (youpUser.stats["red"]!)
+        yellowLabel.text = String (youpUser.stats["yellow"]!)
+        greenLabel.text = String (youpUser.stats["green"]!)
+        skillsCollectionView.reloadData()
+        commentsCollectionView.reloadData()
+    }
+}
+
+extension TestingViewController {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let currentCell = commentsCollectionView.cellForItem(at: IndexPath(row: currentSelectedIndex, section: 0)) as! CommentCollectionViewCell
         currentCell.transformToStandard()
@@ -75,7 +154,7 @@ class TestingViewController: UIViewController {
             print("Incorrect velocity for collection view")
         }
         
-        let safeIndex = max(0, min(selectedIndex, commentsCount - 1))
+        let safeIndex = max(0, min(selectedIndex, youpUser.comments.count - 1))
         let selectedIndexPath = IndexPath(row: safeIndex, section: 0)
         
         flowLayout.collectionView!.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
@@ -90,71 +169,6 @@ class TestingViewController: UIViewController {
         nextSelectedCell.transformToLarge()
     }
     
-    func showIndicatorView() {
-        
-        let stackView = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.horizontal
-        stackView.distribution  = UIStackView.Distribution.equalSpacing
-        stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing = 8.0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        for index in 0..<3 {
-            let dot = UIImageView(image: UIImage(systemName: "circle.fill"))
-            
-            dot.heightAnchor.constraint(equalToConstant: 10).isActive = true
-            dot.widthAnchor.constraint(equalToConstant: 10).isActive = true
-            dot.image = dot.image!.withRenderingMode(.alwaysTemplate)
-            dot.tintColor = UIColor.lightGray
-            dot.tag = index + 1
-            
-            if index == currentSelectedIndex {
-                dot.tintColor = UIColor.darkGray
-            }
-            stackView.addArrangedSubview(dot)
-        }
-        
-        indicatorView.subviews.forEach({ $0.removeFromSuperview() })
-        indicatorView.addSubview(stackView)
-        
-        stackView.centerXAnchor.constraint(equalTo: indicatorView.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: indicatorView.centerYAnchor).isActive = true
-    }
-    
-    func updateSelectedCardIndicator() {
-        for index in 0...commentsCount - 1 {
-            let selectedIndicator: UIImageView? = indicatorView.viewWithTag(index + 1) as? UIImageView
-            selectedIndicator?.tintColor = index == currentSelectedIndex ? UIColor.darkGray: UIColor.lightGray
-        }
-    }
-
-    
 }
-
-extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionView == awardsCollectionView ? 6 : commentsCount
-          
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == awardsCollectionView {
-            let cell = awardsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SkillCollectionViewCell
-            cell.configure(text: "Skill")
-            return cell
-        } else
-        {
-            let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
-            let type = Int.random(in: 0...3)
-            cell.configure(username: "Gelaseen", fullname: "Robert Miller", avatar: UIImage(systemName: "circle")!,
-                           title: "Good guy", text: "He is a real good guy!", type: type)
-            if currentSelectedIndex == indexPath.row {
-                cell.transformToLarge()
-            }
-            return cell
-        }
-    }
-}
-
 
 
