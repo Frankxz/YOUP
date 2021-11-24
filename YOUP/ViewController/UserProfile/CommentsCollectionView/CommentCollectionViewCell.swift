@@ -55,6 +55,5 @@ extension CommentCollectionViewCell {
             self.transform = CGAffineTransform.identity
         }
     }
-    
 }
 

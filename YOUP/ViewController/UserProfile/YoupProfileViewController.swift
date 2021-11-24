@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class TestingViewController: UIViewController {
+class YoupProfileViewController: UIViewController {
 
     
     @IBOutlet weak var loadingView: UIView!
@@ -89,7 +89,7 @@ class TestingViewController: UIViewController {
 }
 
 //MARK: - skillsCollectionView and commentsCollectionView
-extension TestingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         collectionView == skillsCollectionView ? 6 : youpUser.comments.count
@@ -120,7 +120,7 @@ protocol FetchImageDelegate {
     func toggleAvatarChangeObserver(isChange: Bool)
 }
 
-extension TestingViewController: FetchImageDelegate {
+extension YoupProfileViewController: FetchImageDelegate {
     func toggleAvatarChangeObserver(isChange: Bool) {
         didAvatarChange = isChange
     }
@@ -128,7 +128,7 @@ extension TestingViewController: FetchImageDelegate {
 }
 
 // MARK: - Work with UI
-extension TestingViewController {
+extension YoupProfileViewController {
     
     func displayUserInfo(){
         navigationItem.title = youpUser.username
@@ -156,7 +156,7 @@ extension TestingViewController {
     }
 }
 
-extension TestingViewController {
+extension YoupProfileViewController {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let currentCell = commentsCollectionView.cellForItem(at: IndexPath(row: currentSelectedIndex, section: 0)) as! CommentCollectionViewCell
         currentCell.transformToStandard()

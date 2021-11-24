@@ -950,10 +950,10 @@
             </objects>
             <point key="canvasLocation" x="2798.5507246376815" y="960.9375"/>
         </scene>
-        <!--Testing View Controller-->
+        <!--Youp Profile View Controller-->
         <scene sceneID="sE0-a9-vkT">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="hXl-VL-6So" customClass="TestingViewController" customModule="YOUP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="hXl-VL-6So" customClass="YoupProfileViewController" customModule="YOUP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1x-zM-oJD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1208,6 +1208,7 @@
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-Lc-Mxl">
                                                                             <rect key="frame" x="226" y="10" width="80" height="80"/>
+                                                                            <color key="tintColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="80" id="1y6-dr-UwX"/>
                                                                                 <constraint firstAttribute="width" constant="80" id="U5c-yj-yUr"/>
@@ -1328,7 +1329,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AM-7i-mHc" userLabel="Loading view">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AM-7i-mHc" userLabel="Loading view">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="840"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZ5-zd-jew" customClass="SpinnerView" customModule="YOUP" customModuleProvider="target">

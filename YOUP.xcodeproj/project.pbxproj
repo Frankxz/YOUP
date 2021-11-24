@@ -19,8 +19,7 @@
 		C65C90A2274590650092480B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C90A1274590650092480B /* FirebaseManager.swift */; };
 		C66424FB27117EFB0006EC7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66424FA27117EFB0006EC7B /* User.swift */; };
 		C66424FD2711808B0006EC7B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66424FC2711808B0006EC7B /* Comment.swift */; };
-		C66424FF271188730006EC7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66424FE271188730006EC7B /* HomeViewController.swift */; };
-		C667D014274D72CB00E80D17 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667D013274D72CB00E80D17 /* TestingViewController.swift */; };
+		C667D014274D72CB00E80D17 /* YoupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667D013274D72CB00E80D17 /* YoupProfileViewController.swift */; };
 		C667D017274D73C500E80D17 /* SkillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C667D016274D73C500E80D17 /* SkillCollectionViewCell.swift */; };
 		C670D270271D863B006C5890 /* CommentCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */; };
 		C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */; };
@@ -49,8 +48,7 @@
 		C65C90A1274590650092480B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		C66424FA27117EFB0006EC7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C66424FC2711808B0006EC7B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		C66424FE271188730006EC7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C667D013274D72CB00E80D17 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
+		C667D013274D72CB00E80D17 /* YoupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoupProfileViewController.swift; sourceTree = "<group>"; };
 		C667D016274D73C500E80D17 /* SkillCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCollectionViewCell.swift; sourceTree = "<group>"; };
 		C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreatingViewController.swift; sourceTree = "<group>"; };
 		C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
@@ -125,17 +123,6 @@
 			path = YOUP;
 			sourceTree = "<group>";
 		};
-		C667D015274D739600E80D17 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				C667D013274D72CB00E80D17 /* TestingViewController.swift */,
-				C667D016274D73C500E80D17 /* SkillCollectionViewCell.swift */,
-				C6ED4266274E2A4A0062AE52 /* CommentCollectionViewCell.swift */,
-				C6ED4268274E2E8E0062AE52 /* CommentsCollectionFlowLayout.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		C68BE50A2729B91E009742DC /* Sign */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +136,9 @@
 		C68BE50B2729B93A009742DC /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				C66424FE271188730006EC7B /* HomeViewController.swift */,
+				C667D013274D72CB00E80D17 /* YoupProfileViewController.swift */,
 				C6AB3164271876070037F7E3 /* SettingsViewController.swift */,
+				C6F3403A274EE5C1006AA154 /* CommentsCollectionView */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -200,7 +188,6 @@
 				C68BE50C2729B961009742DC /* OtherUsers */,
 				C68BE50B2729B93A009742DC /* UserProfile */,
 				C68BE50A2729B91E009742DC /* Sign */,
-				C667D015274D739600E80D17 /* Test */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -213,6 +200,16 @@
 				C638466D27048286005404A1 /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C6F3403A274EE5C1006AA154 /* CommentsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C667D016274D73C500E80D17 /* SkillCollectionViewCell.swift */,
+				C6ED4266274E2A4A0062AE52 /* CommentCollectionViewCell.swift */,
+				C6ED4268274E2E8E0062AE52 /* CommentsCollectionFlowLayout.swift */,
+			);
+			path = CommentsCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,7 +332,7 @@
 				C6CF4E8F27187FCD00A21EBD /* UserProfileViewController.swift in Sources */,
 				C667D017274D73C500E80D17 /* SkillCollectionViewCell.swift in Sources */,
 				C638466527048285005404A1 /* AppDelegate.swift in Sources */,
-				C667D014274D72CB00E80D17 /* TestingViewController.swift in Sources */,
+				C667D014274D72CB00E80D17 /* YoupProfileViewController.swift in Sources */,
 				C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */,
 				C6926B7427452DF9002F288D /* AnimationManager.swift in Sources */,
 				C6CBD24A27441B2D001999B6 /* UserTableViewCell.swift in Sources */,
@@ -343,7 +340,6 @@
 				C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */,
 				C66424FD2711808B0006EC7B /* Comment.swift in Sources */,
 				C638467F2704E262005404A1 /* SignUpViewController.swift in Sources */,
-				C66424FF271188730006EC7B /* HomeViewController.swift in Sources */,
 				C6926B79274543DC002F288D /* WeclomeViewController.swift in Sources */,
 				C65C90A2274590650092480B /* FirebaseManager.swift in Sources */,
 				C638466727048285005404A1 /* SceneDelegate.swift in Sources */,

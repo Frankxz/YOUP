@@ -9,7 +9,6 @@ import UIKit
 
 class SkillCollectionViewCell: UICollectionViewCell {
     
-   
     @IBOutlet weak var miniLabel: UILabel!
     
     func configure(text: String){
