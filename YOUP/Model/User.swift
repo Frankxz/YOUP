@@ -70,7 +70,7 @@ class YoupUser {
         surname = snapshotValue["surname"] as! String
         username = snapshotValue["username"] as! String
         id = snapshotValue["id"] as! String
-        aboutme = snapshotValue["aboutme"] as! String
+      //  aboutme = snapshotValue["aboutme"] as! String
         ref = snapshot.ref
 
     }

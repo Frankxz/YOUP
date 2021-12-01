@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 class UsersListViewController: UITableViewController {
-
+    
     var youpUsers: [YoupUser] = []
     var ref: DatabaseReference!
     var storageRef: StorageReference!
@@ -21,43 +21,52 @@ class UsersListViewController: UITableViewController {
         ref = Database.database().reference(withPath: "users")
         navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
         tabBarController?.tabBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if !isAllUsersFetched {
-        FirebaseManager.shared.fetchUsers { [self] users in
-            youpUsers = users
-            self.tableView.reloadData()
-            for user in youpUsers {
-                FirebaseManager.shared.fetchAvatar(userID: user.id) { image in
-                    user.image = image
-                    self.tableView.reloadData()
+            FirebaseManager.shared.fetchUsers { [self] users in
+                youpUsers = users
+                self.tableView.reloadData()
+                for user in youpUsers {
+                    FirebaseManager.shared.fetchAvatar(userID: user.id) { image in
+                        user.image = image
+                        self.tableView.reloadData()
+                    }
                 }
+                isAllUsersFetched = true
+                for (index,user) in youpUsers.enumerated() {
+                    if user.id == Auth.auth().currentUser?.uid {
+                        youpUsers.remove(at: index)
+                        print("deleted me in users list ")
+                        tableView.reloadData()
+                    }
+                }
+                
             }
         }
-            isAllUsersFetched = true
-        }
-        tableView.reloadData()
-
         
-
+        
+        
+        
     }
-        
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         youpUsers.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTableViewCell
-       
+        
         let youpUser = youpUsers[indexPath.row]
+        
         //let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "person.circle")
         cell.configure(youpUser: youpUser,
                        image: youpUser.image!)
-    
+        
         return cell
     }
     
@@ -70,7 +79,7 @@ class UsersListViewController: UITableViewController {
     }
     
     func fetchImage(youpUser:  YoupUser) {
-
+        
         self.storageRef = Storage.storage().reference().child("avatars").child(youpUser.id)
         self.storageRef.downloadURL { url, error in
             guard error == nil else { return }
