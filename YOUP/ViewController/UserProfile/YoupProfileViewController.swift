@@ -136,6 +136,7 @@ extension YoupProfileViewController {
         yellowLabel.text = String (youpUser.stats["yellow"]!)
         greenLabel.text = String (youpUser.stats["green"]!)
         commentCounterLabel.text = "\(youpUser.comments.count) comments"
+        aboutmeTextView.text = youpUser.aboutme
         skillsCollectionView.reloadData()
         commentsCollectionView.reloadData()
     }

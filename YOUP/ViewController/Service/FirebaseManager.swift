@@ -26,7 +26,7 @@ class FirebaseManager {
         databaseCurrentRef = usersRef.child(String(user.uid)).child("userInfo")
         databaseCurrentRef.observe(.value) { snapshot in
             youpUser = YoupUser(snapshot: snapshot)
-        
+            
             
             self.databaseCurrentRef = self.usersRef.child(String(user.uid))
             self.databaseCurrentRef.observe(.value) { snapshot in
@@ -66,8 +66,19 @@ class FirebaseManager {
                 let youpUser = YoupUser(with: child as! DataSnapshot)
                 bufferYoupUsers.append(youpUser)
             }
-    
+            
             completion(bufferYoupUsers)
         }
+    }
+    
+    func postUserInfo(youpUser: YoupUser){
+        databaseCurrentRef = usersRef.child(String(youpUser.id)).child("userInfo")
+        databaseCurrentRef.setValue(["email": youpUser.email,
+                                     "id": youpUser.id,
+                                     "password": youpUser.password,
+                                     "username": youpUser.username,
+                                     "name": youpUser.name,
+                                     "surname": youpUser.surname,
+                                     "aboutme": youpUser.aboutme])
     }
 }

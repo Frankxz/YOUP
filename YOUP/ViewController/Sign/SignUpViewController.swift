@@ -52,12 +52,8 @@ class SignUpViewController: UIViewController {
                                          id: String((user?.user.uid)!) )
                 
                 let userRef = ref.child(youpUser.id).child("userInfo")
-                userRef.setValue(["email": youpUser.email,
-                                  "id": youpUser.id,
-                                  "password": youpUser.password,
-                                  "username": youpUser.username,
-                                  "name": youpUser.name,
-                                  "surname": youpUser.surname,])
+                FirebaseManager.shared.postUserInfo(youpUser: youpUser)
+                
                 let statsRef = ref.child(youpUser.id).child("userStats")
                 statsRef.setValue(["red" : 0,
                                     "yellow" : 0,

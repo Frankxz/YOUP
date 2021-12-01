@@ -16,6 +16,7 @@ class YoupUser {
     var password = ""
     var imgName = ""
     var image = UIImage(systemName: "person.circle")
+    var aboutme = ""
     
     var ref: DatabaseReference?
      var stats: [String : Int] = ["red": 0, "yellow": 0, "green": 0]
@@ -56,8 +57,8 @@ class YoupUser {
         name = snapshotValue["name"] as! String
         surname = snapshotValue["surname"] as! String
         username = snapshotValue["username"] as! String
-      //  imgName = snapshotValue["imgName"] as! String
         id = snapshotValue["id"] as! String
+        aboutme = snapshotValue["aboutme"] as! String
         ref = snapshot.ref
     }
     
@@ -68,8 +69,8 @@ class YoupUser {
         name = snapshotValue["name"] as! String
         surname = snapshotValue["surname"] as! String
         username = snapshotValue["username"] as! String
-      //  imgName = snapshotValue["imgName"] as! String
         id = snapshotValue["id"] as! String
+        aboutme = snapshotValue["aboutme"] as! String
         ref = snapshot.ref
 
     }

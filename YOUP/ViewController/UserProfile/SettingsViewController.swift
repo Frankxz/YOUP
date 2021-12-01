@@ -11,6 +11,9 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var aboutmeTextField: UITextView!
+    
+    
     var ref: DatabaseReference!
     var youpUser: YoupUser!
     var currentFBUser: User!
@@ -20,9 +23,12 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.layer.cornerRadius = imageView.layer.bounds.width / 2 - 10
+        imageView.layer.cornerRadius = imageView.layer.bounds.width / 2
         guard let _currentFBUser = Auth.auth().currentUser else { return }
         currentFBUser = _currentFBUser
+        
+        navigationItem.title = "Settings"
+        navigationItem.rightBarButtonItem?.tintColor = .clear
         
         imageView.image = imageViewBuff
         emailTF.text = youpUser.email
