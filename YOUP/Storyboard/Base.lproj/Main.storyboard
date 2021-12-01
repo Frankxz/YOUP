@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LIR-cR-Rc2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -288,11 +288,11 @@
             <objects>
                 <viewController id="KZf-4u-WjQ" customClass="SettingsViewController" customModule="YOUP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ToN-Uk-qjA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ya-cu-y6S">
-                                <rect key="frame" x="145" y="653.5" width="124.5" height="61.5"/>
+                                <rect key="frame" x="145" y="790.5" width="124.5" height="61.5"/>
                                 <color key="tintColor" red="1" green="0.57831738889999995" blue="0.58768028800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log out" buttonSize="large">
@@ -303,14 +303,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      Your account information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niZ-2U-5nd">
-                                <rect key="frame" x="0.0" y="266.5" width="414" height="25.5"/>
+                                <rect key="frame" x="0.0" y="310.5" width="414" height="25.5"/>
                                 <color key="backgroundColor" white="1" alpha="0.20509105959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.91372549020000005" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-gP-AN5">
-                                <rect key="frame" x="20" y="314" width="374" height="208"/>
+                                <rect key="frame" x="20" y="358" width="374" height="208"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="tEK-sV-PUm">
                                         <rect key="frame" x="0.0" y="0.0" width="76.5" height="208"/>
@@ -426,7 +426,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zip-YS-TyL">
-                                <rect key="frame" x="20" y="188" width="374" height="31"/>
+                                <rect key="frame" x="20" y="232" width="374" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tap to change your avatar"/>
                                 <connections>
@@ -434,7 +434,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pal-8r-MHf">
-                                <rect key="frame" x="127" y="19.5" width="160" height="160"/>
+                                <rect key="frame" x="127" y="63.5" width="160" height="160"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -480,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qd8-bD-Z1s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3549" y="220"/>
+            <point key="canvasLocation" x="3514" y="-220"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TC1-cq-Ci4">
@@ -1077,7 +1077,7 @@
                     <navigationItem key="navigationItem" id="L7d-ra-eOJ">
                         <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="nBK-PD-Eau">
                             <connections>
-                                <segue destination="KZf-4u-WjQ" kind="show" id="fwo-z1-xTd"/>
+                                <segue destination="LIR-cR-Rc2" kind="show" id="QNF-Ax-hvQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1490,11 +1490,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="LIR-cR-Rc2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Y2-hN-8IY">
-                        <rect key="frame" x="0.0" y="0.0" width="415" height="1122"/>
+                        <rect key="frame" x="0.0" y="0.0" width="415" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-RS-3vS">
-                                <rect key="frame" x="0.0" y="44" width="415" height="1078"/>
+                                <rect key="frame" x="0.0" y="0.0" width="415" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2M-bv-dlk" userLabel="Content view">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="1141"/>
@@ -1785,11 +1785,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVk-ce-xFJ">
-                                                <rect key="frame" x="20" y="891.5" width="375" height="61.5"/>
+                                                <rect key="frame" x="20" y="891.5" width="375" height="57.5"/>
                                                 <color key="tintColor" red="1" green="0.57831738889999995" blue="0.58768028800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Log out" buttonSize="large">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="26"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="signOutAction:" destination="KZf-4u-WjQ" eventType="touchUpInside" id="0s2-2w-ku3"/>
@@ -1825,7 +1825,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dc8-Uc-bSF">
-                                <rect key="frame" x="127" y="64" width="161" height="160"/>
+                                <rect key="frame" x="127" y="20" width="161" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="vQu-gN-2fJ"/>
                                 </constraints>

@@ -54,28 +54,27 @@ class YoupProfileViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-
-            // tabBarController?.tabBar.frame.size.height = 50
-        //tabBarController?.tabBar.frame.origin.y = view.frame.height - 200
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureWhileLoading()
         if didAvatarChange {
             FirebaseManager.shared.fetchAvatar(userID: currentFBUser.uid) {
                 [self] result in
-               configureWhileLoading()
                 youpUser.image = result
                 avatarImageView.image = result
                 didAvatarChange = false
                 print("pek")
-                configureWhenLoaded()
+                
             }
         }
         
         FirebaseManager.shared.fetchUser(user: currentFBUser) {
             [self] result in
+            
             print("Дрынкдырынк")
             youpUser = result
+            configureWhenLoaded()
         }
     
     }
