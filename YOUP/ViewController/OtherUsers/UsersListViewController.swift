@@ -35,7 +35,7 @@ class UsersListViewController: UITableViewController {
                         self.tableView.reloadData()
                     }
                 }
-                isAllUsersFetched = true
+                
                 for (index,user) in youpUsers.enumerated() {
                     if user.id == Auth.auth().currentUser?.uid {
                         youpUsers.remove(at: index)
@@ -45,6 +45,7 @@ class UsersListViewController: UITableViewController {
                 }
                 
             }
+            isAllUsersFetched = true
         }
         
         

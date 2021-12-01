@@ -362,15 +362,6 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <view contentMode="scaleToFill" id="3h5-zm-HhU" customClass="SpinnerView" customModule="YOUP" customModuleProvider="target">
-                                            <rect key="frame" x="14" y="14" width="62" height="62"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="tintColor" white="1" alpha="0.055644660589999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="K5q-6e-8MF"/>
-                                                <constraint firstAttribute="width" constant="100" id="LDO-wu-Jvg"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="PZy-wG-Zu0" secondAttribute="bottom" constant="15" id="F1L-WE-be7"/>
@@ -1311,6 +1302,11 @@
                                                             <color key="baseForegroundColor" systemColor="linkColor"/>
                                                             <color key="baseBackgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="0.02403249172119204" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="saveReadmeAction:" destination="LIR-cR-Rc2" eventType="touchUpInside" id="Hew-RQ-gCQ"/>
                                                         </connections>
@@ -1321,7 +1317,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ncv-Yq-iN6">
-                                                <rect key="frame" x="20" y="511" width="375" height="258.5"/>
+                                                <rect key="frame" x="20" y="433.5" width="375" height="258.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      Your account information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8A-KT-ABP">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="25.5"/>
@@ -1460,7 +1456,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVk-ce-xFJ">
-                                                <rect key="frame" x="20" y="779.5" width="375" height="57.5"/>
+                                                <rect key="frame" x="20" y="883.5" width="375" height="57.5"/>
                                                 <color key="tintColor" red="1" green="0.57831738889999995" blue="0.58768028800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Log out" buttonSize="large">
@@ -1474,16 +1470,16 @@
                                         <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="WsM-GV-yMX" firstAttribute="top" secondItem="y2M-bv-dlk" secondAttribute="top" constant="20" id="1Cz-zg-mUU"/>
-                                            <constraint firstItem="bVk-ce-xFJ" firstAttribute="top" secondItem="Ncv-Yq-iN6" secondAttribute="bottom" constant="10" id="8vn-hS-Oxc"/>
                                             <constraint firstAttribute="height" constant="1141" id="9p2-2h-MN2"/>
                                             <constraint firstAttribute="trailing" secondItem="bVk-ce-xFJ" secondAttribute="trailing" constant="20" id="Ag9-hK-zTI"/>
+                                            <constraint firstAttribute="bottom" secondItem="bVk-ce-xFJ" secondAttribute="bottom" constant="200" id="Qu8-6e-9wL"/>
                                             <constraint firstItem="WsM-GV-yMX" firstAttribute="leading" secondItem="y2M-bv-dlk" secondAttribute="leading" constant="20" id="SJC-Xo-94A"/>
                                             <constraint firstAttribute="trailing" secondItem="iGz-FH-rwz" secondAttribute="trailing" constant="20" id="UzB-bv-2cP"/>
                                             <constraint firstItem="Ncv-Yq-iN6" firstAttribute="leading" secondItem="y2M-bv-dlk" secondAttribute="leading" constant="20" id="VE3-NC-QFB"/>
                                             <constraint firstItem="bVk-ce-xFJ" firstAttribute="leading" secondItem="y2M-bv-dlk" secondAttribute="leading" constant="20" id="Xrq-Lh-psD"/>
                                             <constraint firstItem="iGz-FH-rwz" firstAttribute="top" secondItem="WsM-GV-yMX" secondAttribute="bottom" constant="28" id="h8t-vS-6z3"/>
                                             <constraint firstAttribute="trailing" secondItem="Ncv-Yq-iN6" secondAttribute="trailing" constant="20" id="isL-6t-Z4g"/>
-                                            <constraint firstItem="Ncv-Yq-iN6" firstAttribute="top" secondItem="iGz-FH-rwz" secondAttribute="bottom" constant="117.5" id="nBI-hs-jYV"/>
+                                            <constraint firstItem="Ncv-Yq-iN6" firstAttribute="top" secondItem="iGz-FH-rwz" secondAttribute="bottom" constant="40" id="nBI-hs-jYV"/>
                                             <constraint firstAttribute="trailing" secondItem="WsM-GV-yMX" secondAttribute="trailing" constant="20" id="pIy-4c-Cii"/>
                                             <constraint firstItem="iGz-FH-rwz" firstAttribute="leading" secondItem="y2M-bv-dlk" secondAttribute="leading" constant="20" id="sig-aW-4gh"/>
                                         </constraints>
@@ -1537,7 +1533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIM-JY-LXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3607" y="220"/>
+            <point key="canvasLocation" x="3606.521739130435" y="219.64285714285714"/>
         </scene>
     </scenes>
     <resources>
