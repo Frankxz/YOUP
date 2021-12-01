@@ -25,6 +25,7 @@ class YoupProfileViewController: UIViewController {
     @IBOutlet weak var redLabel: UILabel!
     
     @IBOutlet weak var commentCounterLabel: UILabel!
+    @IBOutlet weak var aboutmeLabel: UILabel!
     @IBOutlet weak var aboutmeTextView: UITextView!
     
     var currentFBUser: User!
@@ -136,9 +137,20 @@ extension YoupProfileViewController {
         yellowLabel.text = String (youpUser.stats["yellow"]!)
         greenLabel.text = String (youpUser.stats["green"]!)
         commentCounterLabel.text = "\(youpUser.comments.count) comments"
-        aboutmeTextView.text = youpUser.aboutme
+        setAboutme()
         skillsCollectionView.reloadData()
         commentsCollectionView.reloadData()
+    }
+    
+    func setAboutme(){
+        aboutmeTextView.text = youpUser.aboutme
+        if youpUser.aboutme == "" {
+            aboutmeLabel.isHidden = true
+            aboutmeTextView.isHidden = true
+        } else {
+            aboutmeLabel.isHidden = false
+            aboutmeTextView.isHidden = false
+        }
     }
     
     func configureWhileLoading() {
