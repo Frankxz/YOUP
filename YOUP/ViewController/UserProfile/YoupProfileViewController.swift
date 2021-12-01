@@ -72,8 +72,6 @@ class YoupProfileViewController: UIViewController {
         
         FirebaseManager.shared.fetchUser(user: currentFBUser) {
             [self] result in
-            
-            print("Дрынкдырынк")
             youpUser = result
             configureWhenLoaded()
         }

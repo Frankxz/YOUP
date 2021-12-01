@@ -81,4 +81,5 @@ class FirebaseManager {
                                      "surname": youpUser.surname,
                                      "aboutme": youpUser.aboutme])
     }
+    
 }

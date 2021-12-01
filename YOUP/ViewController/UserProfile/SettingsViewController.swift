@@ -35,6 +35,7 @@ class SettingsViewController: UIViewController {
         usernameTF.text = youpUser.username
         nameTF.text = youpUser.name
         surnameTF.text = youpUser.surname
+        aboutmeTextField.text = youpUser.aboutme
         
         // Do any additional setup after loading the view.
     }
@@ -60,6 +61,14 @@ class SettingsViewController: UIViewController {
             
         }
     }
+    
+    
+    
+    @IBAction func saveReadmeAction(_ sender: UIButton) {
+        youpUser.aboutme = aboutmeTextField.text
+        FirebaseManager.shared.postUserInfo(youpUser: youpUser)
+    }
+    
     
     @IBAction func signOutAction(_ sender: UIButton) {
         
