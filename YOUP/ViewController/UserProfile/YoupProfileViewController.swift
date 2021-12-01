@@ -17,7 +17,6 @@ class YoupProfileViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
-    @IBOutlet weak var skillsCollectionView: UICollectionView!
     @IBOutlet weak var commentsCollectionView: UICollectionView!
     
     @IBOutlet weak var greenLabel: UILabel!
@@ -42,8 +41,6 @@ class YoupProfileViewController: UIViewController {
         guard let _currentFBUser = Auth.auth().currentUser else { return }
         currentFBUser = _currentFBUser
         navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
-        skillsCollectionView.delegate = self
-        skillsCollectionView.dataSource = self
         
         commentsCollectionView.delegate = self
         commentsCollectionView.dataSource = self
@@ -90,18 +87,12 @@ class YoupProfileViewController: UIViewController {
 extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionView == skillsCollectionView ? 6 : youpUser.comments.count
+         youpUser.comments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == skillsCollectionView {
-            let cell = skillsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SkillCollectionViewCell
-            cell.configure(text: "Skill")
-            return cell
-        }
-        
-        else {
+
             let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
             let comment = youpUser.comments[indexPath.item]
             cell.configure(username: "Somebody", fullname: "Unknown who 🤫 ",
@@ -110,7 +101,6 @@ extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewD
             if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
             return cell
         }
-    }
     
 }
 
@@ -136,7 +126,7 @@ extension YoupProfileViewController {
         greenLabel.text = String (youpUser.stats["green"]!)
         commentCounterLabel.text = "\(youpUser.comments.count) comments"
         setAboutme()
-        skillsCollectionView.reloadData()
+        
         commentsCollectionView.reloadData()
     }
     
