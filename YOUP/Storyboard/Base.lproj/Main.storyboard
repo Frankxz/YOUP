@@ -794,53 +794,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="0wY-A6-H4f">
-                                <rect key="frame" x="25" y="400" width="364" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="CgR-u6-PKm">
+                                <rect key="frame" x="20" y="351" width="374" height="161"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Аnonymous comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzO-Nj-aGL">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                        <color key="textColor" systemColor="tintColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-ro-XrM">
-                                        <rect key="frame" x="315" y="0.0" width="51" height="31"/>
-                                    </switch>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FDL-6f-0wU">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <segments>
+                                            <segment title="Good"/>
+                                            <segment title="Neutral"/>
+                                            <segment title="Bad"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" systemColor="linkColor"/>
+                                        <connections>
+                                            <action selector="changeType" destination="WoA-wc-PRW" eventType="valueChanged" id="O3J-lo-A5b"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="0wY-A6-H4f">
+                                        <rect key="frame" x="0.0" y="62" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Аnonymous comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzO-Nj-aGL">
+                                                <rect key="frame" x="0.0" y="0.0" width="266" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                <color key="textColor" systemColor="tintColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-ro-XrM">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A03-Vf-npv">
+                                        <rect key="frame" x="0.0" y="124" width="374" height="37"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Comment">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addCommentAction" destination="WoA-wc-PRW" eventType="touchUpInside" id="8md-aJ-tVs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A03-Vf-npv">
-                                <rect key="frame" x="130" y="475" width="154" height="37"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Comment">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addCommentAction" destination="WoA-wc-PRW" eventType="touchUpInside" id="8md-aJ-tVs"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FDL-6f-0wU">
-                                <rect key="frame" x="25" y="351" width="364" height="32"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20646212750000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <segments>
-                                    <segment title="Good"/>
-                                    <segment title="Neutral"/>
-                                    <segment title="Bad"/>
-                                </segments>
-                                <color key="selectedSegmentTintColor" systemColor="linkColor"/>
-                                <connections>
-                                    <action selector="changeType" destination="WoA-wc-PRW" eventType="valueChanged" id="O3J-lo-A5b"/>
-                                </connections>
-                            </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QMO-M5-snb">
                                 <rect key="frame" x="25" y="99" width="364" height="164"/>
                                 <subviews>
@@ -872,18 +877,12 @@
                         <viewLayoutGuide key="safeArea" id="z1x-qF-0DN"/>
                         <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="0wY-A6-H4f" firstAttribute="leading" secondItem="z1x-qF-0DN" secondAttribute="leading" constant="25" id="FTh-Pn-wZx"/>
-                            <constraint firstItem="z1x-qF-0DN" firstAttribute="trailing" secondItem="0wY-A6-H4f" secondAttribute="trailing" constant="25" id="K01-1L-30F"/>
-                            <constraint firstItem="A03-Vf-npv" firstAttribute="leading" secondItem="z1x-qF-0DN" secondAttribute="leading" constant="130" id="Mln-aa-Zoo"/>
+                            <constraint firstItem="z1x-qF-0DN" firstAttribute="trailing" secondItem="CgR-u6-PKm" secondAttribute="trailing" constant="20" id="Ism-hX-4Mu"/>
+                            <constraint firstItem="CgR-u6-PKm" firstAttribute="top" secondItem="QMO-M5-snb" secondAttribute="bottom" constant="88" id="Rmf-RR-rpK"/>
                             <constraint firstItem="QMO-M5-snb" firstAttribute="top" secondItem="z1x-qF-0DN" secondAttribute="top" constant="55" id="TUO-tk-Cnw"/>
                             <constraint firstItem="z1x-qF-0DN" firstAttribute="trailing" secondItem="QMO-M5-snb" secondAttribute="trailing" constant="25" id="V9A-Kg-7Qc"/>
-                            <constraint firstItem="0wY-A6-H4f" firstAttribute="top" secondItem="FDL-6f-0wU" secondAttribute="bottom" constant="18" id="Y2A-jr-FiR"/>
-                            <constraint firstItem="z1x-qF-0DN" firstAttribute="bottom" secondItem="A03-Vf-npv" secondAttribute="bottom" constant="350" id="cOP-iE-uDf"/>
-                            <constraint firstItem="A03-Vf-npv" firstAttribute="top" secondItem="0wY-A6-H4f" secondAttribute="bottom" constant="44" id="duD-6D-yGj"/>
-                            <constraint firstItem="z1x-qF-0DN" firstAttribute="trailing" secondItem="A03-Vf-npv" secondAttribute="trailing" constant="130" id="jy1-F9-Mfg"/>
+                            <constraint firstItem="CgR-u6-PKm" firstAttribute="leading" secondItem="z1x-qF-0DN" secondAttribute="leading" constant="20" id="WEO-bu-Kuj"/>
                             <constraint firstItem="QMO-M5-snb" firstAttribute="leading" secondItem="z1x-qF-0DN" secondAttribute="leading" constant="25" id="lvr-iw-3On"/>
-                            <constraint firstItem="FDL-6f-0wU" firstAttribute="leading" secondItem="z1x-qF-0DN" secondAttribute="leading" constant="25" id="mhF-et-sUi"/>
-                            <constraint firstItem="z1x-qF-0DN" firstAttribute="trailing" secondItem="FDL-6f-0wU" secondAttribute="trailing" constant="25" id="yrM-Nj-C4c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q6Y-5r-ZGQ"/>
@@ -1598,6 +1597,34 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gom-dc-T9T">
+                                                <rect key="frame" x="15" y="825" width="384" height="67"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know Robert? Write what you think about him!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEy-Y4-d6y">
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" systemColor="systemIndigoColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PY-PD-Xxh">
+                                                        <rect key="frame" x="0.0" y="33" width="384" height="34"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Write new comment">
+                                                            <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <segue destination="WoA-wc-PRW" kind="presentation" modalPresentationStyle="fullScreen" id="5l3-OG-AMi"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1605,8 +1632,10 @@
                                             <constraint firstAttribute="trailing" secondItem="Gto-J2-agK" secondAttribute="trailing" constant="15" id="2x4-I0-UmP"/>
                                             <constraint firstItem="7GV-15-E7P" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" id="DKp-e1-mAh"/>
                                             <constraint firstAttribute="trailing" secondItem="7GV-15-E7P" secondAttribute="trailing" id="ELB-T5-ics"/>
+                                            <constraint firstItem="Gom-dc-T9T" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="15" id="FkL-NQ-WQe"/>
                                             <constraint firstItem="Gto-J2-agK" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="15" id="Pm6-7V-YeS"/>
                                             <constraint firstItem="uQV-Vd-e0J" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="15" id="Tw3-YJ-HFK"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gom-dc-T9T" secondAttribute="trailing" constant="15" id="VR5-aE-qcQ"/>
                                             <constraint firstAttribute="height" constant="1141" id="WT7-uA-c4D"/>
                                             <constraint firstItem="uQV-Vd-e0J" firstAttribute="top" secondItem="zOj-kW-9GI" secondAttribute="bottom" constant="6.5" id="ZK9-hc-9eO"/>
                                             <constraint firstItem="7GV-15-E7P" firstAttribute="top" secondItem="Gto-J2-agK" secondAttribute="bottom" constant="10" id="dSM-J2-ZZ7"/>
@@ -1614,6 +1643,7 @@
                                             <constraint firstItem="zOj-kW-9GI" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="10" id="ipH-Gc-0TK"/>
                                             <constraint firstAttribute="trailing" secondItem="zOj-kW-9GI" secondAttribute="trailing" constant="10" id="qsn-XX-N4z"/>
                                             <constraint firstItem="zOj-kW-9GI" firstAttribute="top" secondItem="O1h-rY-XsN" secondAttribute="top" constant="10" id="rkd-gf-KzH"/>
+                                            <constraint firstItem="Gom-dc-T9T" firstAttribute="top" secondItem="7GV-15-E7P" secondAttribute="bottom" constant="79" id="sWZ-uq-mqe"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1642,6 +1672,7 @@
                         <outlet property="aboutmeLabel" destination="pQg-EJ-Rk7" id="toi-gW-NoN"/>
                         <outlet property="aboutmeTextView" destination="Wcq-YR-rPW" id="gij-mr-fuo"/>
                         <outlet property="avatarImageView" destination="dKr-nw-hwY" id="F6y-Kf-byw"/>
+                        <outlet property="commentAdviceLabel" destination="eEy-Y4-d6y" id="ehe-Qf-1d8"/>
                         <outlet property="commentCounterLabel" destination="59w-2Y-oZr" id="OGv-xd-xCK"/>
                         <outlet property="commentsCollectionView" destination="7GV-15-E7P" id="X2U-r6-d6u"/>
                         <outlet property="fullnameLabel" destination="qj3-cV-Phd" id="zwA-EU-H9Q"/>
@@ -1688,6 +1719,9 @@
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

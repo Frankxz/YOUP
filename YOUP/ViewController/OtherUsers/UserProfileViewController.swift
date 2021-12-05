@@ -24,6 +24,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var commentCounterLabel: UILabel!
     @IBOutlet weak var aboutmeLabel: UILabel!
     @IBOutlet weak var aboutmeTextView: UITextView!
+    @IBOutlet weak var commentAdviceLabel: UILabel!
     
     var avatar: UIImage!
     
@@ -66,6 +67,12 @@ class UserProfileViewController: UIViewController {
         }
     
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let commentCreatingVC = segue.destination as? CommentCreatingViewController else { return }
+        commentCreatingVC.youpUser = youpUser
+    }
+    
 }
 
 //MARK: - skillsCollectionView and commentsCollectionView
@@ -94,6 +101,13 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
 extension UserProfileViewController {
     
     func displayUserInfo(){
+        if(youpUser.comments.count == 0) {
+            commentsCollectionView.isHidden = true
+        }
+        else {
+            commentsCollectionView.isHidden = false
+        }
+        
         navigationItem.title = youpUser.username
         fullnameLabel.text = youpUser.fullname
         redLabel.text = String (youpUser.stats["red"]!)
@@ -101,7 +115,7 @@ extension UserProfileViewController {
         greenLabel.text = String (youpUser.stats["green"]!)
         commentCounterLabel.text = "\(youpUser.comments.count) comments"
         setAboutme()
-        
+        commentAdviceLabel.text = "Do you know \(youpUser.name)? Write what you think about him!"
         commentsCollectionView.reloadData()
     }
     
