@@ -9,8 +9,8 @@ import UIKit
 import Firebase
 
 class YoupProfileViewController: UIViewController {
-
-
+    
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fullnameLabel: UILabel!
@@ -31,7 +31,7 @@ class YoupProfileViewController: UIViewController {
     
     private let commentsCount = 15
     private var currentSelectedIndex = 0
-
+    
     var didAvatarChange = true
     
     override func viewDidLoad() {
@@ -65,12 +65,12 @@ class YoupProfileViewController: UIViewController {
             }
         }
         
-        FirebaseManager.shared.fetchUser(user: youpUser) {
+        FirebaseManager.shared.fetchUser(id: youpUser.id) {
             [self] result in
             youpUser = result
             configureWhenLoaded()
         }
-    
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController else { return }
@@ -85,20 +85,20 @@ class YoupProfileViewController: UIViewController {
 extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         youpUser.comments.count
+        youpUser.comments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-
-            let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
-            let comment = youpUser.comments[indexPath.item]
-            cell.configure(username: "Somebody", fullname: "Unknown who 🤫 ",
-                           avatar: UIImage(systemName: "questionmark.circle")!,
-                           title: comment.title, text: comment.text, type: comment.type)
-            if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
-            return cell
-        }
+        
+        let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
+        let comment = youpUser.comments[indexPath.item]
+        cell.configure(username: comment.commentAuthor?.username ?? "Somebody", fullname: comment.commentAuthor?.fullname ?? "Unknown who 🤫 ",
+                       avatar: UIImage(systemName: "questionmark.circle")!,
+                       title: comment.title, text: comment.text, type: comment.type)
+        if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
+        return cell
+    }
     
 }
 
@@ -143,13 +143,13 @@ extension YoupProfileViewController {
         
         navigationController?.isNavigationBarHidden = true
         self.scrollView.isScrollEnabled = false
-    
+        
     }
     
     func configureWhenLoaded(){
         navigationController?.isNavigationBarHidden = false
         self.scrollView.isScrollEnabled = true
-       
+        
         displayUserInfo()
     }
 }
@@ -176,13 +176,13 @@ extension YoupProfileViewController {
         var selectedIndex =  currentSelectedIndex
         
         switch horizontalVelocity {
-        // On swiping
+            // On swiping
         case _ where horizontalVelocity > 0 :
             selectedIndex = currentSelectedIndex + 1
         case _ where horizontalVelocity < 0:
             selectedIndex = currentSelectedIndex - 1
             
-        // On dragging
+            // On dragging
         case _ where horizontalVelocity == 0:
             let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
             let roundedIndex = round(index)

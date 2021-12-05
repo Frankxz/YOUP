@@ -19,16 +19,16 @@ class FirebaseManager {
     var storageRef: StorageReference!
     
     
-    func fetchUser(user: YoupUser, complition: @escaping (YoupUser)->()){
+    func fetchUser(id: String, complition: @escaping (YoupUser)->()){
         var youpUser: YoupUser!
         
         //Get youpUser
-        databaseCurrentRef = usersRef.child(String(user.id)).child("userInfo")
+        databaseCurrentRef = usersRef.child(String(id)).child("userInfo")
         databaseCurrentRef.observe(.value) { snapshot in
             youpUser = YoupUser(snapshot: snapshot)
             
             
-            self.databaseCurrentRef = self.usersRef.child(String(user.id))
+            self.databaseCurrentRef = self.usersRef.child(String(id))
             self.databaseCurrentRef.observe(.value) { snapshot in
                 var bufferComments: [Comment] = []
                 for item in snapshot.childSnapshot(forPath: "comments").children{

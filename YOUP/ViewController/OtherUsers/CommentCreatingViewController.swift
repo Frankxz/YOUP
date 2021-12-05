@@ -49,7 +49,7 @@ class CommentCreatingViewController: UIViewController {
         }
         let comment1 = Comment(title: titleTextField.text ?? "Comment",
                                text: textView.text,
-                               userID: anonSwitch.isOn ? "Unknow user" : "Youp user",
+                               userID: anonSwitch.isOn ? "Youp user" : Auth.auth().currentUser?.uid as! String ,
                                type: commentType)
         ref =  Database.database().reference(withPath: "users").child(String(youpUser.id)).child("comments")
         let commmentRef = ref.child(comment1.title.lowercased())

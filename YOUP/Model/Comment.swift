@@ -21,6 +21,7 @@ class Comment {
     let userID: String
     let type: Int
     let ref: DatabaseReference?
+    var commentAuthor: YoupUser?
     
     
     init(title: String, text: String, userID: String, type: Int){
@@ -38,5 +39,12 @@ class Comment {
         userID = snapshotValue["userID"] as! String
         type = snapshotValue["type"] as! Int
         ref = snapshot.ref
+        
+        if userID != "Youp user" && userID != "Unknow user" && userID != "Unknown" {
+            FirebaseManager.shared.fetchUser(id: userID){ author in
+                self.commentAuthor = author
+                print("Here is author")
+            }
+        }
     }
 }
