@@ -10,8 +10,7 @@ import Firebase
 
 class YoupProfileViewController: UIViewController {
 
-    
-    @IBOutlet weak var loadingView: UIView!
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fullnameLabel: UILabel!
@@ -142,7 +141,7 @@ extension YoupProfileViewController {
     }
     
     func configureWhileLoading() {
-    
+        
         navigationController?.isNavigationBarHidden = true
         self.scrollView.isScrollEnabled = false
     
@@ -151,7 +150,7 @@ extension YoupProfileViewController {
     func configureWhenLoaded(){
         navigationController?.isNavigationBarHidden = false
         self.scrollView.isScrollEnabled = true
-        loadingView.isHidden = true
+       
         displayUserInfo()
     }
 }
