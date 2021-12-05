@@ -24,7 +24,8 @@ class YoupProfileViewController: UIViewController {
     
     @IBOutlet weak var commentCounterLabel: UILabel!
     @IBOutlet weak var aboutmeLabel: UILabel!
-    @IBOutlet weak var aboutmeTextView: UITextView!
+    
+    @IBOutlet weak var aboutmeTextLabel: UILabel!
     
     var currentFBUser: User!
     var youpUser = YoupUser()
@@ -68,6 +69,7 @@ class YoupProfileViewController: UIViewController {
         FirebaseManager.shared.fetchUser(id: youpUser.id) {
             [self] result in
             youpUser = result
+         
             configureWhenLoaded()
         }
         
@@ -93,7 +95,8 @@ extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewD
         
         let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
         let comment = youpUser.comments[indexPath.item]
-        cell.configure(username: comment.commentAuthor?.username ?? "Somebody", fullname: comment.commentAuthor?.fullname ?? "Unknown who 🤫 ",
+        cell.configure(username: comment.authorUsername ?? "Somebody",
+                       fullname: comment.authorName ?? "Unknown who 🤫 ",
                        avatar: UIImage(systemName: "questionmark.circle")!,
                        title: comment.title, text: comment.text, type: comment.type)
         if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
@@ -129,13 +132,13 @@ extension YoupProfileViewController {
     }
     
     func setAboutme(){
-        aboutmeTextView.text = youpUser.aboutme
+        aboutmeTextLabel.text = youpUser.aboutme
         if youpUser.aboutme == "" {
             aboutmeLabel.isHidden = true
-            aboutmeTextView.isHidden = true
+            aboutmeTextLabel.isHidden = true
         } else {
             aboutmeLabel.isHidden = false
-            aboutmeTextView.isHidden = false
+            aboutmeTextLabel.isHidden = false
         }
     }
     

@@ -35,9 +35,9 @@ class FirebaseManager {
                     let comment = Comment(snapshot: item as! DataSnapshot)
                     bufferComments.append(comment)
                 }
-                youpUser.setStats(snapshot: snapshot)
-                youpUser.comments = bufferComments
-                complition(youpUser)
+                    youpUser.setStats(snapshot: snapshot)
+                    youpUser.comments = bufferComments
+                    complition(youpUser)
             }
         }
     }
@@ -81,5 +81,22 @@ class FirebaseManager {
                                      "surname": youpUser.surname,
                                      "aboutme": youpUser.aboutme])
     }
+    
+    
+    func fetchAuthorsData(comment: Comment, completion: @escaping (Comment) -> ()){
+        
+        if comment.userID != "Youp user" && comment.userID != "Unknow user" && comment.userID != "Unknown"{
+            databaseCurrentRef = usersRef.child(String(comment.userID)).child("userInfo").child("username")
+            databaseCurrentRef.getData { error, snapshot in
+                guard error == nil else { return }
+                let username = snapshot.value as? String ?? "Unknown";
+                comment.authorUsername = username
+                completion(comment)
+                print("author is here !!!!!!!!")
+                
+            }
+        }
+    }
+    
     
 }

@@ -555,7 +555,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="woX-98-X62">
-                                                <rect key="frame" x="15" y="166" width="384" height="66.5"/>
+                                                <rect key="frame" x="15" y="166" width="384" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    About me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BT-bV-3WX">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -563,12 +563,15 @@
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-FH-cci">
-                                                        <rect key="frame" x="0.0" y="26.5" width="384" height="40"/>
-                                                        <color key="textColor" systemColor="systemGroupedBackgroundColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgL-Kl-e7h">
+                                                        <rect key="frame" x="0.0" y="26.5" width="384" height="25.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="360" id="aFa-zI-bEM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="0.12725062079999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
@@ -578,7 +581,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2en-Dm-6MI">
-                                                <rect key="frame" x="0.0" y="298" width="414" height="448"/>
+                                                <rect key="frame" x="0.0" y="283.5" width="414" height="448"/>
                                                 <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="448" id="xz5-fL-FDT"/>
@@ -702,7 +705,7 @@
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahe-p3-RMa" userLabel="Comments count view">
-                                                <rect key="frame" x="15" y="246" width="384" height="42"/>
+                                                <rect key="frame" x="15" y="231.5" width="384" height="42"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="? Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIk-gA-kTM">
                                                         <rect key="frame" x="29" y="7.5" width="126" height="27.5"/>
@@ -771,7 +774,7 @@
                     <size key="freeformSize" width="414" height="1122"/>
                     <connections>
                         <outlet property="aboutmeLabel" destination="1BT-bV-3WX" id="bL3-hm-HHi"/>
-                        <outlet property="aboutmeTextView" destination="xwO-FH-cci" id="yvg-lc-hE8"/>
+                        <outlet property="aboutmeTextLabel" destination="rgL-Kl-e7h" id="pzH-t9-X3F"/>
                         <outlet property="avatarImageView" destination="Lja-eM-qtW" id="iOB-sA-Lz4"/>
                         <outlet property="commentCounterLabel" destination="XIk-gA-kTM" id="bgL-GC-9BB"/>
                         <outlet property="commentsCollectionView" destination="2en-Dm-6MI" id="Xt8-bi-ams"/>

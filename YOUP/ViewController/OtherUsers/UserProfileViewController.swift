@@ -63,7 +63,9 @@ class UserProfileViewController: UIViewController {
         FirebaseManager.shared.fetchUser(id: youpUser.id) {
             [self] result in
             youpUser = result
+            
             configureWhenLoaded()
+
         }
     
     }
@@ -87,8 +89,8 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
 
         let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
         let comment = youpUser.comments[indexPath.item]
-        cell.configure(username: comment.commentAuthor?.username ?? "Somebody",
-                       fullname: comment.commentAuthor?.fullname ?? "Unknown who 🤫 ",
+        cell.configure(username: comment.authorUsername ?? "Somebody",
+                       fullname: comment.authorName ?? "Unknown who 🤫 ",
                        avatar: UIImage(systemName: "questionmark.circle")!,
                            title: comment.title, text: comment.text, type: comment.type)
             if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
