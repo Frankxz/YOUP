@@ -1287,7 +1287,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1h-rY-XsN" userLabel="Content view">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1060"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zOj-kW-9GI">
                                                 <rect key="frame" x="10" y="10" width="394" height="149.5"/>
@@ -1610,7 +1610,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gom-dc-T9T">
-                                                <rect key="frame" x="15" y="786" width="384" height="67"/>
+                                                <rect key="frame" x="15" y="756" width="384" height="67"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know Robert? Write what you think about him!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEy-Y4-d6y">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="16"/>
@@ -1648,14 +1648,14 @@
                                             <constraint firstItem="Gto-J2-agK" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="15" id="Pm6-7V-YeS"/>
                                             <constraint firstItem="uQV-Vd-e0J" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="15" id="Tw3-YJ-HFK"/>
                                             <constraint firstAttribute="trailing" secondItem="Gom-dc-T9T" secondAttribute="trailing" constant="15" id="VR5-aE-qcQ"/>
-                                            <constraint firstAttribute="height" constant="1150" id="WT7-uA-c4D"/>
+                                            <constraint firstAttribute="height" constant="1060" id="WT7-uA-c4D"/>
                                             <constraint firstItem="uQV-Vd-e0J" firstAttribute="top" secondItem="zOj-kW-9GI" secondAttribute="bottom" constant="6.5" id="ZK9-hc-9eO"/>
                                             <constraint firstItem="7GV-15-E7P" firstAttribute="top" secondItem="Gto-J2-agK" secondAttribute="bottom" constant="10" id="dSM-J2-ZZ7"/>
                                             <constraint firstItem="Gto-J2-agK" firstAttribute="top" secondItem="uQV-Vd-e0J" secondAttribute="bottom" constant="13.5" id="hVM-ZE-ev3"/>
                                             <constraint firstItem="zOj-kW-9GI" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="10" id="ipH-Gc-0TK"/>
                                             <constraint firstAttribute="trailing" secondItem="zOj-kW-9GI" secondAttribute="trailing" constant="10" id="qsn-XX-N4z"/>
                                             <constraint firstItem="zOj-kW-9GI" firstAttribute="top" secondItem="O1h-rY-XsN" secondAttribute="top" constant="10" id="rkd-gf-KzH"/>
-                                            <constraint firstItem="Gom-dc-T9T" firstAttribute="top" secondItem="7GV-15-E7P" secondAttribute="bottom" constant="40" id="sWZ-uq-mqe"/>
+                                            <constraint firstItem="Gom-dc-T9T" firstAttribute="top" secondItem="7GV-15-E7P" secondAttribute="bottom" constant="10" id="sWZ-uq-mqe"/>
                                         </constraints>
                                     </view>
                                 </subviews>
