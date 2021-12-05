@@ -401,7 +401,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-tt-QzO" userLabel="Content view">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1141"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dWl-9o-jrj">
                                                 <rect key="frame" x="10" y="10" width="394" height="149.5"/>
@@ -738,7 +738,7 @@
                                             <constraint firstAttribute="trailing" secondItem="woX-98-X62" secondAttribute="trailing" constant="15" id="rnJ-ad-Lj2"/>
                                             <constraint firstItem="ahe-p3-RMa" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" constant="15" id="sOX-Kf-SWg"/>
                                             <constraint firstItem="2en-Dm-6MI" firstAttribute="leading" secondItem="xhM-tt-QzO" secondAttribute="leading" id="vKW-Fr-UZb"/>
-                                            <constraint firstAttribute="height" constant="1141" id="zyn-8G-Fzg"/>
+                                            <constraint firstAttribute="height" constant="1000" id="zyn-8G-Fzg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
