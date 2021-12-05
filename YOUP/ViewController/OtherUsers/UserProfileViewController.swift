@@ -6,105 +6,183 @@
 //
 import UIKit
 import Firebase
-import FirebaseStorage
 
-class UserProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class UserProfileViewController: UIViewController {
 
 
-    @IBOutlet weak var profileImg: UIImageView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fullnameLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var commentsCollectionView: UICollectionView!
     
     @IBOutlet weak var greenLabel: UILabel!
-    
     @IBOutlet weak var yellowLabel: UILabel!
-    
     @IBOutlet weak var redLabel: UILabel!
     
-    @IBOutlet weak var noCommentsLabel: UILabel!
+    @IBOutlet weak var commentCounterLabel: UILabel!
+    @IBOutlet weak var aboutmeLabel: UILabel!
+    @IBOutlet weak var aboutmeTextView: UITextView!
     
-    var youpUser: YoupUser!
-    var databaseRef: DatabaseReference!
     var avatar: UIImage!
-   
-    @IBOutlet weak var tableView: UITableView!
+    
+    var youpUser = YoupUser()
+    
+    private let commentsCount = 15
+    private var currentSelectedIndex = 0
+
+    var didAvatarChange = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImg.image = avatar
-        profileImg.layer.cornerRadius = profileImg.layer.bounds.width/2
-        navigationItem.title = youpUser.username
-        fullnameLabel.text = youpUser.fullname
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        noCommentsLabel.text = "\(youpUser.username) has no comments yet. Be the first and leave a comment! :)"
-        noCommentsLabel.isHidden = true
+        commentsCollectionView.delegate = self
+        commentsCollectionView.dataSource = self
+        commentsCollectionView.collectionViewLayout = CommentsCollectionFlowLayout()
+        
     }
     
+ 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        databaseRef = Database.database().reference(withPath: "users").child(String(youpUser.id))
-        databaseRef.observe(.value) { [weak self] (snapshot) in
-            var bufferComments: [Comment] = []
-            for item in snapshot.childSnapshot(forPath: "comments").children{
-                let comment = Comment(snapshot: item as! DataSnapshot)
-                bufferComments.append(comment)
+        configureWhileLoading()
+        if didAvatarChange {
+            FirebaseManager.shared.fetchAvatar(userID: youpUser.id) {
+                [self] result in
+                youpUser.image = result
+                avatarImageView.image = result
+                didAvatarChange = false
+                print("pek")
+                
             }
-            self?.youpUser.setStats(snapshot: snapshot)
-            self?.youpUser.comments = bufferComments
-            self?.redLabel.text = String ((self?.youpUser.stats["red"])!)
-            self?.yellowLabel.text = String ((self?.youpUser.stats["yellow"])!)
-            self?.greenLabel.text = String ((self?.youpUser.stats["green"])!)
-            self?.tableView.reloadData()
-            if self?.youpUser.comments.count == 0 {
-                self?.noCommentsLabel.isHidden = false
-            } else {
-                self?.noCommentsLabel.isHidden = true
-            }
-            
         }
         
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let commentCreatingVC = segue.destination as! CommentCreatingViewController
-        commentCreatingVC.youpUser = youpUser
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        youpUser.comments.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let comment = youpUser.comments[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = comment.title
-        content.secondaryText = comment.text
-        
-        switch(comment.type) {
-        case 0:
-            cell.backgroundColor = .systemGreen
-        case 2:
-            cell.backgroundColor = .systemPink
-        default:
-            cell.backgroundColor = .systemYellow
+        FirebaseManager.shared.fetchUser(user: youpUser) {
+            [self] result in
+            youpUser = result
+            configureWhenLoaded()
         }
-        cell.contentConfiguration = content
-        
-        return cell
+    
+    }
+}
+
+//MARK: - skillsCollectionView and commentsCollectionView
+extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+         youpUser.comments.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+
+            let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
+            let comment = youpUser.comments[indexPath.item]
+            cell.configure(username: "Somebody", fullname: "Unknown who 🤫 ",
+                           avatar: UIImage(systemName: "questionmark.circle")!,
+                           title: comment.title, text: comment.text, type: comment.type)
+            if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
+            return cell
+        }
     
 }
 
 
+// MARK: - Work with UI
+extension UserProfileViewController {
+    
+    func displayUserInfo(){
+        navigationItem.title = youpUser.username
+        fullnameLabel.text = youpUser.fullname
+        redLabel.text = String (youpUser.stats["red"]!)
+        yellowLabel.text = String (youpUser.stats["yellow"]!)
+        greenLabel.text = String (youpUser.stats["green"]!)
+        commentCounterLabel.text = "\(youpUser.comments.count) comments"
+        setAboutme()
+        
+        commentsCollectionView.reloadData()
+    }
+    
+    func setAboutme(){
+        aboutmeTextView.text = youpUser.aboutme
+        aboutmeLabel.text = "    About \(youpUser.name)"
+        if youpUser.aboutme == "" {
+            aboutmeLabel.isHidden = true
+            aboutmeTextView.isHidden = true
+        } else {
+            aboutmeLabel.isHidden = false
+            aboutmeTextView.isHidden = false
+        }
+    }
+    
+    func configureWhileLoading() {
+        
+        navigationController?.isNavigationBarHidden = true
+        self.scrollView.isScrollEnabled = false
+    
+    }
+    
+    func configureWhenLoaded(){
+        navigationController?.isNavigationBarHidden = false
+        self.scrollView.isScrollEnabled = true
+       
+        displayUserInfo()
+    }
+}
 
-
-
-
+extension UserProfileViewController {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let currentCell = commentsCollectionView.cellForItem(at: IndexPath(row: currentSelectedIndex, section: 0)) as! CommentCollectionViewCell
+        currentCell.transformToStandard()
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        guard scrollView == commentsCollectionView else {
+            return
+        }
+        
+        targetContentOffset.pointee = scrollView.contentOffset
+        
+        let flowLayout = commentsCollectionView.collectionViewLayout as! CommentsCollectionFlowLayout
+        let cellWidthIncludingSpacing = flowLayout.itemSize.width + flowLayout.minimumLineSpacing
+        let offset = targetContentOffset.pointee
+        let horizontalVelocity = velocity.x
+        
+        var selectedIndex =  currentSelectedIndex
+        
+        switch horizontalVelocity {
+        // On swiping
+        case _ where horizontalVelocity > 0 :
+            selectedIndex = currentSelectedIndex + 1
+        case _ where horizontalVelocity < 0:
+            selectedIndex = currentSelectedIndex - 1
+            
+        // On dragging
+        case _ where horizontalVelocity == 0:
+            let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
+            let roundedIndex = round(index)
+            
+            selectedIndex = Int(roundedIndex)
+        default:
+            print("Incorrect velocity for collection view")
+        }
+        
+        let safeIndex = max(0, min(selectedIndex, youpUser.comments.count - 1))
+        let selectedIndexPath = IndexPath(row: safeIndex, section: 0)
+        
+        flowLayout.collectionView!.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)
+        
+        let previousSelectedIndex = IndexPath(row: Int(currentSelectedIndex), section: 0)
+        let previousSelectedCell = commentsCollectionView.cellForItem(at: previousSelectedIndex) as! CommentCollectionViewCell
+        let nextSelectedCell = commentsCollectionView.cellForItem(at: selectedIndexPath) as! CommentCollectionViewCell
+        
+        currentSelectedIndex = selectedIndexPath.row
+        
+        previousSelectedCell.transformToStandard()
+        nextSelectedCell.transformToLarge()
+    }
+    
+}

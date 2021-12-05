@@ -39,13 +39,12 @@ class YoupProfileViewController: UIViewController {
         
         guard let _currentFBUser = Auth.auth().currentUser else { return }
         currentFBUser = _currentFBUser
+        youpUser = YoupUser(user: currentFBUser)
         navigationController?.navigationBar.barTintColor = UIColor(red: 11/255, green: 0, blue: 20/255, alpha: 1)
         
         commentsCollectionView.delegate = self
         commentsCollectionView.dataSource = self
         commentsCollectionView.collectionViewLayout = CommentsCollectionFlowLayout()
-        
-        
         
     }
     
@@ -66,7 +65,7 @@ class YoupProfileViewController: UIViewController {
             }
         }
         
-        FirebaseManager.shared.fetchUser(user: currentFBUser) {
+        FirebaseManager.shared.fetchUser(user: youpUser) {
             [self] result in
             youpUser = result
             configureWhenLoaded()
