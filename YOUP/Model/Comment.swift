@@ -21,15 +21,18 @@ class Comment {
     let userID: String
     let type: Int
     let ref: DatabaseReference?
-    var authorUsername: String?
-    var authorName: String?
+    let authorUsername: String
+    let authorFullname: String
     
     
-    init(title: String, text: String, userID: String, type: Int){
+    init(title: String, text: String, userID: String, type: Int, authorUsername: String, authorFullname: String){
         self.title = title
         self.text = text
         self.userID = userID
         self.type = type
+        self.authorUsername = authorUsername
+        self.authorFullname = authorFullname
+    
         ref = nil
     }
     
@@ -39,9 +42,11 @@ class Comment {
         text = snapshotValue["text"] as! String
         userID = snapshotValue["userID"] as! String
         type = snapshotValue["type"] as! Int
+        authorUsername = snapshotValue["authorUsername"] as? String ?? "Someone"
+        authorFullname = snapshotValue["authorFullname"] as? String ?? "Unknown who 🙈"
         ref = snapshot.ref
-
         }
+    
     
     
 

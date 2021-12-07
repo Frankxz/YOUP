@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class CommentCreatingViewController: UIViewController {
-
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var commentTypeControl: UISegmentedControl!
@@ -19,11 +19,17 @@ class CommentCreatingViewController: UIViewController {
     var ref: DatabaseReference!
     var youpUser: YoupUser!
     var currentFBUser: User!
-    
+    var author: YoupUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         currentFBUser = Auth.auth().currentUser
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        FirebaseManager.shared.fetchUser(id: currentFBUser.uid) { user in
+            self.author = user
+        }
     }
     
     @IBAction func changeType() {
@@ -50,13 +56,18 @@ class CommentCreatingViewController: UIViewController {
         let comment1 = Comment(title: titleTextField.text ?? "Comment",
                                text: textView.text,
                                userID: anonSwitch.isOn ? "Youp user" : Auth.auth().currentUser?.uid as! String ,
-                               type: commentType)
+                               type: commentType,
+                               authorUsername: anonSwitch.isOn ? "" :  author.username,
+                               authorFullname: anonSwitch.isOn ? "" : author.fullname)
+        
         ref =  Database.database().reference(withPath: "users").child(String(youpUser.id)).child("comments")
         let commmentRef = ref.child(comment1.title.lowercased())
         commmentRef.setValue(["title": comment1.title,
                               "text": comment1.text,
                               "userID": comment1.userID,
-                              "type": comment1.type])
+                              "type": comment1.type,
+                              "authorUsername": comment1.authorUsername,
+                              "authorFullname": comment1.authorFullname])
         var commentType_: String!
         //var stats: [String: Int]!
         if(commentType == 0) {
@@ -67,13 +78,13 @@ class CommentCreatingViewController: UIViewController {
             commentType_ = "yellow"
         }
         ref = Database.database().reference(withPath: "users").child(String(youpUser.id))
-
+        
         
         ref = Database.database().reference(withPath: "users").child(String(youpUser.id)).child("userStats")
         youpUser.stats[commentType_]!+=1
         ref.setValue(["red" : youpUser.stats["red"],
-                            "yellow" : youpUser.stats["yellow"],
-                            "green" : youpUser.stats["green"]])
+                      "yellow" : youpUser.stats["yellow"],
+                      "green" : youpUser.stats["green"]])
         print("set stats")
         
         

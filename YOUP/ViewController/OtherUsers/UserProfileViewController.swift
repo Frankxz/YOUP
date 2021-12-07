@@ -89,8 +89,8 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
 
         let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
         let comment = youpUser.comments[indexPath.item]
-        cell.configure(username: comment.authorUsername ?? "Somebody",
-                       fullname: comment.authorName ?? "Unknown who 🤫 ",
+        cell.configure(username: comment.authorUsername,
+                       fullname: comment.authorFullname,
                        avatar: UIImage(systemName: "questionmark.circle")!,
                            title: comment.title, text: comment.text, type: comment.type)
             if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
