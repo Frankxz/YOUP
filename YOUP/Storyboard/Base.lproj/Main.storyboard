@@ -1489,8 +1489,8 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XX1-fc-YoJ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="316" height="100"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="gFy-jB-wYN">
-                                                                            <rect key="frame" x="226" y="10" width="80" height="80"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gFy-jB-wYN">
+                                                                            <rect key="frame" x="226" y="10.5" width="80" height="79"/>
                                                                             <color key="tintColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="80" id="3EI-Ee-5fV"/>
@@ -1712,6 +1712,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

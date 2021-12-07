@@ -33,6 +33,7 @@ class FirebaseManager {
                 var bufferComments: [Comment] = []
                 for item in snapshot.childSnapshot(forPath: "comments").children{
                     let comment = Comment(snapshot: item as! DataSnapshot)
+                 
                     bufferComments.append(comment)
                 }
                     youpUser.setStats(snapshot: snapshot)
@@ -83,6 +84,6 @@ class FirebaseManager {
     }
     
     
-  
+    
     
 }

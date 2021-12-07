@@ -97,7 +97,7 @@ extension YoupProfileViewController: UICollectionViewDelegate, UICollectionViewD
         let comment = youpUser.comments[indexPath.item]
         cell.configure(username: comment.authorUsername ,
                        fullname: comment.authorFullname ,
-                       avatar: UIImage(systemName: "questionmark.circle")!,
+                       avatar: comment.authorImage!,
                        title: comment.title, text: comment.text, type: comment.type)
         if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
         return cell

@@ -23,6 +23,7 @@ class Comment {
     let ref: DatabaseReference?
     let authorUsername: String
     let authorFullname: String
+    var authorImage = UIImage(systemName: "questionmark.circle")
     
     
     init(title: String, text: String, userID: String, type: Int, authorUsername: String, authorFullname: String){
