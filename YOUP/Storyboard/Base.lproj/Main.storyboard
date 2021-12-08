@@ -65,7 +65,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLd-lH-OyQ">
-                                <rect key="frame" x="10" y="520" width="394" height="129"/>
+                                <rect key="frame" x="10" y="407" width="394" height="129"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="129" id="wr5-c9-Hsr"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="z0s-QT-vq1"/>
@@ -91,8 +91,8 @@
                             <constraint firstItem="3nd-T4-MCI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="BFX-Og-eBH"/>
                             <constraint firstItem="rBl-8x-n0i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="K6p-eW-bdG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3nd-T4-MCI" secondAttribute="trailing" constant="90" id="ZBM-NJ-t3O"/>
+                            <constraint firstItem="MLd-lH-OyQ" firstAttribute="top" secondItem="3nd-T4-MCI" secondAttribute="bottom" constant="8" symbolic="YES" id="ZZ5-NX-TeM"/>
                             <constraint firstItem="MLd-lH-OyQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gtH-8f-J9u"/>
-                            <constraint firstItem="NGx-Lv-C8t" firstAttribute="top" secondItem="MLd-lH-OyQ" secondAttribute="bottom" constant="100" id="iM4-w9-VUt"/>
                             <constraint firstItem="goC-FJ-hcA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="k8I-fn-Ogz"/>
                             <constraint firstItem="goC-FJ-hcA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="ls0-Wh-XY5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NGx-Lv-C8t" secondAttribute="trailing" constant="10" id="mGT-ns-CKU"/>

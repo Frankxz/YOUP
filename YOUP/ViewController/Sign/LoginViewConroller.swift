@@ -34,14 +34,14 @@ class LoginViewConroller: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//      Auth.auth().addStateDidChangeListener { auth, user in
-//            if user != nil {
-//                self.performSegue(withIdentifier: "enterSignIn", sender: nil)
-//            }
-//            else {
-//                return
-//            }
-//        }
+      Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "enterSignIn", sender: nil)
+            }
+            else {
+                return
+            }
+        }
     }
     
     
