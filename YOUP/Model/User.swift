@@ -15,7 +15,7 @@ class YoupUser {
     var surname = ""
     var password = ""
     var imgName = ""
-    var image = UIImage(systemName: "person.circle")
+    var image = UIImage(systemName: "circle")
     var aboutme = ""
     
     var ref: DatabaseReference?

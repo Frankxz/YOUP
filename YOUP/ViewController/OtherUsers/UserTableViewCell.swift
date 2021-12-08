@@ -27,6 +27,7 @@ class UserTableViewCell: UITableViewCell {
     
     func configure(youpUser: YoupUser,image: UIImage){
         avatarImage.image = image
+        avatarImage.tintColor = .systemBlue
         usernameTF.text = youpUser.username
         fullnameTF.text = youpUser.fullname
     }

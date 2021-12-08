@@ -70,9 +70,8 @@ class UsersListViewController: UITableViewController {
         
         let youpUser = filteredYoupUsers[indexPath.row]
         
-        //let avatarImage = usersImages[youpUser.id] ?? UIImage(systemName: "person.circle")
-        cell.configure(youpUser: youpUser,
-                       image: youpUser.image!)
+    
+        cell.configure(youpUser: youpUser, image: youpUser.image!)
         
         return cell
     }
@@ -80,32 +79,15 @@ class UsersListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let userProfileVC = segue.destination as? UserProfileViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let youpUser = youpUsers[indexPath.row]
+        let youpUser = filteredYoupUsers[indexPath.row]
         userProfileVC.avatar = youpUser.image
         userProfileVC.youpUser = youpUser
     }
     
-    func fetchImage(youpUser:  YoupUser) {
-        
-        self.storageRef = Storage.storage().reference().child("avatars").child(youpUser.id)
-        self.storageRef.downloadURL { url, error in
-            guard error == nil else { return }
-            
-            self.storageRef = Storage.storage().reference(forURL: url!.absoluteString)
-            let megabyte = Int64(1024 * 1024)
-            
-            self.storageRef.getData(maxSize: megabyte) { data, error in
-                guard let imageData = data else { return }
-                print("found image ")
-                
-                self.usersImages[youpUser.id] = UIImage(data: imageData) ?? UIImage(systemName: "person")
-                self.tableView.reloadData()
-                print("Data reload")
-            }
-        }
-    }
 }
 
+
+// MARK: - Work with searchBar logic
 extension UsersListViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredYoupUsers = []
