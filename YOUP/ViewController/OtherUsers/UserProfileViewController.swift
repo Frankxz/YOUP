@@ -21,7 +21,7 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var commentCounterLabel: UILabel!
     @IBOutlet weak var aboutmeLabel: UILabel!
-    @IBOutlet weak var aboutmeTextView: UITextView!
+    @IBOutlet weak var aboutmeTextLabel: UILabel!
     @IBOutlet weak var commentAdviceLabel: UILabel!
     
     var avatar: UIImage!
@@ -106,14 +106,14 @@ extension UserProfileViewController {
     }
     
     func setAboutme(){
-        aboutmeTextView.text = youpUser.aboutme
+        aboutmeTextLabel.text = youpUser.aboutme
         aboutmeLabel.text = "    About \(youpUser.name)"
         if youpUser.aboutme == "" {
             aboutmeLabel.isHidden = true
-            aboutmeTextView.isHidden = true
+            aboutmeTextLabel.isHidden = true
         } else {
             aboutmeLabel.isHidden = false
-            aboutmeTextView.isHidden = false
+            aboutmeTextLabel.isHidden = false
         }
     }
     
