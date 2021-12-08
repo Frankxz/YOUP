@@ -8,8 +8,6 @@ import UIKit
 import Firebase
 
 class UserProfileViewController: UIViewController {
-
-
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fullnameLabel: UILabel!
@@ -27,13 +25,10 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var commentAdviceLabel: UILabel!
     
     var avatar: UIImage!
-    
     var youpUser = YoupUser()
     
-    private let commentsCount = 15
     private var currentSelectedIndex = 0
-
-    var didAvatarChange = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,28 +41,22 @@ class UserProfileViewController: UIViewController {
         
     }
     
- 
+    
     override func viewWillAppear(_ animated: Bool) {
-        configureWhileLoading()
-        if didAvatarChange {
-            FirebaseManager.shared.fetchAvatar(userID: youpUser.id) {
-                [self] result in
-                youpUser.image = result
-                avatarImageView.image = result
-                didAvatarChange = false
-                print("pek")
-                
-            }
+        // configureWhileLoading()
+        
+        FirebaseManager.shared.fetchAvatar(userID: youpUser.id) {
+            [self] result in
+            youpUser.image = result
+            avatarImageView.image = youpUser.image
         }
         
         FirebaseManager.shared.fetchUser(id: youpUser.id) {
             [self] result in
             youpUser = result
-            
             configureWhenLoaded()
-
         }
-    
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,21 +70,19 @@ class UserProfileViewController: UIViewController {
 extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         youpUser.comments.count
+        youpUser.comments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-
         let cell = commentsCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentCollectionViewCell
         let comment = youpUser.comments[indexPath.item]
         cell.configure(username: comment.authorUsername,
                        fullname: comment.authorFullname,
                        avatar: comment.authorImage!,
-                           title: comment.title, text: comment.text, type: comment.type)
-            if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
-            return cell
-        }
+                       title: comment.title, text: comment.text, type: comment.type)
+        if currentSelectedIndex == indexPath.row { cell.transformToLarge() }
+        return cell
+    }
     
 }
 
@@ -104,21 +91,17 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
 extension UserProfileViewController {
     
     func displayUserInfo(){
-        if(youpUser.comments.count == 0) {
-            commentsCollectionView.isHidden = true
-        }
-        else {
-            commentsCollectionView.isHidden = false
-        }
-        
         navigationItem.title = youpUser.username
         fullnameLabel.text = youpUser.fullname
+        setAboutme()
+        
         redLabel.text = String (youpUser.stats["red"]!)
         yellowLabel.text = String (youpUser.stats["yellow"]!)
         greenLabel.text = String (youpUser.stats["green"]!)
+        
         commentCounterLabel.text = "\(youpUser.comments.count) comments"
-        setAboutme()
         commentAdviceLabel.text = "Do you know \(youpUser.name)? Write what you think about him!"
+        
         commentsCollectionView.reloadData()
     }
     
@@ -135,20 +118,22 @@ extension UserProfileViewController {
     }
     
     func configureWhileLoading() {
-        
         navigationController?.isNavigationBarHidden = true
         self.scrollView.isScrollEnabled = false
-    
+        
     }
     
     func configureWhenLoaded(){
         navigationController?.isNavigationBarHidden = false
         self.scrollView.isScrollEnabled = true
-       
+        
         displayUserInfo()
     }
 }
 
+
+
+// MARK: - Comments card logic
 extension UserProfileViewController {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let currentCell = commentsCollectionView.cellForItem(at: IndexPath(row: currentSelectedIndex, section: 0)) as! CommentCollectionViewCell
@@ -156,7 +141,6 @@ extension UserProfileViewController {
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
         guard scrollView == commentsCollectionView else {
             return
         }
@@ -171,13 +155,13 @@ extension UserProfileViewController {
         var selectedIndex =  currentSelectedIndex
         
         switch horizontalVelocity {
-        // On swiping
+            // On swiping
         case _ where horizontalVelocity > 0 :
             selectedIndex = currentSelectedIndex + 1
         case _ where horizontalVelocity < 0:
             selectedIndex = currentSelectedIndex - 1
             
-        // On dragging
+            // On dragging
         case _ where horizontalVelocity == 0:
             let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
             let roundedIndex = round(index)
