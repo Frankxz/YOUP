@@ -374,6 +374,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="g6B-wq-Za7"/>
+                    <connections>
+                        <outlet property="searchBar" destination="JSV-Rg-I63" id="Ln2-y0-HNM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDu-Ac-2tT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
