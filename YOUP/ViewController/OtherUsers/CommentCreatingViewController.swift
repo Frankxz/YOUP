@@ -10,6 +10,11 @@ import Firebase
 
 class CommentCreatingViewController: UIViewController {
     
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var titleSeparatorView: UIView!
+    @IBOutlet weak var authorUsernameLabel: UILabel!
+    
+    @IBOutlet weak var authorFullnameLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var commentTypeControl: UISegmentedControl!
@@ -23,6 +28,7 @@ class CommentCreatingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.textColor = .white
         currentFBUser = Auth.auth().currentUser
     }
     
@@ -35,11 +41,14 @@ class CommentCreatingViewController: UIViewController {
     @IBAction func changeType() {
         switch(commentTypeControl.selectedSegmentIndex){
         case 0:
-            titleTextField.backgroundColor = .systemGreen
+            titleView.backgroundColor = .systemGreen
+            titleSeparatorView.backgroundColor = .systemGreen
         case 2:
-            titleTextField.backgroundColor = .systemPink
+            titleView.backgroundColor = .systemPink
+            titleSeparatorView.backgroundColor = .systemPink
         default:
-            titleTextField.backgroundColor = .systemYellow
+            titleView.backgroundColor = .systemYellow
+            titleSeparatorView.backgroundColor = .systemYellow
         }
     }
     
@@ -91,4 +100,17 @@ class CommentCreatingViewController: UIViewController {
         
         dismiss(animated: true)
     }
+    
+    
+    
+    @IBAction func switchAction() {
+        if anonSwitch.isOn {
+            authorUsernameLabel.text = "Somebody"
+            authorFullnameLabel.text = "Unknown who 🙄"
+        } else {
+            authorUsernameLabel.text = author.username
+            authorFullnameLabel.text = author.fullname
+        }
+    }
+    
 }
