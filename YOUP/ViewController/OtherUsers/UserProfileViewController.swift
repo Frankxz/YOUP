@@ -106,14 +106,13 @@ extension UserProfileViewController {
     }
     
     func setAboutme(){
-        aboutmeTextLabel.text = youpUser.aboutme
-        aboutmeLabel.text = "    About \(youpUser.name)"
         if youpUser.aboutme == "" {
-            aboutmeLabel.isHidden = true
-            aboutmeTextLabel.isHidden = true
+            aboutmeTextLabel.text = "\(youpUser.name) has not yet posted information about himself 😢"
+            aboutmeTextLabel.textColor = .gray
         } else {
-            aboutmeLabel.isHidden = false
-            aboutmeTextLabel.isHidden = false
+            aboutmeTextLabel.textColor = .white
+            aboutmeTextLabel.text = youpUser.aboutme
+            aboutmeLabel.text = "About \(youpUser.name)"
         }
     }
     

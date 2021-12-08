@@ -132,13 +132,13 @@ extension YoupProfileViewController {
     }
     
     func setAboutme(){
-        aboutmeTextLabel.text = youpUser.aboutme
         if youpUser.aboutme == "" {
-            aboutmeLabel.isHidden = true
-            aboutmeTextLabel.isHidden = true
+            aboutmeTextLabel.text = "You have not written your information yet 😳"
+            aboutmeTextLabel.textColor = .gray
         } else {
-            aboutmeLabel.isHidden = false
-            aboutmeTextLabel.isHidden = false
+            aboutmeTextLabel.textColor = .white
+            aboutmeTextLabel.text = youpUser.aboutme
+            aboutmeLabel.text = "About \(youpUser.name)"
         }
     }
     
