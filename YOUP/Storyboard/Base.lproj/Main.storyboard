@@ -75,10 +75,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-8x-n0i">
-                                <rect key="frame" x="147" y="44" width="120" height="60"/>
+                                <rect key="frame" x="106" y="44" width="202" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Pra-l7-ZnF"/>
-                                    <constraint firstAttribute="width" constant="120" id="jZl-sb-wVA"/>
+                                    <constraint firstAttribute="height" constant="136" id="Pra-l7-ZnF"/>
+                                    <constraint firstAttribute="width" constant="202" id="jZl-sb-wVA"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -1752,7 +1752,7 @@
                                             <constraint firstItem="dwm-Mc-GrQ" firstAttribute="leading" secondItem="O1h-rY-XsN" secondAttribute="leading" constant="15" id="mch-0F-1V5"/>
                                             <constraint firstAttribute="trailing" secondItem="zOj-kW-9GI" secondAttribute="trailing" constant="10" id="qsn-XX-N4z"/>
                                             <constraint firstItem="zOj-kW-9GI" firstAttribute="top" secondItem="O1h-rY-XsN" secondAttribute="top" constant="10" id="rkd-gf-KzH"/>
-                                            <constraint firstItem="Gom-dc-T9T" firstAttribute="top" secondItem="7GV-15-E7P" secondAttribute="bottom" constant="10" id="sWZ-uq-mqe"/>
+                                            <constraint firstItem="Gom-dc-T9T" firstAttribute="top" secondItem="7GV-15-E7P" secondAttribute="bottom" constant="10" id="t8L-bJ-lYn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1802,7 +1802,7 @@
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="logo" width="488" height="182"/>
+        <image name="logo" width="520" height="720"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
