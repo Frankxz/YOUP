@@ -80,7 +80,7 @@
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-8x-n0i">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.v2" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-8x-n0i">
                                 <rect key="frame" x="83" y="44" width="248" height="178"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="178" id="Pra-l7-ZnF"/>
@@ -1062,7 +1062,7 @@
         <!--Settings View Controller-->
         <scene sceneID="vfV-gP-dOv">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="LIR-cR-Rc2" customClass="SettingsViewController" customModule="YOUP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="LIR-cR-Rc2" customClass="SettingsViewController" customModule="YOUP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Y2-hN-8IY">
                         <rect key="frame" x="0.0" y="0.0" width="415" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1071,7 +1071,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="415" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2M-bv-dlk" userLabel="Content view">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="1141"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="1000"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WsM-GV-yMX">
                                                 <rect key="frame" x="20" y="20" width="375" height="160"/>
@@ -1290,7 +1290,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVk-ce-xFJ">
-                                                <rect key="frame" x="20" y="883.5" width="375" height="57.5"/>
+                                                <rect key="frame" x="20" y="742.5" width="375" height="57.5"/>
                                                 <color key="tintColor" red="1" green="0.57831738889999995" blue="0.58768028800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Log out" buttonSize="large">
@@ -1304,7 +1304,7 @@
                                         <color key="backgroundColor" red="0.043137254899999998" green="0.0" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="WsM-GV-yMX" firstAttribute="top" secondItem="y2M-bv-dlk" secondAttribute="top" constant="20" id="1Cz-zg-mUU"/>
-                                            <constraint firstAttribute="height" constant="1141" id="9p2-2h-MN2"/>
+                                            <constraint firstAttribute="height" constant="1000" id="9p2-2h-MN2"/>
                                             <constraint firstAttribute="trailing" secondItem="bVk-ce-xFJ" secondAttribute="trailing" constant="20" id="Ag9-hK-zTI"/>
                                             <constraint firstAttribute="bottom" secondItem="bVk-ce-xFJ" secondAttribute="bottom" constant="200" id="Qu8-6e-9wL"/>
                                             <constraint firstItem="WsM-GV-yMX" firstAttribute="leading" secondItem="y2M-bv-dlk" secondAttribute="leading" constant="20" id="SJC-Xo-94A"/>
@@ -1808,7 +1808,7 @@
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="logo" width="520" height="720"/>
+        <image name="logo.v2" width="520" height="720"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
