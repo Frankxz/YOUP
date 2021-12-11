@@ -54,9 +54,6 @@ class UsersListViewController: UITableViewController {
             isAllUsersFetched = true
         }
         
-        
-        
-        
     }
     
     // MARK: - Table view data source

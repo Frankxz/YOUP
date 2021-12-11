@@ -9,12 +9,6 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-enum CommentType {
-    case good
-    case neutral
-    case bad
-}
-
 class Comment {
     let title: String
     let text: String
@@ -48,8 +42,4 @@ class Comment {
         ref = snapshot.ref
         }
     
-    
-    
-
-
 }
