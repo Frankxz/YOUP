@@ -10,46 +10,58 @@ import Firebase
 import FirebaseAuth
 
 class YoupUser {
-    var username = ""
-    var name = ""
-    var surname = ""
-    var password = ""
-    var imgName = ""
-    var image = UIImage(systemName: "circle")
-    var aboutme = ""
+    let id: String
+    let email: String
+    let username: String
+    let password: String
     
-    var ref: DatabaseReference?
-     var stats: [String : Int] = ["red": 0, "yellow": 0, "green": 0]
-     let id: String
-     let email: String
-
+    let name: String
+    let surname: String
     var fullname: String { "\(name) \(surname)" }
     
+    var aboutme = ""
+    var stats: [String : Int] = ["red": 0, "yellow": 0, "green": 0]
     var comments:[Comment] = []
+    
+    var image = UIImage(systemName: "circle")
+    
+
+    var ref: DatabaseReference?
     
     init(user: User){
         id = user.uid
         email = user.email!
+        username = ""
+        password = ""
+        name = ""
+        surname = ""
+        aboutme = ""
         ref = nil
     }
     
-    init(email: String, password: String, name: String, surname: String, username: String, imgName: String, id: String){
+    init(email: String, password: String, name: String, surname: String, username: String, image: UIImage, id: String){
         self.email = email
         self.password = password
         self.name = name
         self.surname = surname
         self.username = username
-        self.imgName = imgName
+        self.image = image
         self.id = id
+        aboutme = ""
         ref = nil
     }
     
     init(){
-        email = ""
         id = ""
+        email = ""
+        username = ""
+        password = ""
+        name = ""
+        surname = ""
+        aboutme = ""
         ref = nil
     }
-
+    
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         email = snapshotValue["email"] as! String
@@ -72,7 +84,7 @@ class YoupUser {
         id = snapshotValue["id"] as! String
         aboutme = snapshotValue["aboutme"] as! String
         ref = snapshot.ref
-
+        
     }
     
     func setStats(snapshot: DataSnapshot){

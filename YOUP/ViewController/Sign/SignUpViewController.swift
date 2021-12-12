@@ -47,8 +47,12 @@ class SignUpViewController: UIViewController {
                     return
                 }
                 
-                let youpUser = YoupUser( email: mailTextField.text!,  password: passOneTextField.text!, name: nameTextField.text!,
-                                        surname: surnameTextField.text!, username: usernameTextField.text!, imgName: "",
+                let youpUser = YoupUser( email: mailTextField.text!,
+                                         password: passOneTextField.text!,
+                                         name: nameTextField.text!,
+                                         surname: surnameTextField.text!,
+                                         username: usernameTextField.text!,
+                                         image: UIImage(systemName: "circle")!,
                                          id: String((user?.user.uid)!) )
                 
                 let userRef = ref.child(youpUser.id).child("userInfo")
@@ -56,8 +60,8 @@ class SignUpViewController: UIViewController {
                 
                 let statsRef = ref.child(youpUser.id).child("userStats")
                 statsRef.setValue(["red" : 0,
-                                    "yellow" : 0,
-                                    "green" : 0])
+                                   "yellow" : 0,
+                                   "green" : 0])
                 Auth.auth().signIn(withEmail: youpUser.email, password: youpUser.password) { user, error in
                     
                     guard error == nil, user != nil else {
@@ -86,7 +90,7 @@ class SignUpViewController: UIViewController {
         surnameTextField.text   != nil  &&
         passOneTextField.text == passTwoTextField.text
     }
-
+    
     @IBAction func cancelAction(_ sender: UIButton) {
         dismiss(animated: true)
     }
@@ -94,7 +98,7 @@ class SignUpViewController: UIViewController {
 
 extension UITextField {
     func setPlaceholder(placeholder: String){
-            attributedPlaceholder = NSAttributedString(
+        attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
