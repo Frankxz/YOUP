@@ -24,7 +24,6 @@
 		C670D270271D863B006C5890 /* CommentCreatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */; };
 		C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */; };
 		C6926B7427452DF9002F288D /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6926B7327452DF9002F288D /* AnimationManager.swift */; };
-		C6926B79274543DC002F288D /* WeclomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6926B78274543DC002F288D /* WeclomeViewController.swift */; };
 		C6AB3165271876070037F7E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AB3164271876070037F7E3 /* SettingsViewController.swift */; };
 		C6CBD24A27441B2D001999B6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */; };
 		C6CF4E8F27187FCD00A21EBD /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */; };
@@ -53,7 +52,6 @@
 		C670D26F271D863B006C5890 /* CommentCreatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCreatingViewController.swift; sourceTree = "<group>"; };
 		C68FCFF3273EC0F300C72473 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		C6926B7327452DF9002F288D /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
-		C6926B78274543DC002F288D /* WeclomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeclomeViewController.swift; sourceTree = "<group>"; };
 		C6AB3164271876070037F7E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = YOUP/ViewController/UserProfile/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		C6CBD24927441B2D001999B6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		C6CF4E8E27187FCD00A21EBD /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 		C68BE50A2729B91E009742DC /* Sign */ = {
 			isa = PBXGroup;
 			children = (
-				C6926B78274543DC002F288D /* WeclomeViewController.swift */,
 				C638466827048285005404A1 /* LoginViewConroller.swift */,
 				C638467E2704E262005404A1 /* SignUpViewController.swift */,
 			);
@@ -340,7 +337,6 @@
 				C68FCFF4273EC0F300C72473 /* UsersListViewController.swift in Sources */,
 				C66424FD2711808B0006EC7B /* Comment.swift in Sources */,
 				C638467F2704E262005404A1 /* SignUpViewController.swift in Sources */,
-				C6926B79274543DC002F288D /* WeclomeViewController.swift in Sources */,
 				C65C90A2274590650092480B /* FirebaseManager.swift in Sources */,
 				C638466727048285005404A1 /* SceneDelegate.swift in Sources */,
 				C6ED4267274E2A4A0062AE52 /* CommentCollectionViewCell.swift in Sources */,
