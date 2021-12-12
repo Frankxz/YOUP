@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class LoginViewConroller: UIViewController {
-
+    
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
@@ -18,7 +18,7 @@ class LoginViewConroller: UIViewController {
     
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var forgotPassButton: UIButton!
-
+    
     @IBOutlet weak var warningLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,6 +27,7 @@ class LoginViewConroller: UIViewController {
         
         emailTF.setPlaceholder(placeholder: "email@mail.com")
         passwordTF.setPlaceholder(placeholder: "password")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
@@ -34,17 +35,13 @@ class LoginViewConroller: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      Auth.auth().addStateDidChangeListener { auth, user in
+        Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "enterSignIn", sender: nil)
             }
-            else {
-                return
-            }
+            else { return }
         }
     }
-    
-    
     
     @IBAction func loginAction() {
         Auth.auth().signIn(withEmail: emailTF.text!,
@@ -70,21 +67,21 @@ extension LoginViewConroller {
         let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
         (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width,
-                                                        height: self.view.bounds.size.height + kbFrameSize.height)
+                                                          height: self.view.bounds.size.height + kbFrameSize.height)
         
         (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0,
-                                                                        left: 0,
-                                                                        bottom: kbFrameSize.height,
-                                                                        right: 0)
-      
+                                                                          left: 0,
+                                                                          bottom: kbFrameSize.height,
+                                                                          right: 0)
+        
     }
     
     @objc func kbDidHide(){
         (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width,
-                                                        height: self.view.bounds.size.height)
+                                                          height: self.view.bounds.size.height)
         
     }
     
-
+    
 }
 

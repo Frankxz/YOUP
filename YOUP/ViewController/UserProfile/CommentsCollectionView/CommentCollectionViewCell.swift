@@ -34,7 +34,7 @@ func configure(username: String,fullname: String, avatar: UIImage, title: String
         setHeaderColor(color: .systemYellow)
     default:
         setHeaderColor(color: .systemPink)
-        //setHeaderColor(color: UIColor(red: 212/255, green: 77/255, blue: 92/255, alpha: 1))
+        
     }
 }
     func setHeaderColor(color: UIColor){
