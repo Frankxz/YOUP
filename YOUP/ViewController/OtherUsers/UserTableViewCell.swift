@@ -15,7 +15,6 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var fullnameTF: UILabel!
     
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     
