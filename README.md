@@ -25,7 +25,7 @@ Username, fullname, aboutMe info, user image, comment counters-indicators. \
 And an animated collectionView with cards of comments left about the user.
 
 # Comments cards animation
-<img src="https://psv4.userapi.com/c237031/u210892849/docs/d33/453a768c6ea6/AnimationBigger.gif?extra=n1KYrUxXDD2cUJVYtZQNeWhUuwweYBQE69mBDJ8SOOBXzL2jRGYvS8IXmpkeb5HMrmRzivredBc81S-8FfAIPu_KmolEv3_nuvCwLjWSI127gRZBg-O3BxDrdHiay2R0eMbiAypiA9IZEZGS3Jt3xnGr" width="150" height="300">
+<img src="https://psv4.userapi.com/c237031/u210892849/docs/d33/b1b5fc70734e/AnimationBigger.gif?extra=kyKQWs3_FOR-4uMyLRUSb5GvdHYh7zd1c6bFObd7yxpWpS2ukAJ-km1oUgv7PstURN-UQFz4kJpAlTBSE9lVuSxXyUGy_NwAzGjZMCB5QOoEt6Saqt0Udz_oAF7JJgVU_v0aR8WXL_NFDNrC61v68F5mqw" width="150" height="300">
 
 # Profile settings
 <img src="https://sun9-7.userapi.com/impg/HszplCSKI-syw8PsSuZsuVWPjO4TRYEfQVRbOQ/QLtK1iVH3Vw.jpg?size=1186x784&quality=96&sign=3939be54523bdec92de339527c7cc01c&type=album" width="450" height="300">
